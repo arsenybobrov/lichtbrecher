@@ -14,6 +14,10 @@ Copy ```api/prismic-configuration-dummy.js```, rename it to ```api/prismic-confi
 ```yarn build```
 
 
+## express server
+Place ```server.get('*', (req, res) => {app.render(req, res, '/error404')});``` always as the last condition.
+
+
 ## next js
 ```pages/_document.js``` is only needed for the styled components to be rendered on the server.
 You will get a really nasty page jumping if styled components are not rendered this way.
@@ -26,13 +30,11 @@ Set API visibility to private in order to avoid the search bots rendering of the
 
 Copy ```api/prismic-configuration-dummy.js```, rename it to ```api/prismic-configuration.js``` and edit the vars.
 
-
 Custom types are:
 
  - homepage
  - page
  - global_config
-
 
 All custom type templates are inside ```src/templates/**/*```.
 
@@ -60,6 +62,8 @@ You will get a really nasty page jumping if styled components are not rendered t
 ## global styling
 See ```src/styles/**CSS.js``` for global css & fonts import. Wrap all components with ```src/styles/Wrapper.js```.
 
+
+## variables
 Variables are inside ```src/themes/**.js```.
 
 

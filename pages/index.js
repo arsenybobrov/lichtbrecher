@@ -7,13 +7,13 @@ import HomepageTemplate from '../src/templates/Homepage';
 
 const Index = ({ data, error400 }) => {
   return (
-      <StylesWrapper>
-        {
-          error400
-          ? <Error400 />
-          : <HomepageTemplate data={data} />
-        }
-      </StylesWrapper>
+    <StylesWrapper>
+      {
+        error400
+        ? <Error400 />
+        : <HomepageTemplate data={data} />
+      }
+    </StylesWrapper>
   );
 };
 
