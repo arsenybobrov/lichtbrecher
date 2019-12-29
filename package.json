@@ -1,0 +1,29 @@
+{
+  "name": "lichtbrecher",
+  "version": "1.0.0",
+  "engines": {
+    "node": "11.6.0"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "gsap": "^3.0.4",
+    "lodash": "^4.17.15",
+    "next": "9.1.6",
+    "polished": "^3.4.2",
+    "prismic-javascript": "^2.1.5",
+    "prismic-reactjs": "^1.1.2",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
+    "react-scroll": "^1.7.15",
+    "styled-components": "4.2.0"
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "1.10.0"
+  },
+  "license": "MIT ©Copyright Arseny Bobrov, 2020",
+  "private": true
+}
