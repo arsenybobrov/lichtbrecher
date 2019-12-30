@@ -18,7 +18,7 @@ const Page404 = ({
 Page404.getInitialProps = async ({ req }) => fetchContent(req);
 
 Page404.propTypes = {
-  globalConfig: PropTypes.objectOf(PropTypes.object()),
+  globalConfig: PropTypes.object,
   error400: PropTypes.bool,
 };
 

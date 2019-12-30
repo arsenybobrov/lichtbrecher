@@ -10,7 +10,7 @@ const Error404Template = ({ globalConfig }) => (
 );
 
 Error404Template.propTypes = {
-  globalConfig: PropTypes.objectOf(PropTypes.object()),
+  globalConfig: PropTypes.object,
 };
 
 export default Error404Template;

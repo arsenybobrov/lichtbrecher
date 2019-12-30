@@ -37,8 +37,8 @@ const Dummy = ({ globalConfig, data }) => {
 };
 
 Dummy.propTypes = {
-  globalConfig: PropTypes.objectOf(PropTypes.object()),
-  data: PropTypes.objectOf(PropTypes.object()),
+  globalConfig: PropTypes.object,
+  data: PropTypes.object,
 };
 
 export default Dummy;

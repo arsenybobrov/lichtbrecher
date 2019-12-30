@@ -1,7 +1,9 @@
 {
   "extends": "airbnb",
   "parser": "babel-eslint",
-  "plugins": [],
+  "plugins": [
+    "jest"
+  ],
   "globals": {
     "$Keys": true
   },
@@ -11,11 +13,17 @@
     "no-console": "off",
     "global-require": "off",
     "no-unused-vars": "off",
+    "jest/no-disabled-tests": "off",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/prefer-to-have-length": "warn",
+    "jest/valid-expect": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/require-default-props": "off",
     "react/jsx-wrap-multilines": "off",
     "react/jsx-props-no-spreading": "off",
     "react/jsx-one-expression-per-line": "off",
+    "react/forbid-prop-types": "off",
     "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
     "import/no-cycle": "off",
     "function-paren-newline": ["error", "consistent"],
@@ -31,6 +39,7 @@
     "no-unused-expressions": ["error", {"allowTaggedTemplates": true}]
   },
   "env": {
+    "jest/globals": true,
     "browser": true
   }
 }

@@ -19,9 +19,9 @@ const PageTemplate = ({
 );
 
 PageTemplate.propTypes = {
-  globalConfig: PropTypes.objectOf(PropTypes.object()),
+  globalConfig: PropTypes.object,
   error400: PropTypes.bool,
-  data: PropTypes.objectOf(PropTypes.object()),
+  data: PropTypes.object,
 };
 
 export default PageTemplate;

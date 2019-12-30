@@ -16,7 +16,7 @@ const StylesWrapper = ({ children }) => (
 );
 
 StylesWrapper.propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.node,
 };
 
 export default StylesWrapper;

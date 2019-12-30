@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dummy description of expected result 1`] = `
+Array [
+  .c0 {
+  color: #808080;
+  background-color: transparent;
+}
+
+<h1
+    className="c0"
+  >
+    Global: 
+    Dummy text
+  </h1>,
+  .c0 {
+  color: #808080;
+  background-color: transparent;
+}
+
+<h1
+    className="c0"
+  >
+    Data: 
+    Dummy text
+  </h1>,
+]
+`;

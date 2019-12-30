@@ -1,5 +1,6 @@
 const express = require('express');
 const nextJs = require('next');
+const compression = require('compression');
 
 const port = parseInt(process.env.PORT, 10) || 3000;
 const dev = process.env.NODE_ENV === 'development';
@@ -8,6 +9,7 @@ const app = nextJs({ dev });
 
 app.prepare().then(() => {
   const server = express();
+  server.use(compression());
 
   server.get(/^\/static\/(images|fonts)\//, (_, res, nextHandler) => {
     res.setHeader('Cache-Control', 'public, max-age=300, immutable');

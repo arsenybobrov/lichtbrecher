@@ -18,10 +18,10 @@ const TemplateWrapper = ({
 );
 
 TemplateWrapper.propTypes = {
-  children: PropTypes.element,
-  globalConfig: PropTypes.objectOf(PropTypes.object()),
+  children: PropTypes.node,
+  globalConfig: PropTypes.object,
   error400: PropTypes.bool,
-  data: PropTypes.objectOf(PropTypes.object()),
+  data: PropTypes.object,
 };
 
 export default TemplateWrapper;

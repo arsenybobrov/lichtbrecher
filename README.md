@@ -25,7 +25,7 @@ Custom types must be:
  ### usefull third party
  The following libs are not neccessary for the setup to work but are very nice:
  
- - gsap
+ - react-gsap
  - react-scroll
  - lodash
 
