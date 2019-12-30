@@ -11,7 +11,7 @@ const fetchContent = async (req, type, uid) => {
         data = await API.getByUID(type, uid);
       } else {
         data = await API.getSingle(type);
-      };
+      }
       return { globalConfig, data };
     }
     return { globalConfig };

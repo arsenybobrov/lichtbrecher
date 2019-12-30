@@ -33,8 +33,8 @@ const BasicCSS = createGlobalStyle`
     background: #990000;
     color: white;
   }
-  
-    button {
+
+  button {
     background: none;
     border: none;
     color: inherit;

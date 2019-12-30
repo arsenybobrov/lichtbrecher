@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Error404Template = ({ globalConfig }) => (
   <>
@@ -7,5 +8,9 @@ const Error404Template = ({ globalConfig }) => (
     <p>{globalConfig.data.display_name[0].text}</p>
   </>
 );
+
+Error404Template.propTypes = {
+  globalConfig: PropTypes.objectOf(PropTypes.object()),
+};
 
 export default Error404Template;

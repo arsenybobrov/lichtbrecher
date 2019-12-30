@@ -7,6 +7,6 @@ const defaultTheme = {
   fonts: {
     text: '"LichtbrecherFont", sans-serif',
   },
-}
+};
 
 export default defaultTheme;

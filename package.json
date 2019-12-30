@@ -1,16 +1,14 @@
 {
   "name": "lichtbrecher",
   "version": "1.0.0",
-  "engines": {
-    "node": "11.6.0"
-  },
   "scripts": {
     "dev": "cross-env NODE_ENV=development node server/server.js",
     "build": "next build",
-    "start": "cross-env NODE_ENV=production node server/server.js"
+    "start": "cross-env NODE_ENV=production node server/server.js",
+    "lint:css": "stylelint \"./src/**\"",
+    "lint": "eslint \"src/**\" \"pages/**\" \"api/**\" && yarn lint:css"
   },
   "dependencies": {
-    "cross-env": "^6.0.3",
     "express": "^4.17.1",
     "gsap": "^3.0.4",
     "lodash": "^4.17.15",
@@ -24,7 +22,28 @@
     "styled-components": "4.2.0"
   },
   "devDependencies": {
-    "babel-plugin-styled-components": "1.10.0"
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "@babel/plugin-proposal-object-rest-spread": "^7.7.7",
+    "@babel/plugin-syntax-dynamic-import": "^7.7.4",
+    "@babel/preset-env": "^7.7.7",
+    "@babel/preset-react": "^7.7.4",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.0.3",
+    "babel-plugin-styled-components": "1.10.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "cross-env": "^6.0.3",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.17.0",
+    "prop-types": "^15.7.2",
+    "stylelint": "^12.0.1",
+    "stylelint-config-standard": "^19.0.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.9.0"
   },
   "license": "MIT ©Copyright Arseny Bobrov, 2020",
   "private": true

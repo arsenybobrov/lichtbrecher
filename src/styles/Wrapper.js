@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
 import defaultTheme from '../themes/default';
 import BasicCSS from './BasicCSS';
@@ -12,7 +13,10 @@ const StylesWrapper = ({ children }) => (
       {children}
     </>
   </ThemeProvider>
-
 );
 
-export default  StylesWrapper;
+StylesWrapper.propTypes = {
+  children: PropTypes.element,
+};
+
+export default StylesWrapper;
