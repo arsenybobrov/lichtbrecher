@@ -16,7 +16,7 @@ app.prepare().then(() => {
 
   server.get('/', (req, res) => {app.render(req, res, '/index')});
   server.get('/:uid', (req, res) => {app.render(req, res, '/page')});
-  server.get('*', (req, res) => {app.render(req, res, '/error404')});
+  server.get('*', (req, res) => {app.render(req, res, '/404')});
 
   server.listen(port, (err) => {
     if (err) throw err;

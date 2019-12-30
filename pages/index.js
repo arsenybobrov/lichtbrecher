@@ -1,31 +1,21 @@
 import React from 'react';
-import Prismic from 'prismic-javascript';
-import StylesWrapper from '../src/styles/Wrapper';
-import { accessToken, apiEndpoint } from '../api/prismic-configuration';
-import Error400 from '../src/templates/errors/400';
 import HomepageTemplate from '../src/templates/Homepage';
+import fetchContent from '../api/prismic/fetchContent';
 
-const Index = ({ data, error400 }) => {
-  return (
-    <StylesWrapper>
-      {
-        error400
-        ? <Error400 />
-        : <HomepageTemplate data={data} />
-      }
-    </StylesWrapper>
-  );
-};
+const Index = ({
+  data,
+  globalConfig,
+  error400,
+}) => (
+  <HomepageTemplate {...{
+      data,
+      globalConfig,
+      error400,
+    }}
+  />
+);
 
-Index.getInitialProps = async ({ req }) => {
-  try {
-    const API = await Prismic.getApi(apiEndpoint, { accessToken, req })
-    const data = await API.getByUID('homepage', 'homepage');
-    return { data }
-  } catch (e) {
-    const error400 = true;
-    return { error400 }
-  }
-};
+Index.getInitialProps = async ({ req }) =>
+  await fetchContent(req, 'homepage');
 
 export default Index;
