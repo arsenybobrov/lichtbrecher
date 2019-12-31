@@ -14,8 +14,8 @@ Copy ```api/prismic/configuration-dummy.js```, rename it to ```api/prismic/confi
 ```yarn build```
 
 
-### Prismic
-Custom types must be:
+### prismic
+Custom types must be (for this setup to work):
 
  - homepage
  - page
