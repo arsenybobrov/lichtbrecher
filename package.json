@@ -7,7 +7,14 @@
     "start": "cross-env NODE_ENV=production node server/server.js",
     "test": "cross-env NODE_ENV=test jest",
     "lint:css": "stylelint \"./src/**\"",
-    "lint": "eslint \"src/**\" \"pages/**\" \"api/**\" && yarn lint:css"
+    "lint": "eslint \"src/**\" \"pages/**\" \"api/**\" && yarn lint:css",
+    "test:all": "yarn test && yarn lint"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn test:all",
+      "pre-push": "yarn test:all"
+    }
   },
   "dependencies": {
     "compression": "^1.7.4",
@@ -46,6 +53,7 @@
     "eslint-plugin-jest": "^23.2.0",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.17.0",
+    "husky": "^4.0.0-beta.5",
     "jest": "^24.9.0",
     "jest-styled-components": "^6.3.4",
     "prop-types": "^15.7.2",
