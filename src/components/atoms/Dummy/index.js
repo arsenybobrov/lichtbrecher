@@ -12,7 +12,7 @@ const Title = styled.h1`
 
   @media (${mq.mdDown}) {
     background-color: black;
-    color: white;
+    color: red;
   }
 `;
 

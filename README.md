@@ -10,6 +10,10 @@ Copy ```api/prismic/configuration-dummy.js```, rename it to ```api/prismic/confi
 ```yarn dev```
 
 
+### testing
+```yarn test:all```
+
+
 ### deployment
 ```yarn build```
 
