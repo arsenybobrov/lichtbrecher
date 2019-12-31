@@ -7,6 +7,13 @@ Array [
   background-color: transparent;
 }
 
+@media (max-width:991px) {
+  .c0 {
+    background-color: black;
+    color: white;
+  }
+}
+
 <h1
     className="c0"
   >
@@ -18,11 +25,22 @@ Array [
   background-color: transparent;
 }
 
+@media (max-width:991px) {
+  .c0 {
+    background-color: black;
+    color: white;
+  }
+}
+
 <h1
     className="c0"
   >
     Data: 
     Dummy text
   </h1>,
+  <p>
+    BREAKPOINT IS: 
+    xxl
+  </p>,
 ]
 `;

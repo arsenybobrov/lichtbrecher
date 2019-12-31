@@ -27,7 +27,6 @@ Custom types must be:
  
  - react-gsap
  - react-scroll
- - lodash
 
 
 ### license

@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 import 'jest-styled-components';
 import Dummy from './index';
 import DummyMock from './Dummy.mock';
-import StylesWrapper from '../../../styles/Wrapper';
+import TemplateWrapper from '../../../templates/partials/Wrapper';
 
 describe('Dummy', () => {
   it.each`
@@ -12,9 +12,9 @@ describe('Dummy', () => {
   `('$name', ({ mock }) => {
   const tree = renderer
     .create(
-      <StylesWrapper>
+      <TemplateWrapper {...mock}>
         <Dummy {...mock} />
-      </StylesWrapper>
+      </TemplateWrapper>
     )
     .toJSON();
   expect(tree).toMatchSnapshot();

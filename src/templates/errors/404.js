@@ -1,16 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext } from 'react';
+import { GlobalConfigContext } from '../../contexts/globalConfig';
 
-const Error404Template = ({ globalConfig }) => (
-  <>
-    <h1>Error 404</h1>
-    <p>no such page</p>
-    <p>{globalConfig.data.display_name[0].text}</p>
-  </>
-);
+const Error404Template = () => {
+  const content = useContext(GlobalConfigContext);
 
-Error404Template.propTypes = {
-  globalConfig: PropTypes.object,
+  return (
+    <>
+      <h1>Error 404</h1>
+      <p>no such page</p>
+      <p>{content.data.display_name[0].text}</p>
+    </>
+  );
 };
 
 export default Error404Template;

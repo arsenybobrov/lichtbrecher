@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Error400 from '../errors/400';
 import Error404Template from '../errors/404';
 import StylesWrapper from '../../styles/Wrapper';
+import ContextsWrapper from '../../contexts/Wrapper';
 
 const TemplateWrapper = ({
   children,
@@ -10,11 +11,13 @@ const TemplateWrapper = ({
   error400,
   data,
 }) => (
-  <StylesWrapper>
-    { error400 && <Error400 /> }
-    { !error400 && !data && <Error404Template globalConfig={globalConfig} /> }
-    { !error400 && data && children }
-  </StylesWrapper>
+  <ContextsWrapper globalConfig={globalConfig}>
+    <StylesWrapper>
+      { error400 && <Error400 /> }
+      { !error400 && !data && <Error404Template /> }
+      { !error400 && data && children }
+    </StylesWrapper>
+  </ContextsWrapper>
 );
 
 TemplateWrapper.propTypes = {
