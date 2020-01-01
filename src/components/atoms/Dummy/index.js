@@ -1,10 +1,12 @@
 import React, { useContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { RichText } from 'prismic-reactjs';
 import styled, { ThemeContext } from 'styled-components';
 import { lighten } from 'polished';
 import { GlobalConfigContext } from '../../../contexts/globalConfig';
 import { BreakpointContext } from '../../../contexts/breakpoint';
 import mq from '../../../styles/mediaQueries';
+import { linkResolver } from '../../../../api/prismic/linkResolver';
 
 const Title = styled.h1`
   color: ${(props) => (lighten(0.5, props.theme.colors.primary))};
@@ -22,6 +24,7 @@ const Dummy = ({ data }) => {
   const breakpoint = useContext(BreakpointContext);
   const [mounted, mount] = useState(false);
   const [clicked, toggleClick] = useState(mounted);
+  const richtText = RichText.render(data.data.text, linkResolver);
 
   useEffect(() => {
     setTimeout(() => {
@@ -37,7 +40,9 @@ const Dummy = ({ data }) => {
       }
       {
         data &&
-        <Title active={clicked}>Data: {data.data.display_name[0].text}</Title>
+        <>
+          <Title active={clicked}>Text: {richtText}</Title>
+        </>
       }
       <p>BREAKPOINT IS: {breakpoint}</p>
       {
