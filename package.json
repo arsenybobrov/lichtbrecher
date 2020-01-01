@@ -12,7 +12,6 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn test:all",
       "pre-push": "yarn test:all"
     }
   },
