@@ -3,7 +3,7 @@ import { accessToken, apiEndpoint } from './configuration';
 
 const fetchContent = async (req, type, uid) => {
   try {
-    const API = await Prismic.getApi(apiEndpoint, { accessToken, req });
+    const API = await Prismic.getApi(apiEndpoint, { accessToken });
     const globalConfig = await API.getSingle('global_config');
     if (type) {
       let data;

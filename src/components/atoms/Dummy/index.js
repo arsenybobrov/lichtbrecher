@@ -1,12 +1,14 @@
 import React, { useContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import Link from 'next/link';
+import get from 'lodash/get';
 import { RichText } from 'prismic-reactjs';
 import styled, { ThemeContext } from 'styled-components';
 import { lighten } from 'polished';
 import { GlobalConfigContext } from '../../../contexts/globalConfig';
 import { BreakpointContext } from '../../../contexts/breakpoint';
 import mq from '../../../styles/mediaQueries';
-import { linkResolver } from '../../../../api/prismic/linkResolver';
+import { hrefResolver, linkResolver } from '../../../../api/prismic/linkResolver';
 
 const Title = styled.h1`
   color: ${(props) => (lighten(0.5, props.theme.colors.primary))};
@@ -41,6 +43,7 @@ const Dummy = ({ data }) => {
       {
         data &&
         <>
+          <Title active={clicked}>Page: {data.data.display_name[0].text}</Title>
           <Title active={clicked}>Text: {richtText}</Title>
         </>
       }
@@ -48,8 +51,16 @@ const Dummy = ({ data }) => {
       {
         mounted &&
         <button type="button" onClick={() => toggleClick(!clicked)}>
-          Click me, my color is: {theme.colors.primary}
+          Click me, my text color is: {theme.colors.primary}
         </button>
+      }
+      <br />
+      <br />
+      {
+        get(data, 'data.url', null) &&
+        <Link as={hrefResolver(get(data, 'data.url', null))} href="[page]">
+          <a>{get(data, 'data.linktext', 'default text')}</a>
+        </Link>
       }
     </>
   );
