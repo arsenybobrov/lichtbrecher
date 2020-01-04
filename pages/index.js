@@ -16,7 +16,7 @@ const Index = ({
   />
 );
 
-Index.getInitialProps = async ({ req }) => fetchContent(req, 'homepage');
+Index.getInitialProps = async () => fetchContent('homepage');
 
 Index.propTypes = {
   data: PropTypes.object,

@@ -8,7 +8,7 @@ import { lighten } from 'polished';
 import { GlobalConfigContext } from '../../../contexts/globalConfig';
 import { BreakpointContext } from '../../../contexts/breakpoint';
 import mq from '../../../styles/mediaQueries';
-import { hrefResolver, linkResolver } from '../../../../api/prismic/linkResolver';
+import linkResolver from '../../../../api/prismic/linkResolver';
 
 const Title = styled.h1`
   color: ${(props) => (lighten(0.5, props.theme.colors.primary))};
@@ -58,7 +58,7 @@ const Dummy = ({ data }) => {
       <br />
       {
         get(data, 'data.url', null) &&
-        <Link as={hrefResolver(get(data, 'data.url', null))} href="[page]">
+        <Link as={linkResolver(get(data, 'data.url', null))} href="[page]">
           <a>{get(data, 'data.linktext', 'default text')}</a>
         </Link>
       }

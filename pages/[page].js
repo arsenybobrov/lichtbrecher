@@ -17,7 +17,7 @@ const Page = ({
   />
 );
 
-Page.getInitialProps = async ({ req }) => fetchContent(req, 'page', get(req, 'params.uid', 'page-one'));
+Page.getInitialProps = async ({ req }) => fetchContent('page', get(req, 'params.uid', null));
 
 Page.propTypes = {
   data: PropTypes.object,

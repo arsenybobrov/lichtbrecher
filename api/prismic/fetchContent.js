@@ -1,7 +1,7 @@
 import Prismic from 'prismic-javascript';
 import { accessToken, apiEndpoint } from './configuration';
 
-const fetchContent = async (req, type, uid) => {
+const fetchContent = async (type, uid) => {
   try {
     const API = await Prismic.getApi(apiEndpoint, { accessToken });
     const globalConfig = await API.getSingle('global_config');
