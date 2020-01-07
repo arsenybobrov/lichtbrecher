@@ -9,6 +9,7 @@ import { GlobalConfigContext } from '../../../contexts/globalConfig';
 import { BreakpointContext } from '../../../contexts/breakpoint';
 import mq from '../../../styles/mediaQueries';
 import linkResolver from '../../../../api/prismic/linkResolver';
+import htmlSerializer from '../../../../api/prismic/richtextHtmlSerializer';
 
 const Title = styled.h1`
   color: ${(props) => (lighten(0.5, props.theme.colors.primary))};
@@ -26,7 +27,7 @@ const Dummy = ({ data }) => {
   const breakpoint = useContext(BreakpointContext);
   const [mounted, mount] = useState(false);
   const [clicked, toggleClick] = useState(mounted);
-  const richtText = RichText.render(data.data.text, linkResolver);
+  const richtText = RichText.render(data.data.text, linkResolver, htmlSerializer);
 
   useEffect(() => {
     setTimeout(() => {
@@ -58,7 +59,7 @@ const Dummy = ({ data }) => {
       <br />
       {
         get(data, 'data.url', null) &&
-        <Link as={linkResolver(get(data, 'data.url', null))} href="[page]">
+        <Link as={linkResolver(get(data, 'data.url', null))} href="/[page]">
           <a>{get(data, 'data.linktext', 'default text')}</a>
         </Link>
       }

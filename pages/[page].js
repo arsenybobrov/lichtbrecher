@@ -17,7 +17,10 @@ const Page = ({
   />
 );
 
-Page.getInitialProps = async ({ req }) => fetchContent('page', get(req, 'params.uid', null));
+Page.getInitialProps = async ({ asPath }) => {
+  const uid = asPath.split('/')[1];
+  return fetchContent('page', uid);
+};
 
 Page.propTypes = {
   data: PropTypes.object,
