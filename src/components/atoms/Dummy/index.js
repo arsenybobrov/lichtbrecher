@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import Link from 'next/link';
 import get from 'lodash/get';
 import { RichText } from 'prismic-reactjs';
 import styled, { ThemeContext } from 'styled-components';
@@ -10,6 +9,7 @@ import { BreakpointContext } from '../../../contexts/breakpoint';
 import mq from '../../../styles/mediaQueries';
 import linkResolver from '../../../../api/prismic/linkResolver';
 import htmlSerializer from '../../../../api/prismic/richtextHtmlSerializer';
+import NextLink from '../NextLink/NextLink';
 
 const Title = styled.h1`
   color: ${(props) => (lighten(0.5, props.theme.colors.primary))};
@@ -59,9 +59,11 @@ const Dummy = ({ data }) => {
       <br />
       {
         get(data, 'data.url', null) &&
-        <Link as={linkResolver(get(data, 'data.url', null))} href="/[page]">
-          <a>{get(data, 'data.linktext', 'default text')}</a>
-        </Link>
+        <NextLink
+          text={get(data, 'data.linktext', 'default text')}
+          templatePath="/[page]"
+          url={get(data, 'data.url', null)}
+        />
       }
     </>
   );
