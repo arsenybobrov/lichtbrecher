@@ -11,7 +11,7 @@ const NextLink = ({
       href={linkResolver(url)}
       title={title}
       target={target}
-      rel={target === '_blank' ? 'noopener norefferer' : null}
+      rel={target === '_blank' ? 'noopener noreferrer' : null}
     >
       {text}
     </a>

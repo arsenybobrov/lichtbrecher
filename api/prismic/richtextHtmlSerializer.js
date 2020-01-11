@@ -34,7 +34,7 @@ const htmlSerializer = (type, element, content, children, key) => {
       }
       // Default link handling
       const targetAttr = element.data.target ? { target: element.data.target } : {};
-      const relAttr = element.data.target ? { rel: 'noopener' } : {};
+      const relAttr = element.data.target ? { rel: 'noopener noreferrer' } : {};
       props = { href: element.data.url || linkResolver(element.data), ...targetAttr, ...relAttr };
       return React.createElement('a', propsWithUniqueKey(props, key), children);
 
