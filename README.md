@@ -16,53 +16,46 @@ Copy ```api/prismic/configuration-dummy.js```, rename it to ```api/prismic/confi
 There is a pre-push hook that runs ```yarn test:all```.
 
 
-### deployment
+### build
 ```yarn build```
 
 
 ### prismic
 This setup requires the following custom types:
 
- - homepage
- - page
- - global_config
+- homepage
+- page
+- global_config
 
 
- ### cheatsheet
- Handle prismic rich texts:
- 
- ```const richtText = RichText.render(prismic.richtext.object, linkResolver, htmlSerializer);```
- 
- Get current breakpoint:
- 
- ```const breakpoint = useContext(BreakpointContext);```
- 
- Access theme (variables):
- 
- ```const theme = useContext(ThemeContext);```
- 
- Access data from prismic's global_conf:
- 
- ```const globalData = useContext(GlobalConfigContext);```
- 
- Next link:
- 
- ```
- <NextLink
-   text="text"
-   templatePath="/[page]" // if null the next link becomes a regular link (with page reload)
-   url={prismic.richtext.object}
-   title="title" // if null equals {text}
-   target="_blank" // optional
- />
- ```
+### cheatsheet
+Handle prismic rich texts:
 
- 
- ### usefull third party
- The following libs are not neccessary for the setup to work but are very nice:
- 
- - react-gsap
- - react-scroll
+```import { RichText } from 'prismic-reactjs';```
+
+```const richtText = RichText.render(prismic.richtext.object, linkResolver, htmlSerializer);```
+
+Get current breakpoint:
+
+```const breakpoint = useContext(BreakpointContext);```
+
+Access theme (variables):
+
+```const theme = useContext(ThemeContext);```
+
+Access data from prismic's global_conf:
+
+```const globalData = useContext(GlobalConfigContext);```
+
+Use ```src/components/atoms/NextLink/NextLink.js``` for internal and external link handling.
+Links inside a richt text are handled the similar way.
+
+
+### usefull third party
+The following libs are not neccessary for the setup to work but are very nice:
+
+- react-gsap
+- react-scroll
 
 
 ### license

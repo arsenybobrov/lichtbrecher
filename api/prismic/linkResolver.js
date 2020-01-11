@@ -1,8 +1,14 @@
-const linkResolver = (doc) => {
-  if (doc.type !== 'homepage') {
-    return `/${doc.uid}`;
+import get from 'lodash/get';
+
+const linkResolver = (link) => {
+  if (get(link, 'link_type', null) === 'Document') {
+    if (get(link, 'type', null) !== 'homepage') {
+      return `/${link.uid}`;
+    }
+    return '/';
   }
-  return '/';
+
+  return get(link, 'url', '/');
 };
 
 export default linkResolver;

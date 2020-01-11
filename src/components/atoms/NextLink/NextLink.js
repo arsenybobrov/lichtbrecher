@@ -1,29 +1,38 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
+import get from 'lodash/get';
 import linkResolver from '../../../../api/prismic/linkResolver';
 
 const NextLink = ({
-  text, url, templatePath, title = text, target,
-}) => (
-  <Link as={linkResolver(url)} href={templatePath}>
-    <a
-      href={linkResolver(url)}
-      title={title}
-      target={target}
-      rel={target === '_blank' ? 'noopener noreferrer' : null}
+  text, url, title = text,
+}) => {
+  let href = '';
+  if (get(url, 'type', null)) {
+    href = url.type === 'homepage' ? '/' : '/[page]';
+  }
+
+  return (
+    <Link
+      as={linkResolver(url)}
+      href={href}
     >
-      {text}
-    </a>
-  </Link>
-);
+      <a
+        href={linkResolver(url)}
+        title={title}
+        target={get(url, 'target', null)}
+        rel={get(url, 'target', '_self') === '_blank' ? 'noopener noreferrer' : null}
+      >
+        {text}
+      </a>
+    </Link>
+  );
+};
 
 NextLink.propTypes = {
   text: PropTypes.string,
   url: PropTypes.object,
-  templatePath: PropTypes.string,
   title: PropTypes.string,
-  target: PropTypes.oneOf(['_blank', '_self']),
 };
 
 export default NextLink;
