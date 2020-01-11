@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Dummy from '../components/atoms/Dummy';
 import TemplateWrapper from './partials/Wrapper';
 
 const PageTemplate = ({
@@ -14,7 +13,12 @@ const PageTemplate = ({
     error400,
   }}
   >
-    <Dummy globalConfig={globalConfig} data={data} />
+    <h1>PAGE TEMPLATE</h1>
+    <br />
+    <h2>DATA:</h2>
+    <pre>
+      {JSON.stringify(data, null, 2)}
+    </pre>
   </TemplateWrapper>
 );
 

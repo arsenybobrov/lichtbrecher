@@ -6,9 +6,11 @@ const Error404Template = () => {
 
   return (
     <>
-      <h1>Error 404</h1>
-      <p>no such page</p>
-      <p>{content.data.display_name[0].text}</p>
+      <h1>404 TEMPLATE</h1>
+      <br />
+      <pre>
+        {JSON.stringify(content, null, 2)}
+      </pre>
     </>
   );
 };

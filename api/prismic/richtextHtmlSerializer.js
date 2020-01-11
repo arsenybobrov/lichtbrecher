@@ -14,7 +14,7 @@ const onClickHandler = (href, as) => (e) => {
 
 // -- HTML Serializer
 // This function will be used to change the way the HTML is loaded
-const htmlSerializer = function (type, element, content, children, key) {
+const htmlSerializer = (type, element, content, children, key) => {
   let props = {};
   switch (type) {
     // Add a class to paragraph elements

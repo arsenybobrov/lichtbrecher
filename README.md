@@ -28,7 +28,7 @@ This setup requires the following custom types:
  - global_config
 
 
- ### Cheatsheet
+ ### cheatsheet
  Handle prismic rich texts:
  
  ```const richtText = RichText.render(prismic.richtext.object, linkResolver, htmlSerializer);```
@@ -44,6 +44,18 @@ This setup requires the following custom types:
  Access data from prismic's global_conf:
  
  ```const globalData = useContext(GlobalConfigContext);```
+ 
+ Next link:
+ 
+ ```
+ <NextLink
+   text="text"
+   templatePath="/[page]" // if null the next link becomes a regular link (with page reload)
+   url={prismic.richtext.object}
+   title="title" // if null equals {text}
+   target="_blank" // optional
+ />
+ ```
 
  
  ### usefull third party

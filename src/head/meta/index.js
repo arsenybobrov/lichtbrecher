@@ -6,7 +6,7 @@ const Meta = () => {
   const content = useContext(GlobalConfigContext);
   return (
     <Head>
-      <title>{content.data.display_name[0].text}</title>
+      <title>title</title>
     </Head>
   );
 };
