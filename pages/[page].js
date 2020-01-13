@@ -18,8 +18,11 @@ const Page = ({
 );
 
 Page.getInitialProps = async ({ asPath }) => {
-  const uid = asPath.split('/')[1];
-  return fetchContent('page', uid);
+  // TODO: maybe move uid inside fetchContent?
+  const uid = asPath.substr(asPath.lastIndexOf('/') + 1);
+  // TODO: move lang inside fetchContent
+  const lang = asPath.split('/')[1] !== uid ? asPath.split('/')[1] : null;
+  return fetchContent('page', uid, lang);
 };
 
 Page.propTypes = {

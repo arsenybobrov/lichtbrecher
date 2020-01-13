@@ -16,7 +16,11 @@ const Index = ({
   />
 );
 
-Index.getInitialProps = async () => fetchContent('homepage');
+Index.getInitialProps = async ({ asPath }) => {
+  // TODO: move lang inside fetchContent
+  const lang = asPath.split('/')[1];
+  return fetchContent('homepage', null, lang);
+};
 
 Index.propTypes = {
   data: PropTypes.object,

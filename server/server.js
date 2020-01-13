@@ -16,8 +16,11 @@ app.prepare().then(() => {
     nextHandler();
   });
 
+  server.get('/favicon.ico', () => {});
   server.get('/', (req, res) => { app.render(req, res, '/index'); });
+  server.get('/en/', (req, res) => { app.render(req, res, '/index'); });
   server.get('/:uid', (req, res) => { app.render(req, res, '/page'); });
+  server.get('/en/:uid', (req, res) => { app.render(req, res, '/page'); });
   server.get('*', (req, res) => { app.render(req, res, '/404'); });
 
   server.listen(port, (err) => {

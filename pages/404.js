@@ -15,7 +15,11 @@ const Page404 = ({
 
 );
 
-Page404.getInitialProps = async () => fetchContent();
+Page404.getInitialProps = async ({ asPath }) => {
+  // TODO: move lang inside fetchContent
+  const lang = asPath.split('/')[1];
+  return fetchContent(null, null, lang);
+};
 
 Page404.propTypes = {
   globalConfig: PropTypes.object,

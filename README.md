@@ -28,6 +28,13 @@ This setup requires the following custom types:
 - global_config
 
 
+### languages
+Edit / handle languages inside:
+
+- ```server/server.js```
+- ```api/prismic/fetchContent.js```
+
+
 ### cheatsheet
 Handle prismic rich texts:
 
