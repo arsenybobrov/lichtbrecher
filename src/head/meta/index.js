@@ -7,6 +7,7 @@ const Meta = () => {
   return (
     <Head>
       <title>title</title>
+      <link rel="icon" type="icon" href="/static/favicons/favicon.ico?v=2" />
     </Head>
   );
 };
