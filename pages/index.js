@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import HomepageTemplate from '../src/templates/Homepage';
 import fetchContent from '../api/prismic/fetchContent';
+import getLanguage from '../helpers/getLanguage';
 
 const Index = ({
   data,
@@ -16,11 +17,7 @@ const Index = ({
   />
 );
 
-Index.getInitialProps = async ({ asPath }) => {
-  // TODO: move lang inside fetchContent
-  const lang = asPath.split('/')[1];
-  return fetchContent('homepage', null, lang);
-};
+Index.getInitialProps = async ({ asPath }) => fetchContent('homepage', null, getLanguage(asPath));
 
 Index.propTypes = {
   data: PropTypes.object,

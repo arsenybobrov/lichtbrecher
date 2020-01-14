@@ -27,7 +27,7 @@
     "react-dom": "16.8.6",
     "react-gsap": "^1.2.0",
     "react-scroll": "^1.7.15",
-    "styled-components": "4.2.0"
+    "styled-components": "5.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.7",
@@ -54,7 +54,7 @@
     "eslint-plugin-react": "^7.17.0",
     "husky": "^4.0.0-beta.5",
     "jest": "^24.9.0",
-    "jest-styled-components": "^6.3.4",
+    "jest-styled-components": "7.0.0",
     "prop-types": "^15.7.2",
     "react-test-renderer": "16.8.6",
     "stylelint": "^12.0.1",

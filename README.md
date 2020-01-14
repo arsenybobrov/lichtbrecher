@@ -32,7 +32,7 @@ This setup requires the following custom types:
 Edit / handle languages inside:
 
 - ```server/server.js```
-- ```api/prismic/fetchContent.js```
+- ```helpers/getLanguage.js```
 
 
 ### cheatsheet
