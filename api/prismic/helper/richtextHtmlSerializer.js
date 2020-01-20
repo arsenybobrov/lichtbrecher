@@ -22,12 +22,13 @@ const htmlSerializer = (type, element, content, children, key) => {
       props = { className: 'paragraph-class' };
       return React.createElement('p', propsWithUniqueKey(props, key), children);
 
-    // Add a class to hyperlinks
+    // Internal links next-link behavior
     case Elements.hyperlink:
       if (element.data.link_type === 'Document') {
+        const href = element.data.type === 'homepage' ? '/' : '/[page]';
         // Only for internal links add the new onClick that will imperatively route to page
         props = {
-          onClick: onClickHandler('/[page]', linkResolver(element.data)),
+          onClick: onClickHandler(href, linkResolver(element.data)),
           href: linkResolver(element.data),
         };
         return React.createElement('a', propsWithUniqueKey(props, key), children);

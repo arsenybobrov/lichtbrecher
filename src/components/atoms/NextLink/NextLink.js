@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import get from 'lodash/get';
-import linkResolver from '../../../../api/prismic/linkResolver';
+import linkResolver from '../../../../api/prismic/helper/linkResolver';
 
 const NextLink = ({
   text, url, title = text,

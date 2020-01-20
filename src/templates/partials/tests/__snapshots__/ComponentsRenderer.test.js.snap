@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NextLink snapshot renders 2 dummy components, because slice_name & slice_another_name is not inside map.js 1`] = `
+Array [
+  <div>
+    <div
+      className="DummySlice__Wrapper-sc-1p1rpu-0 jrtuih"
+    >
+      the slice 
+      slice_name
+       does not exist yet...
+    </div>
+  </div>,
+  <div>
+    <div
+      className="DummySlice__Wrapper-sc-1p1rpu-0 jrtuih"
+    >
+      the slice 
+      slice_another_name
+       does not exist yet...
+    </div>
+  </div>,
+]
+`;

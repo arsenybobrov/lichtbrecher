@@ -1,5 +1,5 @@
 import Prismic from 'prismic-javascript';
-import { accessToken, apiEndpoint } from './configuration';
+import { accessToken, apiEndpoint } from '../config/configuration';
 
 const fetchContent = async (type, uid, lang) => {
   try {

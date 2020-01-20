@@ -3,7 +3,7 @@
 ### installation
 ```yarn install```
 
-Copy ```api/prismic/configuration-dummy.js```, rename it to ```api/prismic/configuration.js``` and edit the vars.
+Copy ```api/prismic/config/configuration-dummy.js```, rename it to ```api/prismic/config/configuration.js``` and edit the vars.
 
 
 ### development
@@ -26,6 +26,19 @@ This setup requires the following custom types:
 - homepage
 - page
 - global_config
+
+Add new slices (prismic modules) inside ```api/prismic/slices/map.js```.
+
+```src/templates/partials/ComponentsRenderer.js``` should be used by the templates to render slices according to ```api/prismic/slices/map.js```.
+E.g.: 
+```
+<ComponentsRenderer
+    slices={get(data, 'data.body', [])}
+/>
+```
+
+Modify ```api/prismic/helper/richtextHtmlSerializer.js``` to impact editors richtext input, wich is handled by prismic richtext resolver.
+
 
 
 ### languages

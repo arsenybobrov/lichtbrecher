@@ -6,7 +6,7 @@ import {
   prismicExternalLinkMock,
   prismicInternalHomepageLinkMock,
   prismicInternalPageLinkMock,
-} from '../../../../api/prismic/tests/linkResolver.test';
+} from '../../../../api/prismic/helper/tests/linkResolver.test';
 
 export const NextLinkInternalPageLinkMock = {
   url: prismicInternalPageLinkMock,
@@ -32,11 +32,11 @@ describe('NextLink snapshot', () => {
     ${'internal Link to the homepage'}               | ${NextLinkInternalHomepageLinkMock}
     ${'external link with target _blank'}            | ${NextLinkExternalLinkMock}
   `('$name', ({ mock }) => {
-  const tree = renderer
-    .create(
-      <NextLink {...mock} />
-    )
-    .toJSON();
-  expect(tree).toMatchSnapshot();
-});
+    const tree = renderer
+      .create(
+        <NextLink {...mock} />
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });

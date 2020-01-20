@@ -2,7 +2,7 @@ import React from 'react';
 import get from 'lodash/get';
 import PropTypes from 'prop-types';
 import PageTemplate from '../src/templates/Page';
-import fetchContent from '../api/prismic/fetchContent';
+import fetchContent from '../api/prismic/helper/fetchContent';
 import getLanguage from '../helpers/getLanguage';
 
 const Page = ({

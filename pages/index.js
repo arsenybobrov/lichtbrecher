@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import HomepageTemplate from '../src/templates/Homepage';
-import fetchContent from '../api/prismic/fetchContent';
+import fetchContent from '../api/prismic/helper/fetchContent';
 import getLanguage from '../helpers/getLanguage';
 
 const Index = ({

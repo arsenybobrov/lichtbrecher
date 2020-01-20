@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import fetchContent from '../api/prismic/fetchContent';
+import fetchContent from '../api/prismic/helper/fetchContent';
 import PageTemplate from '../src/templates/Page';
 import getLanguage from '../helpers/getLanguage';
 
