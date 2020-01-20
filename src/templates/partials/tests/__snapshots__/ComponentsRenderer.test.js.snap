@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NextLink snapshot renders 2 dummy components, because slice_name & slice_another_name is not inside map.js 1`] = `
+exports[`ComponentRenderer snapshot renders 2 dummy components, because slice_name & slice_another_name is not inside map.js 1`] = `
 Array [
   <div>
     <div

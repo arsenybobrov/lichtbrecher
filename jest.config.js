@@ -10,6 +10,7 @@ module.exports = {
     '<rootDir>/node_modules/',
   ],
   globals: {
+    document: {},
     window: {
       navigator: {
         userAgent: {

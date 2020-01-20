@@ -9,6 +9,8 @@ Copy ```api/prismic/config/configuration-dummy.js```, rename it to ```api/prismi
 ### development
 ```yarn dev```
 
+IMPORTATNT! See ```**/**/test``` folders for snapshot & unit tests.
+
 
 ### testing
 ```yarn test:all```
@@ -38,6 +40,8 @@ E.g.:
 ```
 
 Modify ```api/prismic/helper/richtextHtmlSerializer.js``` to impact editors richtext input, wich is handled by prismic richtext resolver.
+
+It is recommended to use ```src/helpers/preventScriptInjection.js``` if the editor has a possibility to insert script inside prismic richtext editor.
 
 
 

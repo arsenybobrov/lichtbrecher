@@ -13,7 +13,7 @@ const DataUnknownSlicesMock = {
   ],
 };
 
-describe('NextLink snapshot', () => {
+describe('ComponentRenderer snapshot', () => {
   it.each`
     name                                                                                           |  mock
     ${'renders 2 dummy components, because slice_name & slice_another_name is not inside map.js'}  |  ${DataUnknownSlicesMock}
