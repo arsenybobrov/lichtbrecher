@@ -32,11 +32,11 @@ describe('NextLink snapshot', () => {
     ${'internal Link to the homepage'}               | ${NextLinkInternalHomepageLinkMock}
     ${'external link with target _blank'}            | ${NextLinkExternalLinkMock}
   `('$name', ({ mock }) => {
-    const tree = renderer
-      .create(
-        <NextLink {...mock} />
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
+  const tree = renderer
+    .create(
+      <NextLink {...mock} />
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});
 });
