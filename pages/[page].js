@@ -1,9 +1,7 @@
 import React from 'react';
-import get from 'lodash/get';
 import PropTypes from 'prop-types';
 import PageTemplate from '../src/templates/Page';
 import fetchContent from '../api/prismic/helper/fetchContent';
-import getLanguage from '../helpers/getLanguage';
 
 const Page = ({
   data,
@@ -18,9 +16,9 @@ const Page = ({
   />
 );
 
-Page.getInitialProps = async ({ asPath }) => {
+Page.getInitialProps = async ({ asPath, query }) => {
   const uid = asPath.substr(asPath.lastIndexOf('/') + 1);
-  return fetchContent('page', uid, getLanguage(asPath));
+  return fetchContent('page', uid, query);
 };
 
 Page.propTypes = {

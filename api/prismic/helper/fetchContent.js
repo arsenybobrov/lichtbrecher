@@ -1,7 +1,9 @@
 import Prismic from 'prismic-javascript';
+import get from 'lodash/get';
 import { accessToken, apiEndpoint } from '../config/configuration';
 
-const fetchContent = async (type, uid, lang) => {
+const fetchContent = async (type, uid, query) => {
+  const lang = get(query, 'lang', 'de-de');
   try {
     const API = await Prismic.getApi(apiEndpoint, { accessToken });
     const globalConfig = await API.getSingle('global_config', { lang });

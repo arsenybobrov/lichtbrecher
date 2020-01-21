@@ -49,7 +49,7 @@ It is recommended to use ```src/helpers/preventScriptInjection.js``` if the edit
 Edit / handle languages inside:
 
 - ```server/server.js```
-- ```helpers/getLanguage.js```
+
 
 
 ### cheatsheet

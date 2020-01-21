@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import fetchContent from '../api/prismic/helper/fetchContent';
 import PageTemplate from '../src/templates/Page';
-import getLanguage from '../helpers/getLanguage';
 
 const Page404 = ({
   globalConfig,
@@ -16,7 +15,7 @@ const Page404 = ({
 
 );
 
-Page404.getInitialProps = async ({ asPath }) => fetchContent(null, null, getLanguage(asPath));
+Page404.getInitialProps = async ({ query }) => fetchContent(null, null, query);
 
 Page404.propTypes = {
   globalConfig: PropTypes.object,
