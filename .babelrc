@@ -4,15 +4,13 @@
     [
       "styled-components", {
       "ssr": true,
-      "displayName": true,
-      "preprocess": false
+      "displayName": true
     }
     ],
     "@babel/plugin-proposal-object-rest-spread",
     "@babel/plugin-syntax-dynamic-import",
     "dynamic-import-node",
-    "transform-class-properties",
-    "transform-flow-strip-types"
+    "transform-class-properties"
   ],
   "ignore": []
 }
