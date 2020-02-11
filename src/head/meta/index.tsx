@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
+import React /* , { useContext } */ from 'react';
 import Head from 'next/head';
-import { GlobalConfigContext } from '../../contexts/globalConfig';
+// import { GlobalConfigContext } from '../../contexts/globalConfig';
 
-const Meta = () => {
-  const content = useContext(GlobalConfigContext);
+const Meta: React.FC = () => {
+  // const content = useContext(GlobalConfigContext);
   return (
     <Head>
       <title>title</title>

@@ -1,7 +1,7 @@
 import { breakpoints } from '../styles/mediaQueries';
 import isClient from './isClient';
 
-const currentBreakpoint = (width) => {
+const currentBreakpoint = (width: number): string => {
   if (width <= breakpoints.xs - 1) {
     return 'xs';
   }
@@ -20,7 +20,7 @@ const currentBreakpoint = (width) => {
   return 'xxl';
 };
 
-const getBreakpoint = () => {
+const getBreakpoint = (): string => {
   if (isClient()) {
     return currentBreakpoint(window.innerWidth);
   }

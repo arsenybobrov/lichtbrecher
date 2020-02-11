@@ -51,7 +51,8 @@
     }],
     "jsx-a11y/anchor-is-valid": "off",
     "operator-linebreak": "off",
-    "no-unused-expressions": ["error", {"allowTaggedTemplates": true}]
+    "no-unused-expressions": ["error", {"allowTaggedTemplates": true}],
+    "import/extensions": "off"
   },
   "settings": {
     "import/resolver": {

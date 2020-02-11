@@ -1,4 +1,4 @@
-const isClient = () => (
+const isClient = (): boolean => (
   typeof window !== 'undefined'
 );
 

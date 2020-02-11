@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import debounce from 'lodash/debounce';
-import PropTypes from 'prop-types';
 import { BreakpointProvider } from './index';
 import getBreakpoint from '../../helpers/getBreakpoint';
 
-const BreakpointProviderWrapper = ({
+const BreakpointProviderWrapper: React.FC = ({
   children,
 }) => {
   const [breakpoint, setBreakpoint] = useState(getBreakpoint());
@@ -25,10 +24,6 @@ const BreakpointProviderWrapper = ({
       {children}
     </BreakpointProvider>
   );
-};
-
-BreakpointProviderWrapper.propTypes = {
-  children: PropTypes.node,
 };
 
 export default BreakpointProviderWrapper;

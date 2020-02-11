@@ -3,7 +3,7 @@
 ### installation
 ```yarn install```
 
-Copy ```api/prismic/config/configuration-dummy.js```, rename it to ```api/prismic/config/configuration.js``` and edit the vars.
+Copy ```api/prismic/config/configuration-dummy.ts```, rename it to ```api/prismic/config/configuration.js``` and edit the vars.
 
 
 ### development
@@ -39,7 +39,7 @@ E.g.:
 />
 ```
 
-Modify ```api/prismic/helper/richtextHtmlSerializer.js``` to impact editors richtext input, wich is handled by prismic richtext resolver.
+Modify ```api/prismic/helper/richtextHtmlSerializer.ts``` to impact editors richtext input, wich is handled by prismic richtext resolver.
 
 It is recommended to use ```src/helpers/preventScriptInjection.ts``` if the editor has a possibility to insert script inside prismic richtext editor.
 

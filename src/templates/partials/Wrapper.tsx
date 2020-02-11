@@ -1,12 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Error400 from '../errors/400';
 import Error404Template from '../errors/404';
 import StylesWrapper from '../../styles/Wrapper';
 import ContextsWrapper from '../../contexts/Wrapper';
 import HeadWrapper from '../../head/Wrapper';
 
-const TemplateWrapper = ({
+interface Props {
+  globalConfig: {},
+  error400: {},
+  data: {},
+}
+
+const TemplateWrapper:React.FC<Props> = ({
   children,
   globalConfig,
   error400,
@@ -22,12 +27,5 @@ const TemplateWrapper = ({
     </HeadWrapper>
   </ContextsWrapper>
 );
-
-TemplateWrapper.propTypes = {
-  children: PropTypes.node,
-  globalConfig: PropTypes.object,
-  error400: PropTypes.bool,
-  data: PropTypes.object,
-};
 
 export default TemplateWrapper;

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { GlobalConfigContext } from '../../contexts/globalConfig';
 
-const Error404Template = () => {
+const Error404Template: React.FC = () => {
   const content = useContext(GlobalConfigContext);
 
   return (

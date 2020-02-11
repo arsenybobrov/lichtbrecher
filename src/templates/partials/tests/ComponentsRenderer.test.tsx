@@ -13,7 +13,7 @@ const DataUnknownSlicesMock = {
   ],
 };
 
-describe('ComponentRenderer snapshot', () => {
+describe('componentRenderer snapshot', () => {
   it.each`
     name                                                                                           |  mock
     ${'renders 2 dummy components, because slice_name & slice_another_name is not inside map.js'}  |  ${DataUnknownSlicesMock}
@@ -23,6 +23,6 @@ describe('ComponentRenderer snapshot', () => {
       <ComponentsRenderer {...mock} />
     )
     .toJSON();
-  expect(tree).toMatchSnapshot();
+  expect(tree).toMatchInlineSnapshot();
 });
 });

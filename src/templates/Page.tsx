@@ -1,8 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import TemplateWrapper from './partials/Wrapper';
 
-const PageTemplate = ({
+interface Props {
+  globalConfig: {},
+  error400: {},
+  data: {},
+}
+
+const PageTemplate: React.FC<Props> = ({
   data,
   globalConfig,
   error400,
@@ -21,11 +26,5 @@ const PageTemplate = ({
     </pre>
   </TemplateWrapper>
 );
-
-PageTemplate.propTypes = {
-  globalConfig: PropTypes.object,
-  error400: PropTypes.bool,
-  data: PropTypes.object,
-};
 
 export default PageTemplate;

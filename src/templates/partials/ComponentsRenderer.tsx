@@ -1,10 +1,19 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import uniqueId from 'lodash/uniqueId';
 import SLICE_MAP from '../../../api/prismic/slices/map';
 
-const ComponentsRenderer = ({
+interface Props {
+  slices: [
+    {
+      slice_type: string;
+      items: [];
+      primary: {};
+    }
+  ];
+}
+
+const ComponentsRenderer: React.FC<Props> = ({
   slices,
 }) => (
   <>
@@ -21,9 +30,5 @@ const ComponentsRenderer = ({
     }
   </>
 );
-
-ComponentsRenderer.propTypes = {
-  slices: PropTypes.array,
-};
 
 export default ComponentsRenderer;

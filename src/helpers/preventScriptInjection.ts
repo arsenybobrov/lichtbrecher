@@ -1,3 +1,3 @@
-const preventScriptInjection = (str) => (str.includes('<script') ? '...' : str);
+const preventScriptInjection = (str: string): string => (str.includes('<script') ? '...' : str);
 
 export default preventScriptInjection;

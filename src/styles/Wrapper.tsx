@@ -1,11 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
 import defaultTheme from '../themes/default';
 import BasicCSS from './BasicCSS';
 import FontsCSS from './FontsCSS';
 
-const StylesWrapper = ({ children }) => (
+const StylesWrapper: React.FC = ({ children }) => (
   <ThemeProvider theme={defaultTheme}>
     <>
       <BasicCSS />
@@ -14,9 +13,5 @@ const StylesWrapper = ({ children }) => (
     </>
   </ThemeProvider>
 );
-
-StylesWrapper.propTypes = {
-  children: PropTypes.node,
-};
 
 export default StylesWrapper;
