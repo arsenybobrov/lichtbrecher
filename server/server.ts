@@ -1,20 +1,23 @@
-const express = require('express');
-const nextJs = require('next');
-const compression = require('compression');
+import express from 'express';
+import next from 'next';
+import compression from 'compression';
 
+// @ts-ignore
 const port = parseInt(process.env.PORT, 10) || 3000;
 const dev = process.env.NODE_ENV === 'development';
 
-const app = nextJs({ dev });
+const app = next({ dev });
 
 app.prepare().then(() => {
   const server = express();
   server.use(compression());
 
-  server.get(/^\/static\/(images|fonts)\//, (_, res, nextHandler) => {
+  server.get(/^\/public\/(images|fonts)\//, (_, res, nextHandler) => {
     res.setHeader('Cache-Control', 'public, max-age=300, immutable');
     nextHandler();
   });
+  // serve assets from /public folder
+  server.use('/assets', express.static(`${__dirname}/public`));
 
   server.get('/favicon.ico', () => {});
   server.get('/', (req, res) => { app.render(req, res, '/index'); });
@@ -23,7 +26,7 @@ app.prepare().then(() => {
   server.get('/en/:uid', (req, res) => { app.render(req, res, '/page', { lang: 'en-gb' }); });
   server.get('*', (req, res) => { app.render(req, res, '/404'); });
 
-  server.listen(port, (err) => {
+  server.listen(port, (err: any) => {
     if (err) throw err;
     console.log(`Ready to rock on http://localhost:${port}`);
   });

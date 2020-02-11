@@ -48,7 +48,7 @@ It is recommended to use ```src/helpers/preventScriptInjection.ts``` if the edit
 ### languages
 Edit / handle languages inside:
 
-- ```server/server.js```
+- ```server/server.ts```
 
 
 
