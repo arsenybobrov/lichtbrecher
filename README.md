@@ -31,7 +31,7 @@ This setup requires the following custom types:
 
 Add new slices (prismic modules) inside ```api/prismic/slices/map.js```.
 
-```src/templates/partials/ComponentsRenderer.js``` should be used by the templates to render slices according to ```api/prismic/slices/map.js```.
+```src/templates/partials/ComponentsRenderer.tsx``` should be used by the templates to render slices according to ```api/prismic/slices/map.js```.
 E.g.: 
 ```
 <ComponentsRenderer
@@ -41,7 +41,7 @@ E.g.:
 
 Modify ```api/prismic/helper/richtextHtmlSerializer.js``` to impact editors richtext input, wich is handled by prismic richtext resolver.
 
-It is recommended to use ```src/helpers/preventScriptInjection.js``` if the editor has a possibility to insert script inside prismic richtext editor.
+It is recommended to use ```src/helpers/preventScriptInjection.ts``` if the editor has a possibility to insert script inside prismic richtext editor.
 
 
 
@@ -71,7 +71,7 @@ Access data from prismic's global_conf:
 
 ```const globalData = useContext(GlobalConfigContext);```
 
-Use ```src/components/atoms/NextLink/NextLink.js``` for internal and external link handling.
+Use ```src/components/atoms/NextLink/NextLink.tsx``` for internal and external link handling.
 Links inside a richt text are handled the similar way.
 
 
