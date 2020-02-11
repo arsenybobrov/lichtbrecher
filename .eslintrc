@@ -1,13 +1,21 @@
 {
-  "extends": "airbnb",
-  "parser": "babel-eslint",
+  "extends": [
+    "airbnb",
+    "prettier",
+    "prettier/react",
+    "prettier/@typescript-eslint",
+    "plugin:jest/all"
+  ],
+  "parser": "@typescript-eslint/parser",
   "plugins": [
+    "@typescript-eslint",
     "jest"
   ],
   "globals": {
     "$Keys": true
   },
   "rules": {
+    "@typescript-eslint/no-unused-vars": "error",
     "arrow-parens": [1, "always"],
     "camelcase": "off",
     "no-case-declarations": "off",
@@ -19,13 +27,19 @@
     "jest/no-identical-title": "error",
     "jest/prefer-to-have-length": "warn",
     "jest/valid-expect": "off",
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }],
+    "react/prop-types": "off",
     "react/require-default-props": "off",
     "react/jsx-wrap-multilines": "off",
     "react/jsx-props-no-spreading": "off",
     "react/jsx-one-expression-per-line": "off",
     "react/forbid-prop-types": "off",
-    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": ["src/**/*.test.tsx", "src/**/*.test.ts", "src/**/*.stories.tsx"]
+      }
+    ],
     "import/no-cycle": "off",
     "function-paren-newline": ["error", "consistent"],
     "comma-dangle": ["error", {
@@ -39,8 +53,16 @@
     "operator-linebreak": "off",
     "no-unused-expressions": ["error", {"allowTaggedTemplates": true}]
   },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  },
   "env": {
     "jest/globals": true,
-    "browser": true
+    "browser": true,
+    "node": true
   }
 }
