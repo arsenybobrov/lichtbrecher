@@ -10,7 +10,8 @@ describe('getBreakpoint', () => {
     ${'window width 1400px should return LG'} | ${1400} | ${'xl'}
     ${'window width 1900px should return XXL'} | ${1900} | ${'xxl'}
   `('$name', ({ width, expected }) => {
-  window.innerWidth = width;
-  expect(getBreakpoint()).toEqual(expected);
+    // @ts-ignore
+    window.innerWidth = width;
+  expect(getBreakpoint()).toStrictEqual(expected);
 });
 });

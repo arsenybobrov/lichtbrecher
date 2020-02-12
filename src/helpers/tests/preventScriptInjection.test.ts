@@ -6,6 +6,6 @@ describe('preventScriptInjection', () => {
     ${'string is not dangerous'}   | ${'hallo welt'}                                        | ${'hallo welt'}
     ${'string is dangerous!!!!!!'} | ${'<script>alert("burn in hell!")</script>hallo welt'} | ${'...'}
   `('$name', ({ str, expected }) => {
-  expect(preventScriptInjection(str)).toEqual(expected);
+  expect(preventScriptInjection(str)).toStrictEqual(expected);
 });
 });

@@ -160,7 +160,7 @@ describe('templateWrapper snapshot', () => {
     ${'Api is down 400'}     |  ${Data400}
     ${'Page not found 404'}  |  ${Data404}
   `('$name', ({ mock }) => {
-  jest.spyOn(window, 'addEventListener').mockImplementation();
+  window.addEventListener = jest.fn();
   const tree = renderer
     .create(
       <TemplateWrapper {...mock}>

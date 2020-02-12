@@ -26,6 +26,7 @@ module.exports = {
   globals: {
     document: {},
     window: {
+      innerWidth: 0,
       navigator: {
         userAgent: {
           match: {},
