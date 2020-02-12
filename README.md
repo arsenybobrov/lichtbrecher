@@ -83,4 +83,4 @@ The following libs are not neccessary for the setup to work but are very nice:
 
 
 ### license
-MIT. ©Copyright Arseny Bobrov, 2020.
+MIT. ©Copyright Arseny Bobrov, Daniel Hargesheimer, 2020.
