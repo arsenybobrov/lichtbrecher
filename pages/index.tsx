@@ -1,27 +1,25 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import {NextPage, NextPageContext} from 'next';
 import HomepageTemplate from '../src/templates/Homepage';
 import fetchContent from '../api/prismic/helper/fetchContent';
 
-const Index = ({
-  data,
-  globalConfig,
-  error400,
-}) => (
-  <HomepageTemplate {...{
-    data,
-    globalConfig,
-    error400,
-  }}
+interface Props {
+  data?: any;
+  globalConfig?: any;
+  error400?: any;
+}
+
+const Index: NextPage<Props> = ({ data, globalConfig, error400 }) => (
+  <HomepageTemplate
+    {...{
+      data,
+      globalConfig,
+      error400,
+    }}
   />
 );
 
-Index.getInitialProps = async ({ query }) => fetchContent('homepage', null, query);
-
-Index.propTypes = {
-  data: PropTypes.object,
-  globalConfig: PropTypes.object,
-  error400: PropTypes.bool,
-};
+Index.getInitialProps = async ({ query }: NextPageContext): Promise<Props> =>
+  fetchContent('homepage', null, query);
 
 export default Index;

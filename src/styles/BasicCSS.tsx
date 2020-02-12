@@ -1,7 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
 import ResetCSS from './ResetCSS';
+import {Theme} from '../themes/default';
 
-const BasicCSS = createGlobalStyle`
+const BasicCSS = createGlobalStyle<{ theme: Theme }>`
   ${ResetCSS};
 
   html {

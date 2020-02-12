@@ -3,18 +3,20 @@ import { Elements } from 'prismic-reactjs';
 import Router from 'next/router';
 import linkResolver from './linkResolver';
 
+
 // -- Function to add unique key to props
-const propsWithUniqueKey = (props, key) => Object.assign(props || {}, { key });
+const propsWithUniqueKey = (props: any, key: string) => Object.assign(props || {}, { key });
 
 // Handler that will do routing imperatively on internal links
-const onClickHandler = (href, as) => (e) => {
+const onClickHandler = (href: string, as: string) => (e: Event) => {
   e.preventDefault();
   Router.push(href, as);
 };
 
 // -- HTML Serializer
 // This function will be used to change the way the HTML is loaded
-const htmlSerializer = (type, element, content, children, key) => {
+// @ts-ignore
+const htmlSerializer = (type: string, element: any, content: any, children: any, key: string) => {
   let props = {};
   switch (type) {
     // Add a class to paragraph elements

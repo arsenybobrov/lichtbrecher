@@ -4,9 +4,9 @@ import PageTemplate from '../src/templates/Page';
 import fetchContent from '../api/prismic/helper/fetchContent';
 
 interface Props {
-  data: any;
-  globalConfig: any;
-  error400: any;
+  data?: any;
+  globalConfig?: any;
+  error400?: any;
 }
 
 const Page: NextPage<Props> = ({
@@ -22,9 +22,8 @@ const Page: NextPage<Props> = ({
   />
 );
 
-Page.getInitialProps = async (ctx: NextPageContext): Promise<Props> => {
-  const { asPath, query } = ctx;
-  const uid = asPath.substr(asPath.lastIndexOf('/') + 1);
+Page.getInitialProps = async ({ asPath, query }: NextPageContext): Promise<Props> => {
+  const uid = asPath && asPath.substr(asPath.lastIndexOf('/') + 1);
   return fetchContent('page', uid, query);
 };
 

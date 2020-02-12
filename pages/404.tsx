@@ -1,25 +1,27 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import {NextPage, NextPageContext} from 'next';
 import fetchContent from '../api/prismic/helper/fetchContent';
 import PageTemplate from '../src/templates/Page';
 
-const Page404 = ({
+interface Props {
+  data?: any;
+  globalConfig?: any;
+  error400?: any;
+}
+
+const Page404: NextPage<Props> = ({
   globalConfig,
   error400,
+  data,
 }) => (
   <PageTemplate {...{
+    data,
     globalConfig,
     error400,
   }}
   />
-
 );
 
-Page404.getInitialProps = async ({ query }) => fetchContent(null, null, query);
-
-Page404.propTypes = {
-  globalConfig: PropTypes.object,
-  error400: PropTypes.bool,
-};
+Page404.getInitialProps = async ({ query }: NextPageContext): Promise<Props> => fetchContent(null, null, query);
 
 export default Page404;

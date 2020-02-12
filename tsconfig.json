@@ -24,15 +24,18 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "outDir": ".next"
+    "outDir": ".next",
+    "typeRoots": ["./typings", "node_modules/@types"]
   },
   "exclude": [
     "node_modules",
     ".next",
     "**/*.test.tsx.snap",
-    "server/**/*.*"
+    "server",
+    "typings"
   ],
   "include": [
+    "*.ts",
     "**/*.ts",
     "**/*.tsx"
   ]

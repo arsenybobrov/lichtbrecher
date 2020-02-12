@@ -7,6 +7,6 @@
     "lib": ["es2017"],
     "outDir": ".next/server"
   },
-  "include": ["server/**/*.ts"],
+  "include": ["server"],
   "exclude": [".next"]
 }

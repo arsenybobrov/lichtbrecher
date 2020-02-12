@@ -29,9 +29,9 @@ This setup requires the following custom types:
 - page
 - global_config
 
-Add new slices (prismic modules) inside ```api/prismic/slices/map.js```.
+Add new slices (prismic modules) inside ```api/prismic/slices/map.ts```.
 
-```src/templates/partials/ComponentsRenderer.tsx``` should be used by the templates to render slices according to ```api/prismic/slices/map.js```.
+```src/templates/partials/ComponentsRenderer.tsx``` should be used by the templates to render slices according to ```api/prismic/slices/map.ts```.
 E.g.: 
 ```
 <ComponentsRenderer
