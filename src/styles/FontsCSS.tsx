@@ -8,8 +8,8 @@ const FontsCSS = createGlobalStyle<{ theme: Theme }>`
       font-weight: normal;
       font-style: normal;
       font-display: fallback;
-      src: url('/public/fonts/droidsansmonodotted-webfont.woff') format('woff'),
-           url('/public/fonts/droidsansmonodotted-webfont.woff2') format('woff2');
+      src: url('/assets/fonts/droidsansmonodotted-webfont.woff') format('woff'),
+           url('/assets/fonts/droidsansmonodotted-webfont.woff2') format('woff2');
     }
   `)}
 `;

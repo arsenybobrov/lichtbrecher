@@ -12,12 +12,12 @@ app.prepare().then(() => {
   const server = express();
   server.use(compression());
 
-  server.get(/^\/public\/(images|fonts)\//, (_, res, nextHandler) => {
+  server.get(/^\/assets\/(images|fonts)\//, (_, res, nextHandler) => {
     res.setHeader('Cache-Control', 'public, max-age=300, immutable');
     nextHandler();
   });
   // serve assets from /public folder
-  server.use('/assets', express.static(`${__dirname}/public`));
+  server.use('/assets', express.static(`${__dirname}/../public`));
 
   server.get('/favicon.ico', () => {});
   server.get('/', (req, res) => { app.render(req, res, '/index'); });
