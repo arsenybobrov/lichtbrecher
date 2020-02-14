@@ -1,6 +1,7 @@
 import express from 'express';
 import next from 'next';
 import compression from 'compression';
+import getPreview from '../api/prismic/helper/getPreview';
 
 // @ts-ignore
 const port = parseInt(process.env.PORT, 10) || 3000;
@@ -20,6 +21,7 @@ app.prepare().then(() => {
   server.use('/assets', express.static(`${__dirname}/../public`));
 
   server.get('/favicon.ico', () => {});
+  server.get('/preview', (req, res) => getPreview(req, res));
   server.get('/', (req, res) => { app.render(req, res, '/index'); });
   server.get('/en/', (req, res) => { app.render(req, res, '/index', { lang: 'en-gb' }); });
   server.get('/:uid', (req, res) => { app.render(req, res, '/page'); });
