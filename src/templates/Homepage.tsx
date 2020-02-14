@@ -2,7 +2,7 @@ import React from 'react';
 import TemplateWrapper from './partials/Wrapper';
 import {PageProps} from '../../pages/types/page.types';
 
-const HomepageTemplate: React.FC<PageProps> = ({ data, globalConfig, error400 }) => (
+const HomepageTemplate: React.FC<PageProps> = ({ data, globalConfig, error400}) => (
   <TemplateWrapper
     {...{
       data,

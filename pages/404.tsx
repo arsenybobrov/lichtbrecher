@@ -17,6 +17,9 @@ const Page404: NextPage<PageProps> = ({
   />
 );
 
-Page404.getInitialProps = async ({ query }: NextPageContext): Promise<PageProps> => fetchContent(null, null, query);
+Page404.getInitialProps = async ({res, query }: NextPageContext): Promise<PageProps> => {
+  if (res) res.statusCode = 404;
+  return fetchContent(null, null, query)
+};
 
 export default Page404;
