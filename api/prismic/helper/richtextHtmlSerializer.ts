@@ -3,6 +3,7 @@ import { Elements } from 'prismic-reactjs';
 import Router from 'next/router';
 import linkResolver from './linkResolver';
 
+// Todo: add types
 
 // -- Function to add unique key to props
 const propsWithUniqueKey = (props: any, key: string) => Object.assign(props || {}, { key });

@@ -1,13 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
 import get from 'lodash/get';
-import linkResolver from '../../../../api/prismic/helper/linkResolver';
+import linkResolver, {PrismicLink} from '../../../../api/prismic/helper/linkResolver';
 
 interface Props {
   text: string,
-  url: {
-    type: string;
-  },
+  url: PrismicLink,
   title: string,
 }
 
