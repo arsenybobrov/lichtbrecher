@@ -1,13 +1,8 @@
 import React from 'react';
 import TemplateWrapper from './partials/Wrapper';
+import {PageProps} from '../../pages/types/page.types';
 
-interface Props {
-  globalConfig: {},
-  error400: {},
-  data: {},
-}
-
-const PageTemplate: React.FC<Props> = ({
+const PageTemplate: React.FC<PageProps> = ({
   data,
   globalConfig,
   error400,

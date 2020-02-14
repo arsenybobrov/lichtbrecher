@@ -1,13 +1,9 @@
 import React from 'react';
 import { GlobalConfigProvider } from './globalConfig';
 import BreakpointProviderWrapper from './breakpoint/BreakpointProviderWrapper';
+import {PageProps} from '../../pages/types/page.types';
 
-interface Props {
-  globalConfig: {},
-
-}
-
-const ContextsWrapper: React.FC<Props> = ({ children, globalConfig }) => (
+const ContextsWrapper: React.FC<PageProps> = ({ children, globalConfig }) => (
   <GlobalConfigProvider value={globalConfig}>
     <BreakpointProviderWrapper>
       {children}

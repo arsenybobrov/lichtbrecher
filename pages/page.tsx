@@ -2,14 +2,9 @@ import React from 'react';
 import {NextPage, NextPageContext} from 'next';
 import PageTemplate from '../src/templates/Page';
 import fetchContent from '../api/prismic/helper/fetchContent';
+import {PageProps} from './types/page.types';
 
-interface Props {
-  data?: any;
-  globalConfig?: any;
-  error400?: any;
-}
-
-const Page: NextPage<Props> = ({
+const Page: NextPage<PageProps> = ({
   data,
   globalConfig,
   error400,
@@ -22,7 +17,7 @@ const Page: NextPage<Props> = ({
   />
 );
 
-Page.getInitialProps = async ({ asPath, query }: NextPageContext): Promise<Props> => {
+Page.getInitialProps = async ({ asPath, query }: NextPageContext): Promise<PageProps> => {
   const uid = asPath && asPath.substr(asPath.lastIndexOf('/') + 1);
   return fetchContent('page', uid, query);
 };
