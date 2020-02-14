@@ -2,6 +2,7 @@ import express from 'express';
 import next from 'next';
 import compression from 'compression';
 import getPreview from '../api/prismic/helper/getPreview';
+import sitemapXML from '../api/prismic/helper/buildSitemapXML';
 
 // @ts-ignore
 const port = parseInt(process.env.PORT, 10) || 3000;
@@ -19,6 +20,11 @@ app.prepare().then(() => {
   });
   // serve assets from /public folder
   server.use('/assets', express.static(`${__dirname}/../public`));
+
+  server.get('/sitemap.xml', async (req, res, next) => {
+    await sitemapXML(req, res);
+    return next();
+  });
 
   server.get('/favicon.ico', () => {});
   server.get('/preview', (req, res) => getPreview(req, res));

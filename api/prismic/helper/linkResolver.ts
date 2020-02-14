@@ -1,5 +1,3 @@
-import get from 'lodash/get';
-
 export interface PrismicLink {
   link_type?: string | null;
   type?: string | null;
@@ -7,15 +5,12 @@ export interface PrismicLink {
   url?: string;
 }
 
-const linkResolver = (link: PrismicLink): string => {
-  if (get(link, 'link_type', null) === 'Document') {
-    if (get(link, 'type', null) !== 'homepage') {
-      return `/${link.uid}`;
-    }
-    return '/';
+const linkResolver = ({ link_type, type, uid, url }: PrismicLink): string => {
+  if (type !== 'homepage') {
+    return `/${uid}`;
   }
-
-  return get(link, 'url', '/');
+  if (url && (link_type === 'Web' || link_type === 'Media')) return url;
+  return '/';
 };
 
 export default linkResolver;
