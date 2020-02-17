@@ -3,7 +3,7 @@
 ### installation
 ```yarn install```
 
-Copy ```api/prismic/config/configuration-dummy.js```, rename it to ```api/prismic/config/configuration.js``` and edit the vars.
+Copy ```api/prismic/config/configuration-dummy.ts```, rename it to ```api/prismic/config/configuration.js``` and edit the vars.
 
 
 ### development
@@ -29,9 +29,9 @@ This setup requires the following custom types:
 - page
 - global_config
 
-Add new slices (prismic modules) inside ```api/prismic/slices/map.js```.
+Add new slices (prismic modules) inside ```api/prismic/slices/map.ts```.
 
-```src/templates/partials/ComponentsRenderer.js``` should be used by the templates to render slices according to ```api/prismic/slices/map.js```.
+```src/templates/partials/ComponentsRenderer.tsx``` should be used by the templates to render slices according to ```api/prismic/slices/map.ts```.
 E.g.: 
 ```
 <ComponentsRenderer
@@ -39,16 +39,16 @@ E.g.:
 />
 ```
 
-Modify ```api/prismic/helper/richtextHtmlSerializer.js``` to impact editors richtext input, wich is handled by prismic richtext resolver.
+Modify ```api/prismic/helper/richtextHtmlSerializer.ts``` to impact editors richtext input, wich is handled by prismic richtext resolver.
 
-It is recommended to use ```src/helpers/preventScriptInjection.js``` if the editor has a possibility to insert script inside prismic richtext editor.
+It is recommended to use ```src/helpers/preventScriptInjection.ts``` if the editor has a possibility to insert script inside prismic richtext editor.
 
 
 
 ### languages
 Edit / handle languages inside:
 
-- ```server/server.js```
+- ```server/server.ts```
 
 
 
@@ -71,7 +71,7 @@ Access data from prismic's global_conf:
 
 ```const globalData = useContext(GlobalConfigContext);```
 
-Use ```src/components/atoms/NextLink/NextLink.js``` for internal and external link handling.
+Use ```src/components/atoms/NextLink/NextLink.tsx``` for internal and external link handling.
 Links inside a richt text are handled the similar way.
 
 
@@ -83,4 +83,4 @@ The following libs are not neccessary for the setup to work but are very nice:
 
 
 ### license
-MIT. ©Copyright Arseny Bobrov, 2020.
+MIT. ©Copyright Arseny Bobrov, Daniel Hargesheimer, 2020.

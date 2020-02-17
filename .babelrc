@@ -12,5 +12,10 @@
     "dynamic-import-node",
     "transform-class-properties"
   ],
+  "env": {
+    "test": {
+      "plugins": ["require-context-hook", "transform-dynamic-import"]
+    }
+  },
   "ignore": []
 }

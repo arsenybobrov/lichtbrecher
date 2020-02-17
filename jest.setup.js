@@ -1,4 +1,7 @@
-import { configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+/* eslint-disable import/no-extraneous-dependencies */
+const registerRequireContextHook = require('babel-plugin-require-context-hook/register');
+const Enzyme = require('enzyme');
+const Adapter = require('enzyme-adapter-react-16');
 
-configure({ adapter: new Adapter() });
+registerRequireContextHook();
+Enzyme.configure({ adapter: new Adapter() });
