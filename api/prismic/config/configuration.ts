@@ -1,2 +1,2 @@
-export const apiEndpoint = 'https://lichtbrecher.cdn.prismic.io/api/v2';
-export const accessToken = 'MC5YZ2lla1JJQUFDTUFTUG1S.BO-_ve-_ve-_vV3vv73vv71xb1Dvv70GdjHvv73vv73vv73vv71F77-9Hgzvv73vv71777-977-9f05x77-9fA';
+export const apiEndpoint = 'https://nextprismic.cdn.prismic.io/api/v2';
+export const accessToken = 'MC5Ya3BicFJFQUFDVUFTbnpj.PF1877-9OGPvv70eZmsz77-9UEjvv71_77-977-977-9EO-_vRYz77-977-9b--_ve-_ve-_vShA77-9';

@@ -6,6 +6,7 @@
     "build": "next build  && tsc && tsc --project tsconfig.server.json",
     "start": "cross-env NODE_ENV=production node .next/server/server.js",
     "test": "cross-env NODE_ENV=test jest",
+    "test:watch": "jest --watch",
     "lint:css": "stylelint \"./src/**\"",
     "lint": "eslint \"src/**\" \"pages/**\" \"api/**\" && yarn lint:css",
     "test:all": "yarn test && yarn lint"
