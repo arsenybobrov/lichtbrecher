@@ -33,11 +33,11 @@ export const prismicExternalLinkMock = {
 
 describe('prismic linkResolver', () => {
   it.each`
-    name                                 | inputLink                                 | expected
-  ${'internal Link to a page'}         | ${prismicInternalPageLinkMock}              | ${'/page-two'}
-    ${'internal Link to the homepage'}   | ${prismicInternalHomepageLinkMock}        | ${'/'}
-    ${'external Link'}                   | ${prismicExternalLinkMock}                | ${'https://example.com'}
+    name                               | inputLink                          | expected
+    ${'internal Link to a page'}       | ${prismicInternalPageLinkMock}     | ${'/page-two'}
+    ${'internal Link to the homepage'} | ${prismicInternalHomepageLinkMock} | ${'/'}
+    ${'external Link'}                 | ${prismicExternalLinkMock}         | ${'https://example.com'}
   `('$name', ({ inputLink, expected }) => {
-  expect(linkResolver(inputLink)).toEqual(expected);
-});
+    expect(linkResolver(inputLink)).toStrictEqual(expected);
+  });
 });

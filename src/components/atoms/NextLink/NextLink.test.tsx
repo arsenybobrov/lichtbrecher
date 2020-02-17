@@ -25,18 +25,15 @@ export const NextLinkExternalLinkMock = {
   text: 'Click me',
 };
 
-describe('NextLink snapshot', () => {
+describe('nextLink snapshot', () => {
   it.each`
-    name                                             | mock
-    ${'internal Link to a page'}                     | ${NextLinkInternalPageLinkMock}
-    ${'internal Link to the homepage'}               | ${NextLinkInternalHomepageLinkMock}
-    ${'external link with target _blank'}            | ${NextLinkExternalLinkMock}
+    name                                  | mock
+    ${'internal Link to a page'}          | ${NextLinkInternalPageLinkMock}
+    ${'internal Link to the homepage'}    | ${NextLinkInternalHomepageLinkMock}
+    ${'external link with target _blank'} | ${NextLinkExternalLinkMock}
   `('$name', ({ mock }) => {
-  const tree = renderer
-    .create(
-      <NextLink {...mock} />
-    )
-    .toJSON();
-  expect(tree).toMatchSnapshot();
-});
+    const tree = renderer.create(<NextLink {...mock} />).toJSON();
+    // eslint-disable-next-line jest/prefer-inline-snapshots
+    expect(tree).toMatchSnapshot();
+  });
 });
