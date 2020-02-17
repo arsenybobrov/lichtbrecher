@@ -12,7 +12,10 @@ interface Response extends ServerResponse{
 const getPreview = async (req: NextApiRequest, res: Response) => {
   const { token } = req.query;
   const API = await Prismic.getApi(apiEndpoint, { accessToken });
-  const url = await API.previewSession(token as string, linkResolver, '/');
+  // @ts-ignore
+  const url = await API.previewSession(token as string, ({ type, uid }): string => {
+    return linkResolver({ type, uid });
+  }, '/');
   res.cookie(Prismic.previewCookie, token, { maxAge: 2 * 60 * 1000, path: '/', httpOnly: false });
   res.redirect(302, url);
 };

@@ -1,19 +1,24 @@
-import Prismic from 'prismic-javascript';
 import get from 'lodash/get';
-import { accessToken, apiEndpoint } from '../config/configuration';
-import {PageProps} from '../../../pages/types/page.types';
+import { PageProps } from '../../../pages/types/page.types';
+import { getPrismicApi, getRef } from './prismicApi';
 
-const fetchContent = async (type?: string | null, uid?: string | null, query?: any | null): Promise<PageProps> => {
+const fetchContent = async (
+  type?: string | null,
+  uid?: string | null,
+  query?: any | null
+): Promise<PageProps> => {
   const lang = get(query, 'lang', 'de-de');
   try {
-    const API = await Prismic.getApi(apiEndpoint, { accessToken });
-    const globalConfig = await API.getSingle('global_config', { lang });
+    const API = await getPrismicApi();
+    const REF = (await getRef()) || '';
+    console.log('fetchContent ref', REF);
+    const globalConfig = await API.getSingle('global_config', { lang, ref: REF });
     if (type) {
       let data;
       if (uid) {
-        data = await API.getByUID(type, uid, { lang });
+        data = await API.getByUID(type, uid, { lang, ref: REF });
       } else {
-        data = await API.getSingle(type, { lang });
+        data = await API.getSingle(type, { lang, ref: REF });
       }
       return { globalConfig, data };
     }

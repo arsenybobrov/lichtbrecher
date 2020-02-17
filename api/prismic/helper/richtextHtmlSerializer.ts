@@ -28,7 +28,7 @@ const htmlSerializer = (type: string, element: any, content: any, children: any,
     // Internal links next-link behavior
     case Elements.hyperlink:
       if (element.data.link_type === 'Document') {
-        const href = element.data.type === 'homepage' ? '/' : '/[page]';
+        const href = element.data.type === 'homepage' ? '/' : '/page';
         // Only for internal links add the new onClick that will imperatively route to page
         props = {
           onClick: onClickHandler(href, linkResolver(element.data)),

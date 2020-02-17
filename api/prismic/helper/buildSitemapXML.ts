@@ -1,9 +1,11 @@
 import fetchAllContent from './fetchAllContent';
 import linkResolver from './linkResolver';
 import {Data} from '../../../pages/types/page.types';
+import {initializeApi} from './prismicApi';
 
 const sitemapXML = async (req: any, res: any) => {
   try {
+    initializeApi(req);
     const prismicDocuments = await fetchAllContent();
 
     let body = '';
