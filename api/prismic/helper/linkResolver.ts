@@ -6,10 +6,10 @@ export interface PrismicLink {
 }
 
 const linkResolver = ({ link_type, type, uid, url }: PrismicLink): string => {
-  if (type !== 'homepage') {
+  if ((link_type === 'Web' || link_type === 'Media') && url) return url;
+  if (type !== 'homepage' && uid) {
     return `/${uid}`;
   }
-  if (url && (link_type === 'Web' || link_type === 'Media')) return url;
   return '/';
 };
 

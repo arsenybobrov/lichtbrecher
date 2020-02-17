@@ -14,7 +14,7 @@ const NextLink: React.FC<Props> = ({
 }) => {
   let href = '';
   if (get(url, 'type', null)) {
-    href = url.type === 'homepage' ? '/' : '/[page]';
+    href = url.type === 'homepage' ? '/' : '/page';
   }
 
   return (
