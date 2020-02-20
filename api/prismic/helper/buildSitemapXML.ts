@@ -1,6 +1,6 @@
 import fetchAllContent from './fetchAllContent';
 import linkResolver from './linkResolver';
-import {Data} from '../../../pages/types/page.types';
+import {Data} from '../../../pageTypes/page.types';
 import {initializeApi} from './prismicApi';
 
 const sitemapXML = async (req: any, res: any) => {

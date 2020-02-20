@@ -1,5 +1,5 @@
 import get from 'lodash/get';
-import { PageProps } from '../../../pages/types/page.types';
+import { PageProps } from '../../../pageTypes/page.types';
 import { getPrismicApi, getRef } from './prismicApi';
 
 const fetchContent = async (

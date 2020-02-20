@@ -1,7 +1,7 @@
 import Prismic from 'prismic-javascript';
 import ClientCookies from 'js-cookie';
 import { NextApiRequest } from 'next';
-import { accessToken, apiEndpoint } from '../config/configuration';
+import { accessToken, apiEndpoint } from '../config/configuration-dummy';
 
 let PRISMIC_API: any;
 let PREVIEW_REF: string | undefined;
