@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon",
     "build": "next build  && tsc && tsc --project tsconfig.server.json",
-    "start": "cross-env NODE_ENV=production node .next/server/server.js",
+    "start": "cross-env NODE_ENV=production node .next/server/server/server.js",
     "test": "cross-env NODE_ENV=test jest",
     "test:watch": "jest --watch",
     "lint:css": "stylelint \"./src/**\"",

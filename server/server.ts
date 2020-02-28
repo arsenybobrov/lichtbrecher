@@ -21,7 +21,7 @@ app.prepare().then(() => {
     nextHandler();
   });
   // serve assets from /public folder
-  server.use('/assets', express.static(`${__dirname}/../public`));
+  server.use('/assets', express.static(`public`));
 
   // eslint-disable-next-line no-shadow
   server.get('/sitemap.xml', async (req, res, next) => {

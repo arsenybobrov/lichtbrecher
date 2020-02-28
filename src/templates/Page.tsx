@@ -1,6 +1,6 @@
 import React from 'react';
 import TemplateWrapper from './partials/Wrapper';
-import {PageProps} from '../../pages/types/page.types';
+import {PageProps} from '../../pageTypes/page.types';
 
 const PageTemplate: React.FC<PageProps> = ({
   data,

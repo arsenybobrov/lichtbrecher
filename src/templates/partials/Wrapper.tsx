@@ -4,7 +4,7 @@ import Error404Template from '../errors/404';
 import StylesWrapper from '../../styles/Wrapper';
 import ContextsWrapper from '../../contexts/Wrapper';
 import HeadWrapper from '../../head/Wrapper';
-import {PageProps} from '../../../pages/types/page.types';
+import {PageProps} from '../../../pageTypes/page.types';
 
 const TemplateWrapper:React.FC<PageProps> = ({
   children,

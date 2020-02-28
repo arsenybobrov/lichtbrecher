@@ -2,7 +2,7 @@ import React from 'react';
 import { NextApiRequest, NextPage, NextPageContext } from 'next';
 import HomepageTemplate from '../src/templates/Homepage';
 import fetchContent from '../api/prismic/helper/fetchContent';
-import { PageProps } from './types/page.types';
+import { PageProps } from '../pageTypes/page.types';
 import { initializeApi } from '../api/prismic/helper/prismicApi';
 
 const Index: NextPage<PageProps> = ({ data, globalConfig, error400 }) => (
