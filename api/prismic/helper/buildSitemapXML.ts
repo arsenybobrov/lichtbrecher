@@ -12,7 +12,6 @@ const sitemapXML = async (req: any, res: any) => {
     if (prismicDocuments && prismicDocuments !== 'undefined') {
       prismicDocuments.forEach((doc: Data) => {
         const { type, uid } = doc;
-        console.log('linkResolver', linkResolver({ type, uid }));
 
         body += (`
           <url>

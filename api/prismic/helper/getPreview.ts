@@ -1,7 +1,7 @@
 import Prismic from 'prismic-javascript';
 import {NextApiRequest} from 'next';
 import {ServerResponse} from 'http';
-import { accessToken, apiEndpoint } from '../config/configuration-dummy';
+import { accessToken, apiEndpoint } from '../config/configuration';
 import linkResolver from './linkResolver';
 
 interface Response extends ServerResponse{

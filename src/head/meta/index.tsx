@@ -6,8 +6,8 @@ const Meta: React.FC = () => {
   // const content = useContext(GlobalConfigContext);
   return (
     <Head>
-      <title>title</title>
-      <link rel="icon" type="icon" href="/static/favicons/favicon.ico?v=2" />
+      <title>lichtbrecher</title>
+      <link rel="icon" type="icon" href="/assets/favicons/favicon.ico?v=2" />
     </Head>
   );
 };

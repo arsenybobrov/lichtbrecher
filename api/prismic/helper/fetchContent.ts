@@ -11,7 +11,6 @@ const fetchContent = async (
   try {
     const API = await getPrismicApi();
     const REF = (await getRef()) || '';
-    console.log('fetchContent ref', REF);
     const globalConfig = await API.getSingle('global_config', { lang, ref: REF });
     if (type) {
       let data;

@@ -1,7 +1,7 @@
 import Prismic from 'prismic-javascript';
 import ClientCookies from 'js-cookie';
 import { NextApiRequest } from 'next';
-import { accessToken, apiEndpoint } from '../config/configuration-dummy';
+import { accessToken, apiEndpoint } from '../config/configuration';
 
 let PRISMIC_API: any;
 let PREVIEW_REF: string | undefined;
@@ -21,7 +21,6 @@ const getApi = (): void => {
 
 export const initializeApi = (req?: NextApiRequest) => {
   if (req) {
-    console.log('initializeApi');
     PREVIEW_REF = req.cookies[Prismic.previewCookie];
   } else {
     PREVIEW_REF = ClientCookies.get(Prismic.previewCookie);
