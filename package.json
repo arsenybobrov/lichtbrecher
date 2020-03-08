@@ -1,6 +1,6 @@
 {
   "name": "lichtbrecher",
-  "version": "2.0.0",
+  "version": "2.0.2",
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon",
     "build": "next build  && tsc && tsc --project tsconfig.server.json",
