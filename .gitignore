@@ -1,6 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-/api/prismic/config/configuration.js
+/api/prismic/config/configuration.ts
 
 # dependencies
 /node_modules
