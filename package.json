@@ -22,7 +22,7 @@
     "express": "^4.17.1",
     "js-cookie": "^2.2.1",
     "lodash": "^4.17.15",
-    "next": "9.1.6",
+    "next": "9.3.2",
     "polished": "^3.4.2",
     "prismic-javascript": "^2.1.5",
     "prismic-reactjs": "^1.1.2",
