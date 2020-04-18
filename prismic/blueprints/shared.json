@@ -1,0 +1,56 @@
+{
+  "Main" : {
+    "display_name" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label" : "display name"
+      }
+    }
+  },
+  "Meta" : {
+    "meta_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "meta title"
+      }
+    },
+    "meta_description" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "meta description"
+      }
+    }
+  },
+  "OpenGraph" : {
+    "og_sitename" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "OG sitename"
+      }
+    },
+    "og_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "OG title"
+      }
+    },
+    "og_description" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "OG description"
+      }
+    },
+    "og_image" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : {
+          "width" : 1200,
+          "height" : 630
+        },
+        "thumbnails" : [ ],
+        "label" : "OG image"
+      }
+    }
+  }
+}

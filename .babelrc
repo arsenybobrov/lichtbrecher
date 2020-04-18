@@ -1,0 +1,17 @@
+{
+  "presets": ["next/babel"],
+  "plugins": [
+    [
+      "styled-components", {
+      "ssr": true,
+      "displayName": true
+    }
+    ],
+    ["polished"]
+  ],
+  "env": {
+    "test": {
+      "plugins": ["require-context-hook", "transform-dynamic-import"]
+    }
+  }
+}

@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`nextLink snapshot external link with target _blank 1`] = `
+<a
+  href="https://example.com"
+  rel="noopener noreferrer"
+  target="_blank"
+  title="Click me"
+>
+  Click me
+</a>
+`;
+
+exports[`nextLink snapshot internal Link to a page 1`] = `
+<a
+  href="/page-two"
+  onClick={[Function]}
+  title="here comes the title"
+>
+  Click me
+</a>
+`;
+
+exports[`nextLink snapshot internal Link to the homepage 1`] = `
+<a
+  href="/"
+  onClick={[Function]}
+  title="here comes the title"
+>
+  Click me
+</a>
+`;
