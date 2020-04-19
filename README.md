@@ -87,7 +87,7 @@ It is recommended to use ```src/helpers/preventCodeInjection.ts``` when using da
 
 #### Internal & external inks:
 Use ```src/components/atoms/Link/Link.tsx``` for internal link handling with the ability to handle client-side transitions and extertnal links.
-Links inside a richt text are handled the same way.
+Links inside a richt text are handled the same way. E.g. ```<Link text={data.data.link_text} url={data.data.link} title="click me" />```.
 
 
 #### scss
