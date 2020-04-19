@@ -27,7 +27,7 @@ const ComponentsRenderer: React.FC<ComponentsRendererProps> = ({
   <>
     {
       slices.map((slice) => (
-        <div key={uniqueId()}>
+        <div key={uniqueId()} className={slice.slice_type}>
           {React.createElement(
             get(SLICES_MAP, slice.slice_type, UndefinedSlice),
             { primary: slice.primary, items: slice.items, sliceName: slice.slice_type },
