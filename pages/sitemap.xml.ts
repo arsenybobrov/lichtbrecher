@@ -16,7 +16,7 @@ ${
     return `
       <url>
         <loc>https://${req?.headers.host}${linkResolver({ type, uid, lang }, documentRelations)}</loc>
-        <lastmod>${result.last_publication_date}</lastmod>
+        <lastmod>${result.last_publication_date?.substring(0, 10)}</lastmod>
       </url>
     `;
   }).join('')
