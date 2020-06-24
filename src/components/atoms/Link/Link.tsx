@@ -5,13 +5,13 @@ import linkResolver from '../../../../prismic/helper/linkResolver';
 import { PrismicLink } from '../../../../prismic/types';
 
 interface LinkProps {
-  text: string,
+  text?: string,
   url: PrismicLink,
-  title: string,
+  title?: string,
 }
 
 const Link: React.FC<LinkProps> = ({
-  text, url, title = text,
+  text, url, title = text || '', children,
 }) => {
   const handleClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
@@ -34,7 +34,7 @@ const Link: React.FC<LinkProps> = ({
           target={get(url, 'target', null)}
           rel={get(url, 'target', '_self') === '_blank' ? 'noopener noreferrer' : undefined}
         >
-          {text}
+          {text || children}
         </a>
       );
     }
@@ -45,7 +45,7 @@ const Link: React.FC<LinkProps> = ({
         title={title}
         onClick={(e) => handleClick(e, '/', linkResolver(url))}
       >
-        {text}
+        {text || children}
       </a>
     );
   }
