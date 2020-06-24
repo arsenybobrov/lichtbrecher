@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Router from 'next/router';
 import get from 'lodash/get';
 import linkResolver from '../../../../prismic/helper/linkResolver';
 import { PrismicLink } from '../../../../prismic/types';
-import BodyTransition from './partials/BodyTransition';
 
 interface LinkProps {
   text: string,
@@ -14,8 +13,6 @@ interface LinkProps {
 const Link: React.FC<LinkProps> = ({
   text, url, title = text,
 }) => {
-  const [routeChanging, init] = useState(false);
-
   const handleClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string,
@@ -23,10 +20,9 @@ const Link: React.FC<LinkProps> = ({
     options?: any
   ) => {
     e.preventDefault();
-    init(true);
     setTimeout(() => {
       Router.push(href, as, options);
-    }, 50);
+    }, 0);
   };
 
   if (url) {
@@ -44,16 +40,13 @@ const Link: React.FC<LinkProps> = ({
     }
 
     return (
-      <>
-        <a
-          href={linkResolver(url)}
-          title={title}
-          onClick={(e) => handleClick(e, '/', linkResolver(url))}
-        >
-          {text}
-        </a>
-        {routeChanging && <BodyTransition />}
-      </>
+      <a
+        href={linkResolver(url)}
+        title={title}
+        onClick={(e) => handleClick(e, '/', linkResolver(url))}
+      >
+        {text}
+      </a>
     );
   }
   return <></>;

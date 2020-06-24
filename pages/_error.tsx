@@ -10,11 +10,11 @@ const Error: NextPage<ErrorProps> = ({ statusCode }) => {
     case 401:
       return <div>Wrong token (401)</div>;
     case 404:
-      return <div>Api url is wrong (404)</div>;
+      return <div>Api url is wrong or no data/page404Data is provided (404).</div>;
     case 500:
       return <div>App ist down (500)</div>;
     default:
-      return <div>Something went wrong {statusCode}</div>;
+      return <div>Something went wrong. Provided code is: &quot;{statusCode}&quot;</div>;
   }
 };
 

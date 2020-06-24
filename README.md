@@ -1,6 +1,18 @@
 # Lichtbrecher
+Lichtbrecher is a setup template for projects running with next.js and consuming content from prismic.io.
 
-### install
+### setup backend
+Create a new repository at prismic.io. Go to "Settings > Api & Security", set the repository security API access to "Private API" and generate a
+permanent access token by adding a new application. See the "prismic custom types" section of this README to setup content types inside prismic.
+
+Go to Setings > Previews and create a preview. Link resolver must be ```/api/preview```.
+
+Example for previews on localhost:
+
+Site Name: localhost, Domain: http://localhost:3000, Link Resolver: api/preview
+
+
+### install frontend
 Run ```yarn install```, edit ```prismic/config.js``` and ```next.config.js```.
 Setup prismic: content types and languages.
 
@@ -29,6 +41,11 @@ Static errors are handled inside ```pages/_error.js```. The classic "404 - page 
 The prismic custom type for the 404 error page is inside ```prismic/config.js```.
 
 
+### templating
+Prismic allows you to use slices. So it is not always neccessary to use more than one template.
+See ```src/components/templates```. If you need more templates add them inside ```pages/index.tsx```.
+
+
 ### prismic custom types
 This setup allows to handle only 4 different custom types:
  - homepage
@@ -44,6 +61,8 @@ Add new slices (prismic modules) inside ```prismic/slices.js```.
 ```src/templates/partials/ComponentsRenderer.js``` should be used by the templates to render slices according to ```prismic/config.js```.
 E.g.: 
 ```
+import get from 'lodash/get';
+
 <ComponentsRenderer
     slices={get(data, 'data.body', [])}
 />
@@ -51,11 +70,16 @@ E.g.:
 
 
 ### prismic richtext
-Add components inside ```prismic/helper/richtextHtmlSerializer.ts``` to controll richt text elements
+Add components inside ```prismic/helper/richtextHtmlSerializer.ts``` to controll richt text elements.
 
 
 ### prismic edit btn
 Add a ```data-wio-id={pageId}``` attribute to a DOM element (e.g. ```<div data-wio-id={pageId} />```).
+
+
+### document relations
+Inside prismic the custom type "page" has a document relation field named "category". Select a parent document to create a document relation
+between the two documents. This is neccessary for multi-level navigation.
 
 
 ### cheatsheet
@@ -86,9 +110,13 @@ It is recommended to use ```src/helpers/preventCodeInjection.ts``` when using da
 ```
 
 #### Internal & external inks:
-Use ```src/components/atoms/Link/Link.tsx``` for internal link handling with the ability to handle client-side transitions and extertnal links.
-Links inside a richt text are handled the same way. E.g. ```<Link text={data.data.link_text} url={data.data.link} title="click me" />```.
+Use ```src/components/atoms/Link/Link.tsx``` for internal link handling with the ability to handle client-side transitions (if delayClick set to true) and extertnal links.
+Links inside a richt text are handled the same way. E.g.:
+```<Link text={data.data.link_text} url={data.data.link} title="click me" />``` or
 
+```<Link url={data.data.link} title="click me">Click me!</Link>```.
+
+See tests for details.
 
 #### scss
 Want to write styles in JavaScript, but also want Sass-style helper functions and mixins? Need a consistent color palette throughout your app? ✨ polished is for you!

@@ -17,7 +17,7 @@ export interface PageProps {
   data?: Data;
   type?: string;
   sharedData?: Data;
-  Page404Data?: Data;
+  page404Data?: Data;
   serverReqUrl?: string;
   e?: { status: number };
 }

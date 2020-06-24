@@ -10,7 +10,7 @@ const sitemapXml = (results: Array<Data>, asPath: string) => `
       ${results.map((result) => `
           <url>
             <loc>${process.env.baseUrl}/${getLocalePrefix(asPath) !== '' ? `${getLocalePrefix(asPath)}/` : ''}${result.uid !== null ? result.uid : ''}</loc>
-            <lastmod>${result.last_publication_date}</lastmod>
+            <lastmod>${result.last_publication_date?.substring(0, 10)}</lastmod>
           </url>
         `).join('')}
     </urlset>

@@ -42,8 +42,8 @@ export const fetchDocumentContent = async (
       }
 
       if (!data) {
-        const Page404Data = await Client(req).getSingle(error404, { lang });
-        if (Page404Data) { return { Page404Data, sharedData, serverReqUrl }; }
+        const page404Data = await Client(req).getSingle(error404, { lang });
+        if (page404Data) { return { page404Data, sharedData, serverReqUrl }; }
       }
     }
     return {};

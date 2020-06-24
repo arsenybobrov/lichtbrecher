@@ -11,7 +11,7 @@ export const LOCALES = {
 };
 
 export const LOCALES_MAP = {
-  [LOCALES.en]: 'en-us',
+  [LOCALES.en]: 'en-gb',
   default: 'de-de',
 };
 
