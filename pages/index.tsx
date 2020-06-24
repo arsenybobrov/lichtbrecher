@@ -61,8 +61,6 @@ Page.getInitialProps = async ({ req, res, asPath }: NextPageContext): Promise<Pa
     validPath = true;
   }
 
-  console.log(asPath, path);
-
   const fetchedContent = await fetchDocumentContent(req, query, validPath, type, uid);
 
   const statusCode = fetchedContent && fetchedContent.data ? 200 : 404;
