@@ -1,27 +1,35 @@
 import { NextPageContext } from 'next';
+import { IncomingMessage } from 'http';
 import { fetchDocuments } from '../prismic/helper/fetchContent';
 import {
-  getLocalePrefix, isHomepage, isLocaleValid, urlHasLocalePrefix,
+  isHomepage, isLocaleValid, urlHasLocalePrefix,
 } from './index';
 import { Data } from '../prismic/types';
+import makeDocumentRelations from '../prismic/helper/makeDocumentRelations';
+import linkResolver from '../prismic/helper/linkResolver';
 
-const sitemapXml = (results: Array<Data>, asPath: string) => `
-    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-      ${results.map((result) => `
-          <url>
-            <loc>${process.env.baseUrl}/${getLocalePrefix(asPath) !== '' ? `${getLocalePrefix(asPath)}/` : ''}${result.uid !== null ? result.uid : ''}</loc>
-            <lastmod>${result.last_publication_date?.substring(0, 10)}</lastmod>
-          </url>
-        `).join('')}
-    </urlset>
-  `;
+const sitemapXml = (results: Array<Data>, req: IncomingMessage | undefined, documentRelations: any) => `
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${
+  results.map((result) => {
+    const { type, uid, lang } = result;
+    return `
+      <url>
+        <loc>https://${req?.headers.host}${linkResolver({ type, uid, lang }, documentRelations)}</loc>
+        <lastmod>${result.last_publication_date?.substring(0, 10)}</lastmod>
+      </url>
+    `;
+  }).join('')
+}
+</urlset>`;
 
 const Sitemap = () => {};
 
-Sitemap.getInitialProps = async ({ res, asPath }: NextPageContext) => {
+Sitemap.getInitialProps = async ({ req, res, asPath }: NextPageContext) => {
   const results = await fetchDocuments();
-  let validUrl = false;
+  const documentRelations = await makeDocumentRelations(results);
   const path = asPath || '/';
+  let validUrl = false;
 
   if (
     (!isHomepage(path) && !urlHasLocalePrefix(path)) ||
@@ -32,7 +40,7 @@ Sitemap.getInitialProps = async ({ res, asPath }: NextPageContext) => {
   if (res) {
     if (validUrl) {
       res.setHeader('Content-Type', 'text/xml; charset=utf-8');
-      res.write(sitemapXml(results, path));
+      res.write(sitemapXml(results, req, documentRelations));
     } else {
       res.statusCode = 404;
     }

@@ -1,7 +1,7 @@
 export interface Data {
   id: string;
   uid?: string | null;
-  type: string;
+  type?: string | null;
   href: string;
   tags: Array<string>;
   first_publication_date?: string | null;
@@ -26,8 +26,8 @@ export interface PrismicLink {
   link_type?: string | null;
   type?: string | null;
   uid?: string | null;
-  url: string;
-  lang: string;
+  url?: string;
+  lang?: string | null;
 }
 
 export interface PrismicSingleImage {
