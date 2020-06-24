@@ -1,5 +1,6 @@
 import map from 'lodash/map';
 import forEach from 'lodash/forEach';
+import { PRISMIC_API_IDS } from '../config';
 
 const mapDocuments = (documents: Array<Object>) => {
   const documentMap: any = {};
@@ -9,8 +10,8 @@ const mapDocuments = (documents: Array<Object>) => {
       id: document.id,
       uid: document.uid,
       type: document.type,
-      category: document.data.category || {},
-      displayName: document.data.display_name,
+      category: document.data[PRISMIC_API_IDS.category] || {},
+      displayName: document.data[PRISMIC_API_IDS.display_name],
     };
     documentMap[document.uid].parent = [];
   });
@@ -23,17 +24,17 @@ const documentRelations = (documentMap: any) => {
   forEach(documentMap, (item: any) => {
     document = documentMap[item.uid];
     if (
-      document.category &&
-      document.category.uid &&
-      document.category.uid !== document.uid &&
-      documentMap[document.category.uid]
+      document[PRISMIC_API_IDS.category] &&
+      document[PRISMIC_API_IDS.category].uid &&
+      document[PRISMIC_API_IDS.category].uid !== document.uid &&
+      documentMap[document[PRISMIC_API_IDS.category].uid]
     ) {
       documentMap[document.uid].parent.push({
-        id: documentMap[document.category.uid].id,
-        uid: documentMap[document.category.uid].uid,
-        type: documentMap[document.category.uid].type,
-        displayName: documentMap[document.category.uid].displayName,
-        parent: documentMap[document.category.uid].parent,
+        id: documentMap[document[PRISMIC_API_IDS.category].uid].id,
+        uid: documentMap[document[PRISMIC_API_IDS.category].uid].uid,
+        type: documentMap[document[PRISMIC_API_IDS.category].uid].type,
+        displayName: documentMap[document[PRISMIC_API_IDS.category].uid].displayName,
+        parent: documentMap[document[PRISMIC_API_IDS.category].uid].parent,
       });
       tree.push(document);
     } else {
