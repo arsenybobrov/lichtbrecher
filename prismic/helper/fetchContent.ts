@@ -24,7 +24,7 @@ export const Client = (req: any) => (
 
 
 export const fetchDocumentContent = async (
-  req: any, query: QueryProps, type?: string | null, uid?: string | null
+  req: any, query: QueryProps, validPath: boolean, type?: string | null, uid?: string | null
 ) => {
   const { lang } = query;
   try {
@@ -32,13 +32,15 @@ export const fetchDocumentContent = async (
     const serverReqUrl = `https://${get(req, 'rawHeaders[1]', '')}${get(req, 'url', '')}`;
     if (type) {
       let data;
-      if (uid) {
-        data = await Client(req).getByUID(type, uid, { lang });
-      } else { data = await Client(req).getSingle(type, { lang }); }
-      if (data) {
-        return {
-          data, type, sharedData, serverReqUrl,
-        };
+      if (validPath) {
+        if (uid) {
+          data = await Client(req).getByUID(type, uid, { lang });
+        } else { data = await Client(req).getSingle(type, { lang }); }
+        if (data) {
+          return {
+            data, type, sharedData, serverReqUrl,
+          };
+        }
       }
 
       if (!data) {

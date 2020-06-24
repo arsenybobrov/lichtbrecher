@@ -1,43 +1,20 @@
 import React from 'react';
-import { NextPage, NextPageContext } from 'next';
 import get from 'lodash/get';
+import { NextPage, NextPageContext } from 'next';
 import Error from './_error';
 import { fetchDocumentContent, fetchDocuments } from '../prismic/helper/fetchContent';
-import { PRISMIC_CUSTOM_TYPES, LOCALES, LOCALES_MAP } from '../prismic/config';
+import { LOCALES_MAP, PRISMIC_CUSTOM_TYPES } from '../prismic/config';
 import PageTemplate from '../src/components/templates/PageTemplate';
 import { PageProps } from '../prismic/types';
 import makeDocumentRelations from '../prismic/helper/makeDocumentRelations';
+import linkResolver from '../prismic/helper/linkResolver';
+import getLocalePrefix from '../src/helpers/getLocalePrefix';
 
 const { home, page } = PRISMIC_CUSTOM_TYPES;
 
 export interface QueryProps {
   lang: string;
 }
-
-export const getLocalePrefix = (asPath: string) => {
-  const localePrefix = get(LOCALES, asPath.split('/')[1], '');
-  return localePrefix;
-};
-
-export const isHomepage = (asPath: string) => {
-  if (
-    asPath === '/' ||
-    asPath === `/${getLocalePrefix(asPath)}` ||
-    asPath === `/${getLocalePrefix(asPath)}/`
-  ) {
-    return true;
-  }
-  return false;
-};
-
-export const urlHasLocalePrefix = (asPath: string) => {
-  const pathArray = asPath.match(/\/.+?/g) || [];
-  if (pathArray.length === 1) return false;
-  if (pathArray.length > 1) return true;
-  return false;
-};
-
-export const isLocaleValid = (asPath: string) => !!get(LOCALES, asPath.split('/')[1], null);
 
 const Page: NextPage<PageProps> = ({
   data,
@@ -65,24 +42,28 @@ const Page: NextPage<PageProps> = ({
 Page.getInitialProps = async ({ req, res, asPath }: NextPageContext): Promise<PageProps> => {
   const results = await fetchDocuments();
   const documentRelations = await makeDocumentRelations(results);
-
-
-  const path = asPath || '';
-  const type = isHomepage(path) ? home : page;
-  let uid = isHomepage(path) ? null : '--404__error--';
+  const uid = asPath?.split('/').pop();
+  const localePrefix = getLocalePrefix(asPath || '/');
+  const type = uid ? page : home;
   const query: QueryProps = {
-    lang: get(LOCALES_MAP, path.split('/')[1], LOCALES_MAP.default),
+    lang: get(LOCALES_MAP, localePrefix, LOCALES_MAP.default),
   };
+  const link_type = 'Document';
+  const { lang } = query;
+  const url = undefined;
+  const path = linkResolver({
+    link_type, type, uid, url, lang,
+  }, documentRelations);
 
-  if (!isHomepage(path) && !urlHasLocalePrefix(path)) {
-    uid = isHomepage(path) ? null : path.substr(path.lastIndexOf('/') + 1);
+  let validPath = false;
+
+  if (asPath === path) {
+    validPath = true;
   }
 
-  if (!isHomepage(path) && urlHasLocalePrefix(path) && isLocaleValid(path)) {
-    uid = isHomepage(path) ? null : path.substr(path.lastIndexOf('/') + 1);
-  }
+  console.log(asPath, path);
 
-  const fetchedContent = await fetchDocumentContent(req, query, type, uid);
+  const fetchedContent = await fetchDocumentContent(req, query, validPath, type, uid);
 
   const statusCode = fetchedContent && fetchedContent.data ? 200 : 404;
   if (res) { res.statusCode = statusCode; }

@@ -1,8 +1,8 @@
 import React from 'react';
 import Document, { DocumentContext } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
-import { getLocalePrefix } from './index';
 import { LOCALES } from '../prismic/config';
+import getLocalePrefix from '../src/helpers/getLocalePrefix';
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
