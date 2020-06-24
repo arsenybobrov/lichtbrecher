@@ -2,10 +2,11 @@ import React from 'react';
 import { NextPage, NextPageContext } from 'next';
 import get from 'lodash/get';
 import Error from './_error';
-import { fetchDocumentContent } from '../prismic/helper/fetchContent';
+import { fetchDocumentContent, fetchDocuments } from '../prismic/helper/fetchContent';
 import { PRISMIC_CUSTOM_TYPES, LOCALES, LOCALES_MAP } from '../prismic/config';
 import PageTemplate from '../src/components/templates/PageTemplate';
 import { PageProps } from '../prismic/types';
+import makeDocumentRelations from '../prismic/helper/makeDocumentRelations';
 
 const { home, page } = PRISMIC_CUSTOM_TYPES;
 
@@ -39,23 +40,33 @@ export const urlHasLocalePrefix = (asPath: string) => {
 export const isLocaleValid = (asPath: string) => !!get(LOCALES, asPath.split('/')[1], null);
 
 const Page: NextPage<PageProps> = ({
-  data, type, sharedData, page404Data, serverReqUrl, e,
+  data,
+  type,
+  sharedData,
+  page404Data,
+  serverReqUrl,
+  documentRelations,
+  e,
 }) => {
   if (data) {
     switch (type) {
       case page:
-        return <PageTemplate data={data} sharedData={sharedData} serverReqUrl={serverReqUrl || ''} />;
+        return <PageTemplate data={data} sharedData={sharedData} serverReqUrl={serverReqUrl || ''} documentRelations={documentRelations} />;
       default:
-        return <PageTemplate data={data} sharedData={sharedData} serverReqUrl={serverReqUrl || ''} />;
+        return <PageTemplate data={data} sharedData={sharedData} serverReqUrl={serverReqUrl || ''} documentRelations={documentRelations} />;
     }
   }
   if (page404Data) {
-    return <PageTemplate data={page404Data} sharedData={sharedData} serverReqUrl={serverReqUrl || ''} />;
+    return <PageTemplate data={page404Data} sharedData={sharedData} serverReqUrl={serverReqUrl || ''} documentRelations={documentRelations} />;
   }
   return <Error statusCode={e ? e.status : 404} />;
 };
 
 Page.getInitialProps = async ({ req, res, asPath }: NextPageContext): Promise<PageProps> => {
+  const results = await fetchDocuments();
+  const documentRelations = await makeDocumentRelations(results);
+
+
   const path = asPath || '';
   const type = isHomepage(path) ? home : page;
   let uid = isHomepage(path) ? null : '--404__error--';
@@ -76,7 +87,7 @@ Page.getInitialProps = async ({ req, res, asPath }: NextPageContext): Promise<Pa
   const statusCode = fetchedContent && fetchedContent.data ? 200 : 404;
   if (res) { res.statusCode = statusCode; }
 
-  return fetchedContent;
+  return { ...fetchedContent, documentRelations };
 };
 
 export default Page;

@@ -19,15 +19,21 @@ export interface PageProps {
   sharedData?: Data;
   page404Data?: Data;
   serverReqUrl?: string;
+  documentRelations?: any;
   e?: { status: number };
 }
 
 export interface PrismicLink {
+  id?: string | null;
   link_type?: string | null;
   type?: string | null;
   uid?: string | null;
   url?: string;
   lang?: string | null;
+  target?: string | null;
+  tags?: Array<string>;
+  slug?: string;
+  isBroken?: boolean;
 }
 
 export interface PrismicSingleImage {
