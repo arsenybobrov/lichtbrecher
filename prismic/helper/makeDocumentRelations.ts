@@ -11,7 +11,7 @@ const mapDocuments = (documents: Array<Object>) => {
       uid: document.uid,
       type: document.type,
       category: document.data[PRISMIC_API_IDS.category] || {},
-      displayName: document.data[PRISMIC_API_IDS.display_name],
+      displayName: document.data[PRISMIC_API_IDS.displayName],
     };
     documentMap[document.uid].parent = [];
   });

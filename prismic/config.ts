@@ -16,11 +16,12 @@ export const LOCALES_MAP = {
 };
 
 export const PRISMIC_API_IDS = {
-  display_name: 'display_name',
+  displayName: 'display_name',
   category: 'category',
   metaTitle: 'meta_title',
   metaDescription: 'meta_description',
   metaCanonical: 'meta_canonical',
+  metaIndex: 'meta_index',
   ogTitle: 'og_title',
   ogDescription: 'og_description',
   ogImage: 'og_image',

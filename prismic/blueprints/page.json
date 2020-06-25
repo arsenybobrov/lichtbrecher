@@ -80,6 +80,15 @@
       "config": {
         "label": "meta canonical"
       }
+    },
+    "meta_index": {
+      "type": "Boolean",
+      "config": {
+        "placeholder_false": "false",
+        "placeholder_true": "true",
+        "default_value": true,
+        "label": "meta index"
+      }
     }
   },
   "OpenGraph": {
