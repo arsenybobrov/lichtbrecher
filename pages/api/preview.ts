@@ -1,14 +1,25 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { Client } from '../../prismic/helper/fetchContent';
+import get from 'lodash/get';
+import { Client, fetchDocuments } from '../../prismic/helper/fetchContent';
 import linkResolver from '../../prismic/helper/linkResolver';
+import makeDocumentRelations from '../../prismic/helper/makeDocumentRelations';
+import getLocalePrefix from '../../src/helpers/getLocalePrefix';
+import { LOCALES_MAP } from '../../prismic/config';
 
 export const Preview = async (req: NextApiRequest, res: NextApiResponse) => {
   const token = req.query.token as string;
+  const results = await fetchDocuments();
+  const documentRelations = await makeDocumentRelations(results);
 
   if (token) {
     try {
       const url: string = await Client(req).previewSession(token, linkResolver, '/');
-      res.writeHead(302, { Location: url });
+      console.log(url);
+      const uid = url.split('/').pop();
+      const localePrefix = getLocalePrefix(url || '/');
+      const lang = get(LOCALES_MAP, localePrefix, LOCALES_MAP.default);
+
+      res.writeHead(302, { Location: linkResolver({ uid, lang }, documentRelations) });
       res.end();
     } catch {
       res
