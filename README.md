@@ -1,6 +1,9 @@
 # Lichtbrecher
 Lichtbrecher is a setup template for projects running with next.js and consuming content from prismic.io.
 
+### demo
+https://lichtbrecher.vercel.app/
+
 ### setup backend
 Create a new repository at prismic.io. Go to "Settings > Api & Security", set the repository security API access to "Private API" and generate a
 permanent access token by adding a new application. See the "prismic custom types" section of this README to setup content types inside prismic.
@@ -9,7 +12,7 @@ Go to Setings > Previews and create a preview. Link resolver must be ```/api/pre
 
 Example for previews on localhost:
 
-Site Name: localhost, Domain: http://localhost:3000, Link Resolver: api/preview
+Site Name: localhost, Domain: http://localhost:3000, Link Resolver: /api/preview
 
 
 ### install frontend
