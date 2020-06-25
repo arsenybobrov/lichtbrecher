@@ -127,6 +127,7 @@ The following libs are not neccessary for the setup to work but are very nice:
 
 - react-gsap
 - react-scroll
+- react-scrollmagic
 
 
 ### license
