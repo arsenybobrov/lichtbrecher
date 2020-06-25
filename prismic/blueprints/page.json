@@ -84,8 +84,8 @@
     "meta_index": {
       "type": "Boolean",
       "config": {
-        "placeholder_false": "false",
-        "placeholder_true": "true",
+        "placeholder_false": "robots should NOT follow",
+        "placeholder_true": "robots SHOULD follow",
         "default_value": true,
         "label": "meta index"
       }

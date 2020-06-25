@@ -8,12 +8,14 @@ interface MetaProps {
   title?: string;
   description?: string;
   canonical?: string;
+  shouldIndex?: boolean;
 }
 
 const Meta: React.FC<MetaProps> = ({
   title,
   description,
   canonical,
+  shouldIndex = true,
 }) => {
   const defaultMeta = useContext(SharedContentContext);
   const theme = useContext(ThemeContext);
@@ -28,7 +30,8 @@ const Meta: React.FC<MetaProps> = ({
       <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
       <title>{title || defaultTitle || ''}</title>
       <meta name="description" content={description || defaultDescription} />
-      {(!canonical || canonical === '') && <meta name="robots" content="index, follow" />}
+      {(!canonical || canonical === '') && shouldIndex && <meta name="robots" content="index, follow" />}
+      {!shouldIndex && <meta name="robots" content="noindex, nofollow" />}
       {canonical && canonical !== '' && <meta name="canonical" content={canonical} />}
       <meta name="theme-color" content={theme.colors.themeColor} />
       <meta name="format-detection" content="telephone=no" />

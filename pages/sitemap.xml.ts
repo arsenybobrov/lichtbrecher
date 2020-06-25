@@ -22,18 +22,18 @@ const sitemapXml = (results: Array<Data>, req: IncomingMessage | undefined, docu
     // eslint-disable-next-line no-shadow
         const { type, uid, lang } = translation; // eslint-disable-line indent
         if (translation.type) { // eslint-disable-line indent
-      return `<xhtml:link rel="alternate" hreflang="${lang}" href="https://${req?.headers.host}${linkResolver({
-        type,
-        uid,
-        lang,
-          }, documentRelations)}" />`; // eslint-disable-line indent
-        } // eslint-disable-line indent
+          return `<xhtml:link rel="alternate" hreflang="${lang}" href="https://${req?.headers.host}${linkResolver({ // eslint-disable-line indent
+            type, // eslint-disable-line indent
+            uid, // eslint-disable-line indent
+            lang, // eslint-disable-line indent
+              }, documentRelations)}" />`; // eslint-disable-line indent
+            } // eslint-disable-line indent
         return ''; // eslint-disable-line indent
     // eslint-disable-next-line indent
       })}
           <lastmod>${result.last_publication_date?.substring(0, 10)}</lastmod>
         </url>
-      `;
+    `;
   }).join('')}
 </urlset>`;
 

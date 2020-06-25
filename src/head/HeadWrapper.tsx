@@ -19,10 +19,16 @@ const HeadWrapper: React.FC<HeadProps> = ({ data, serverReqUrl, children }) => {
   const ogTitle = get(data.data, PRISMIC_API_IDS.ogTitle, null);
   const ogDescription = get(data.data, PRISMIC_API_IDS.ogDescription, null);
   const canonical = get(data.data, PRISMIC_API_IDS.metaCanonical, null);
+  const shouldIndex = get(data.data, PRISMIC_API_IDS.metaIndex, true);
 
   return (
     <>
-      <Meta title={title} description={description} canonical={canonical} />
+      <Meta
+        title={title}
+        description={description}
+        canonical={canonical}
+        shouldIndex={shouldIndex}
+      />
       <Opengraph
         title={ogTitle || title}
         description={ogDescription || description}
