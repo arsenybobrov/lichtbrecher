@@ -32,4 +32,4 @@ Open ```next.config.js```. Set the environment variables *apiEndpoint*, *accessT
 
 ### Start Next.js
 
-Execute ```yarn dev``` or ```yarn build``` and ```yarn start``` to start your server on localhost and visit [localhost:3000](http://localhost:3000) in your browser.
+Execute ```yarn dev``` (or ```yarn build``` and ```yarn start```) to start your server on localhost and visit [localhost:3000](http://localhost:3000) in your browser.
