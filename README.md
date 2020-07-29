@@ -86,11 +86,20 @@ between the two documents. This is neccessary for multi-level navigation.
 
 
 ### cheatsheet
+#### Manage multi level navigation
+Create inside prismic a new custom type for navigation (e.g. navigation).
+Use ```prismic/blueprints/navigation.json``` blueprint to fill this new custom type.
+
+Fetch this custom type at the place where you need it. 
+E.g. ```const fetchedMainNav = await Client(req).getByUID(navigation, 'main-nav', { lang });``` (custom type, UID, language).
+
+Use ```src/helpers/flatNavToNestedNavConverter.ts``` to convert the prismic output (array of objects) to an array of NESTED objects.
+E.g. ```<pre>{JSON.stringify(flatNavToNestedNavConverter(get(fetchedMainNav, 'data.body', [])), null, 2)}</pre>```
+
 #### Handle prismic rich text:
 ```import { RichText } from 'prismic-reactjs';```
 
 ```const richtText = RichText.render(prismic.richtext.object, linkResolver, htmlSerializer);```
-
 
 #### dangerouslySetInnerHTML
 It is recommended to use ```src/helpers/preventCodeInjection.ts``` when using dangerouslySetInnerHTML.
@@ -134,4 +143,4 @@ The following libs are not neccessary for the setup to work but are very nice:
 
 
 ### license
-MIT. ©Copyright Arseny Bobrov, Daniel Hargesheimer, 2020.
+MIT. ©Copyright Arseny Bobrov, Daniel Hargesheimer, Chema Mengibar 2020.

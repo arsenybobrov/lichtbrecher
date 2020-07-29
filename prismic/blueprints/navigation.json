@@ -1,0 +1,74 @@
+{
+  "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "uid"
+      }
+    },
+    "display_name": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "display name"
+      }
+    }
+  },
+  "Navigation": {
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {
+          "nav_item": []
+        },
+        "choices": {
+          "nav_item": {
+            "type": "Slice",
+            "fieldset": "Nav Item",
+            "description": "Navigation item",
+            "icon": "reorder",
+            "display": "list",
+            "non-repeat": {
+              "nav_link": {
+                "type": "Link",
+                "config": {
+                  "allowTargetBlank": true,
+                  "label": "Nav Link"
+                }
+              },
+              "link_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Link Text",
+                  "placeholder": "Link text..."
+                }
+              },
+              "link_title": {
+                "type": "Text",
+                "config": {
+                  "label": "Link Title",
+                  "placeholder": "Link title..."
+                }
+              },
+              "level": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "1",
+                    "2",
+                    "3",
+                    "4"
+                  ],
+                  "default_value": "1",
+                  "label": "level"
+                }
+              }
+            },
+            "repeat": {}
+          }
+        }
+      }
+    }
+  }
+}
