@@ -1,6 +1,9 @@
 # Lichtbrecher
 Lichtbrecher is a setup template for projects running with next.js and consuming content from prismic.io.
 
+### demo
+https://lichtbrecher.vercel.app/
+
 ### setup backend
 Create a new repository at prismic.io. Go to "Settings > Api & Security", set the repository security API access to "Private API" and generate a
 permanent access token by adding a new application. See the "prismic custom types" section of this README to setup content types inside prismic.
@@ -9,7 +12,7 @@ Go to Setings > Previews and create a preview. Link resolver must be ```/api/pre
 
 Example for previews on localhost:
 
-Site Name: localhost, Domain: http://localhost:3000, Link Resolver: api/preview
+Site Name: localhost, Domain: http://localhost:3000, Link Resolver: /api/preview
 
 
 ### install frontend
@@ -83,11 +86,20 @@ between the two documents. This is neccessary for multi-level navigation.
 
 
 ### cheatsheet
+#### Manage multi level navigation
+Create inside prismic a new custom type for navigation (e.g. navigation).
+Use ```prismic/blueprints/navigation.json``` blueprint to fill this new custom type.
+
+Fetch this custom type at the place where you need it. 
+E.g. ```const fetchedMainNav = await Client(req).getByUID(navigation, 'main-nav', { lang });``` (custom type, UID, language).
+
+Use ```src/helpers/flatNavToNestedNavConverter.ts``` to convert the prismic output (array of objects) to an array of NESTED objects.
+E.g. ```<pre>{JSON.stringify(flatNavToNestedNavConverter(get(fetchedMainNav, 'data.body', [])), null, 2)}</pre>```
+
 #### Handle prismic rich text:
 ```import { RichText } from 'prismic-reactjs';```
 
 ```const richtText = RichText.render(prismic.richtext.object, linkResolver, htmlSerializer);```
-
 
 #### dangerouslySetInnerHTML
 It is recommended to use ```src/helpers/preventCodeInjection.ts``` when using dangerouslySetInnerHTML.
@@ -127,7 +139,8 @@ The following libs are not neccessary for the setup to work but are very nice:
 
 - react-gsap
 - react-scroll
+- react-scrollmagic
 
 
 ### license
-MIT. ©Copyright Arseny Bobrov, Daniel Hargesheimer, 2020.
+MIT. ©Copyright Arseny Bobrov, Daniel Hargesheimer, Chema Mengibar 2020.

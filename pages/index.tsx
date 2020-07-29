@@ -9,6 +9,7 @@ import { PageProps } from '../prismic/types';
 import makeDocumentRelations from '../prismic/helper/makeDocumentRelations';
 import linkResolver from '../prismic/helper/linkResolver';
 import getLocalePrefix from '../src/helpers/getLocalePrefix';
+import isHomepage from '../src/helpers/isHomepage';
 
 const { home, page } = PRISMIC_CUSTOM_TYPES;
 
@@ -40,19 +41,24 @@ const Page: NextPage<PageProps> = ({
 };
 
 Page.getInitialProps = async ({ req, res, asPath }: NextPageContext): Promise<PageProps> => {
+  if (res && asPath?.substr(-1) === '/' && !isHomepage(asPath || '')) {
+    const newPath = asPath?.replace(/\/$/, '');
+    res.writeHead(301, { Location: newPath });
+    res.end();
+  }
+
   const results = await fetchDocuments();
   const documentRelations = await makeDocumentRelations(results);
-  const uid = asPath?.split('/').pop();
+  const uid = isHomepage(asPath || '') ? null : asPath?.replace(/\/$/, '').split('/').pop();
   const localePrefix = getLocalePrefix(asPath || '/');
-  const type = uid ? page : home;
+  const type = isHomepage(asPath || '') ? home : page;
   const query: QueryProps = {
     lang: get(LOCALES_MAP, localePrefix, LOCALES_MAP.default),
   };
   const link_type = 'Document';
   const { lang } = query;
-  const url = undefined;
   const path = linkResolver({
-    link_type, type, uid, url, lang,
+    link_type, type, uid, lang,
   }, documentRelations);
 
   let validPath = false;
