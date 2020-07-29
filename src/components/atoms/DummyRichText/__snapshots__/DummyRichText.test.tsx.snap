@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`nextLink snapshot RichText with paragraphs 1`] = `
+Array [
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  </p>,
+  <p>
+    Aliquam dui turpis, ultricies quis semper vel, facilisis in leo.
+  </p>,
+  <p>
+    In aliquet orci et egestas sagittis.
+  </p>,
+  <p>
+    Phasellus pretium, elit ac pellentesque porta, lacus sapien laoreet neque, nec bibendum odio leo sollicitudin tellus.
+  </p>,
+]
+`;
+
+exports[`nextLink snapshot Richtext with unordered list 1`] = `
+Array [
+  <pre>
+    {"type":"list-item","text":"first"}
+  </pre>,
+  <pre>
+    {"type":"list-item","text":"second"}
+  </pre>,
+  <pre>
+    {"type":"list-item","text":"third"}
+  </pre>,
+]
+`;
