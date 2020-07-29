@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import 'jest-styled-components';
-import DummyHeadline, { HeadlineType } from './DummyHeadline';
+import Headline, { HeadlineType } from './Headline';
 
 // eslint-disable-next-line import/prefer-default-export
 export const headingMock = (level: number) => ({
@@ -19,7 +19,7 @@ describe('nextLink snapshot', () => {
     ${'h5 headline'} | ${headingMock(5)}
     ${'h6 headline'} | ${headingMock(6)}
   `('$name', ({ mock }) => {
-  const tree = renderer.create(<DummyHeadline {...mock} />).toJSON();
+  const tree = renderer.create(<Headline {...mock} />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 });

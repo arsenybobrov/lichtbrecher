@@ -17,8 +17,8 @@ export interface HeadlineProps {
   key?: string;
 }
 
-const DummyHeadline: React.FC<HeadlineProps> = ({ type, text }) => (
+const Headline: React.FC<HeadlineProps> = ({ type, text }) => (
   React.createElement(HeadlineMap[type], null, text)
 );
 
-export default DummyHeadline;
+export default Headline;
