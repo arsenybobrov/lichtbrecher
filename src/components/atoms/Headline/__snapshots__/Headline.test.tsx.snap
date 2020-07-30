@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`nextLink snapshot h1 headline 1`] = `
+<h1
+  className=""
+>
+  this is a h1 headline
+</h1>
+`;
+
+exports[`nextLink snapshot h2 headline 1`] = `
+<h2
+  className=""
+>
+  this is a h2 headline
+</h2>
+`;
+
+exports[`nextLink snapshot h3 headline 1`] = `
+<h3
+  className=""
+>
+  this is a h3 headline
+</h3>
+`;
+
+exports[`nextLink snapshot h4 headline 1`] = `
+<h4
+  className=""
+>
+  this is a h4 headline
+</h4>
+`;
+
+exports[`nextLink snapshot h5 headline 1`] = `
+<h5
+  className=""
+>
+  this is a h5 headline
+</h5>
+`;
+
+exports[`nextLink snapshot h6 headline 1`] = `
+<h6
+  className=""
+>
+  this is a h6 headline
+</h6>
+`;

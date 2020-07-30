@@ -1,19 +1,10 @@
 # Lichtbrecher
 Lichtbrecher is a setup template for projects running with next.js and consuming content from prismic.io.
 
+See [./docs/firstSteps.md](./docs/firstSteps.md) for a guide how to set up a basic project.
+
 ### demo
 https://lichtbrecher.vercel.app/
-
-### setup backend
-Create a new repository at prismic.io. Go to "Settings > Api & Security", set the repository security API access to "Private API" and generate a
-permanent access token by adding a new application. See the "prismic custom types" section of this README to setup content types inside prismic.
-
-Go to Setings > Previews and create a preview. Link resolver must be ```/api/preview```.
-
-Example for previews on localhost:
-
-Site Name: localhost, Domain: http://localhost:3000, Link Resolver: /api/preview
-
 
 ### install frontend
 Run ```yarn install```, edit ```prismic/config.js``` and ```next.config.js```.
@@ -134,7 +125,7 @@ See tests for details.
 Want to write styles in JavaScript, but also want Sass-style helper functions and mixins? Need a consistent color palette throughout your app? ✨ polished is for you!
 See [`docs`](https://polished.js.org/docs/) for details.
 
-### usefull third party
+### useful third party
 The following libs are not neccessary for the setup to work but are very nice:
 
 - react-gsap
@@ -143,4 +134,4 @@ The following libs are not neccessary for the setup to work but are very nice:
 
 
 ### license
-MIT. ©Copyright Arseny Bobrov, Daniel Hargesheimer, Chema Mengibar 2020.
+MIT. ©Copyright Arseny Bobrov, Daniel Hargesheimer, Chema Mengibar, Martin Malinowski 2020.

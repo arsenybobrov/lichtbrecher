@@ -35,6 +35,11 @@ export interface PrismicLink {
   slug?: string;
   isBroken?: boolean;
 }
+export interface PrismicExternalLink {
+  link_type: 'Web',
+  url: string;
+  target: string;
+}
 
 export interface PrismicSingleImage {
   dimensions: {
@@ -44,4 +49,17 @@ export interface PrismicSingleImage {
   alt: string;
   copyright: string;
   url: string;
+}
+
+export interface PrismicParagraphSpanObject {
+  start: number;
+  end: number;
+  type: string;
+  data: PrismicLink | PrismicExternalLink;
+}
+
+export interface PrismicRichtextObject {
+  type: string;
+  text: string;
+  spans: Array<PrismicParagraphSpanObject | any>;
 }
