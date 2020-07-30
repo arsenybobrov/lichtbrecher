@@ -1,9 +1,9 @@
 {
   "name": "lichtbrecher",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "license": "MIT",
   "author": {
-    "name": "Arseny Bobrov, Daniel Hargesheimer, Chema Mengibar"
+    "name": "Arseny Bobrov, Daniel Hargesheimer, Chema Mengibar, Martin Malinowski"
   },
   "scripts": {
     "dev": "next dev",

@@ -1,7 +1,7 @@
-// import Dummy from '../src/components/molecules/Dummy/Dummy';
+import Dummy from '../src/components/molecules/Dummy/Dummy';
 
 const SLICES_MAP = {
-  // dummy: Dummy,
+  dummy: Dummy,
 };
 
 export default SLICES_MAP;
