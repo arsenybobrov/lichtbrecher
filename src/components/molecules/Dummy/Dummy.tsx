@@ -1,42 +1,38 @@
 import React from 'react';
 import uniqueId from 'lodash/uniqueId';
+import styled from 'styled-components';
+import { RichText } from 'prismic-reactjs';
 import Headline, { HeadlineProps } from '../../atoms/Headline/Headline';
+import linkResolver from '../../../../prismic/helper/linkResolver';
+import htmlSerializer from '../../../../prismic/helper/richtextHtmlSerializer';
+import { PrismicRichtextObject } from '../../../../prismic/types';
 
 interface PrismicDummyContent {
  headline: Array<HeadlineProps>;
- richtext: Array<RichTextElementType>;
+ richtext: Array<PrismicRichtextObject>;
 }
 
 interface DummyProps {
   primary: PrismicDummyContent;
 }
 
-// the Dummy component can only render paragraphs so far
-const RichTextElementMap: Record<string, string> = {
-  paragraph: 'p',
-};
+const StyledHeadline = styled(Headline)`
+  font-size: 50px;
+  color: green;
+`;
 
-export interface RichTextElementType {
-  type: string;
-  text: string;
-  key?: string;
-}
-
-const renderRichTextElement = ({ type, text, key }: RichTextElementType) => {
-  if (type in RichTextElementMap) {
-    return React.createElement(RichTextElementMap[type], { key }, text);
-  }
-  return <pre key={key}>{JSON.stringify({ type, text })}</pre>;
-};
+const StyledDiv = styled.div`
+  color: #333;
+`;
 
 const Dummy: React.FC<DummyProps> = ({ primary }) => {
   const { headline, richtext } = primary;
+  const richtText = RichText.render(richtext, linkResolver, htmlSerializer);
   return (
     <>
-      {headline.map((headlineProps) => <Headline {...headlineProps} key={uniqueId('headline')} />)}
-      {richtext.map((elem) => (
-        renderRichTextElement({ ...elem, key: uniqueId(elem.type) })
-      ))}
+      <StyledHeadline {...headline[0]} key={uniqueId('headline')} />
+      <br />
+      <StyledDiv>{richtText}</StyledDiv>
     </>
   );
 };
