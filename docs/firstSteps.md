@@ -24,7 +24,7 @@ Inside the document go to *Content* and add some text into the fields "headline"
 
 In "headline" you can set it to be "Heading 1" to "Heading 6". This corresponds to *h1* to *h6* through our Headline-atom.
 
-In "richtext" you can use the WYSIWYG-editor, but remember that the Dummy-molecule only uses "Normal text" and renders it into ```p``` tags. All other elements will be rendered as stringified JSON. 
+In "richtext" you can use the WYSIWYG-editor.
 
 ### Connect to Prismic backend
 
