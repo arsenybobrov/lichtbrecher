@@ -51,6 +51,18 @@ export interface PrismicSingleImage {
   url: string;
 }
 
+export interface PrismicResponsiveImage {
+  dimensions: {
+    width: number;
+    height: number;
+  };
+  alt: string;
+  copyright: string;
+  url: string;
+  tablet: PrismicSingleImage;
+  smartphone: PrismicSingleImage;
+}
+
 export interface PrismicParagraphSpanObject {
   start: number;
   end: number;
