@@ -1,7 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const StyledH1 = styled.h1``;
+const StyledH1 = styled.h1`
+  font-size: 35px;
+  margin-bottom: 35px;
+`;
+
 const StyledH2 = styled.h2``;
 const StyledH3 = styled.h3``;
 const StyledH4 = styled.h4``;

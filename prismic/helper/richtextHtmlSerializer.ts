@@ -2,6 +2,7 @@ import React from 'react';
 import { Elements } from 'prismic-reactjs';
 import linkResolver from './linkResolver';
 import Link from '../../src/components/atoms/Link/Link';
+import Headline from '../../src/components/atoms/Headline/Headline';
 
 const propsWithUniqueKey = (props: any, key: any) => Object.assign(props || {}, { key });
 
@@ -9,8 +10,15 @@ const htmlSerializer = (type: any, element: any, content: any, children: any, ke
   let props = {};
   switch (type) {
     case Elements.paragraph:
-      props = { className: 'paragraph-class' };
+      props = { className: 'richtext-p' };
       return React.createElement('p', propsWithUniqueKey(props, key), children);
+
+    case Elements.heading1:
+      props = {
+        text: element.text,
+        type: element.type,
+      };
+      return React.createElement(Headline, propsWithUniqueKey(props, key), children);
 
     case Elements.hyperlink:
       if (element.data.link_type === 'Document') {
