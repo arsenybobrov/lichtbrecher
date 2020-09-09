@@ -1,8 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`nextLink snapshot h1 headline 1`] = `
+.c0 {
+  font-size: 35px;
+  margin-bottom: 35px;
+}
+
 <h1
-  className=""
+  className="c0"
 >
   this is a h1 headline
 </h1>
