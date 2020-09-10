@@ -39,7 +39,7 @@ const NavWrapper = styled.nav`
     }
   }
 
-  ul li ul li ul li{
+  ul li ul li ul li {
     a {
       color: ${(props): string => props.theme.colors.default};
       background-color: yellowgreen;
@@ -47,7 +47,7 @@ const NavWrapper = styled.nav`
   }
 
   li {
-    margin:15px 45px 15px 0;
+    margin: 15px 45px 15px 0;
 
     &:last-child {
       margin-right: 0;

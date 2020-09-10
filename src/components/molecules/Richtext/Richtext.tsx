@@ -25,7 +25,7 @@ const Wrapper = styled.div`
   }
 
   li {
-    margin:15px 0;
+    margin: 15px 0;
   }
 `;
 
