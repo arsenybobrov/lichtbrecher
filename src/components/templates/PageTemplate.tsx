@@ -8,21 +8,18 @@ interface PageTemplateProps {
   data: Data;
   sharedData?: Data;
   serverReqUrl: string;
-  documentRelations?: any;
 }
 
 const PageTemplate: React.FC<PageTemplateProps> = ({
   data,
   sharedData,
   serverReqUrl,
-  documentRelations,
 }) => (
   <TemplateWrapper
     pageId={data.id}
     data={data}
     sharedData={sharedData}
     serverReqUrl={serverReqUrl}
-    documentRelations={documentRelations}
   >
     <main>
       <ComponentsRenderer slices={get(data, 'data.body', [])} />

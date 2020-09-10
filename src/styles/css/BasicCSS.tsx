@@ -22,6 +22,9 @@ const BasicCSS = createGlobalStyle<{ theme: Theme }>`
     -webkit-font-smoothing: antialiased;
     margin: 0 auto;
     word-break: break-word;
+    max-width: 990px;
+    margin: 35px auto;
+    padding: 0 15px
   }
 
   ::-moz-selection {
