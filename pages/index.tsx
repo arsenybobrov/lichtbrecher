@@ -20,19 +20,18 @@ const Page: NextPage<PageProps> = ({
   data,
   type,
   page404Data,
-  serverReqUrl,
   e,
 }) => {
   if (data) {
     switch (type) {
       case page:
-        return <PageTemplate data={data} serverReqUrl={serverReqUrl || ''} />;
+        return <PageTemplate data={data} />;
       default:
-        return <PageTemplate data={data} serverReqUrl={serverReqUrl || ''} />;
+        return <PageTemplate data={data} />;
     }
   }
   if (page404Data) {
-    return <PageTemplate data={page404Data} serverReqUrl={serverReqUrl || ''} />;
+    return <PageTemplate data={page404Data} />;
   }
   return <Error statusCode={e ? e.status : 404} />;
 };

@@ -15,30 +15,32 @@ const { mainNav } = PRISMIC_API_UIDS;
 
 class MyApp extends App {
   static async getInitialProps(appContext: any) {
+    const { asPath, req } = appContext.ctx;
     const appProps = await App.getInitialProps(appContext);
-    const localePrefix = getLocalePrefix(appContext.asPath || '/');
+    const localePrefix = getLocalePrefix(asPath || '/');
     const language = localePrefix === '' ? LOCALES.default : localePrefix;
     const lang = LOCALES_MAP[language] ?? LOCALES_MAP.default;
     const results = await fetchDocuments();
     const documentRelations = await makeDocumentRelations(results);
-    const fetchedMainNav = await Client(appContext.req).getByUID(
+    const fetchedMainNav = await Client(req).getByUID(
       navigation,
       mainNav,
       { lang }
     );
-    const fetchedSharedData = await Client(appContext.req).getSingle(
+    const fetchedSharedData = await Client(req).getSingle(
       shared,
       { lang }
     );
+    const serverReqUrl = `https://${req?.rawHeaders[1] ?? ''}${req?.url ?? ''}`;
     return {
-      ...appProps, fetchedMainNav, fetchedSharedData, documentRelations,
+      ...appProps, fetchedMainNav, fetchedSharedData, documentRelations, serverReqUrl,
     };
   }
 
   render() {
     const {
       // @ts-ignore
-      Component, pageProps, fetchedMainNav, fetchedSharedData, documentRelations,
+      Component, pageProps, fetchedMainNav, fetchedSharedData, documentRelations, serverReqUrl,
     } = this.props;
 
     return (
@@ -46,9 +48,11 @@ class MyApp extends App {
         <ContextsWrapper
           documentRelations={documentRelations}
           fetchedSharedData={fetchedSharedData}
+          serverReqUrl={serverReqUrl}
         >
           <Component {...pageProps} />
           <Nav nav={fetchedMainNav} />
+          Shared content is available via useContext.
           <pre>{JSON.stringify(fetchedSharedData.data.display_name[0].text, null, 2)}</pre>
         </ContextsWrapper>
       </StylesWrapper>

@@ -3,12 +3,12 @@ import Head from 'next/head';
 import { SharedContentContext } from '../../contexts/sharedContent/SharedContentContext';
 import { PRISMIC_API_IDS } from '../../../prismic/config';
 import { PrismicSingleImage } from '../../../prismic/types';
+import { ServerReqUrlContext } from '../../contexts/serverReqUrl/ServerReqUrlContext';
 
 interface OpengraphProps {
   title?: string;
   description?: string;
   image?: PrismicSingleImage;
-  serverReqUrl: string;
   siteName?: string;
 }
 
@@ -16,10 +16,10 @@ const Opengraph: React.FC<OpengraphProps> = ({
   title,
   description,
   image,
-  serverReqUrl,
   siteName,
 }) => {
   const defaultOpengraph = useContext(SharedContentContext);
+  const serverReqUrl = useContext(ServerReqUrlContext);
 
   const defaultTitle = defaultOpengraph?.data[PRISMIC_API_IDS.ogTitle];
   const defaultDescription = defaultOpengraph?.data[PRISMIC_API_IDS.ogDescription];

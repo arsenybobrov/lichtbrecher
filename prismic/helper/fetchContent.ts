@@ -28,7 +28,6 @@ export const fetchDocumentContent = async (
 ) => {
   const { lang } = query;
   try {
-    const serverReqUrl = `https://${get(req, 'rawHeaders[1]', '')}${get(req, 'url', '')}`;
     if (type) {
       let data;
       if (validPath) {
@@ -37,14 +36,14 @@ export const fetchDocumentContent = async (
         } else { data = await Client(req).getSingle(type, { lang }); }
         if (data) {
           return {
-            data, type, serverReqUrl,
+            data, type,
           };
         }
       }
 
       if (!data) {
         const page404Data = await Client(req).getSingle(error404, { lang });
-        if (page404Data) { return { page404Data, serverReqUrl }; }
+        if (page404Data) { return { page404Data }; }
       }
     }
     return {};

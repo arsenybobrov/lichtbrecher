@@ -6,17 +6,14 @@ import { Data } from '../../../prismic/types';
 
 interface PageTemplateProps {
   data: Data;
-  serverReqUrl: string;
 }
 
 const PageTemplate: React.FC<PageTemplateProps> = ({
   data,
-  serverReqUrl,
 }) => (
   <TemplateWrapper
     pageId={data.id}
     data={data}
-    serverReqUrl={serverReqUrl}
   >
     <main>
       <ComponentsRenderer slices={get(data, 'data.body', [])} />

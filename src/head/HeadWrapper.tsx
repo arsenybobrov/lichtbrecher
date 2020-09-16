@@ -8,10 +8,9 @@ import Opengraph from './partials/Opengraph';
 
 interface HeadProps {
   data: Data;
-  serverReqUrl: string;
 }
 
-const HeadWrapper: React.FC<HeadProps> = ({ data, serverReqUrl, children }) => {
+const HeadWrapper: React.FC<HeadProps> = ({ data, children }) => {
   const title = get(data.data, PRISMIC_API_IDS.metaTitle, null);
   const description = get(data.data, PRISMIC_API_IDS.metaDescription, null);
   const siteName = get(data.data, PRISMIC_API_IDS.ogSitename, null);
@@ -34,7 +33,6 @@ const HeadWrapper: React.FC<HeadProps> = ({ data, serverReqUrl, children }) => {
         description={ogDescription || description}
         image={ogImage}
         siteName={siteName}
-        serverReqUrl={serverReqUrl}
       />
       <Favicons />
       {children}

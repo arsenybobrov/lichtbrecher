@@ -6,16 +6,14 @@ import HeadWrapper from '../../../head/HeadWrapper';
 interface TemplateWrapperProps {
   pageId: string;
   data: Data;
-  serverReqUrl: string;
 }
 
 const TemplateWrapper: React.FC<TemplateWrapperProps> = ({
   pageId,
   data,
-  serverReqUrl,
   children,
 }) => (
-  <HeadWrapper data={data} serverReqUrl={serverReqUrl}>
+  <HeadWrapper data={data}>
     <PrismicToolbar pageId={pageId} />
     {children}
   </HeadWrapper>
