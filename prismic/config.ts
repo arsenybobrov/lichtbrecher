@@ -28,3 +28,7 @@ export const PRISMIC_API_IDS = {
   ogImage: 'og_image',
   ogSitename: 'og_sitename',
 };
+
+export const PRISMIC_API_UIDS = {
+  mainNav: 'mainnav',
+};

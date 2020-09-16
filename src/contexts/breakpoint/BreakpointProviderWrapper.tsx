@@ -10,7 +10,7 @@ const BreakpointProviderWrapper: React.FC = ({
 
   const resizeListener = debounce(() => {
     setBreakpoint(getBreakpoint());
-  }, 250);
+  }, 1000);
 
   useEffect(() => {
     window.addEventListener('resize', resizeListener);
@@ -21,6 +21,7 @@ const BreakpointProviderWrapper: React.FC = ({
 
   return (
     <BreakpointProvider value={breakpoint}>
+      {console.log('current breakpoint is: ', breakpoint)}
       {children}
     </BreakpointProvider>
   );

@@ -4,7 +4,7 @@ import { PRISMIC_CUSTOM_TYPES } from '../config';
 import { QueryProps } from '../../pages';
 
 const {
-  home, page, shared, error404,
+  home, page, error404,
 } = PRISMIC_CUSTOM_TYPES;
 const api = process.env.apiEndpoint || '';
 const token = process.env.accessToken || '';
@@ -28,7 +28,6 @@ export const fetchDocumentContent = async (
 ) => {
   const { lang } = query;
   try {
-    const sharedData = await Client(req).getSingle(shared, { lang });
     const serverReqUrl = `https://${get(req, 'rawHeaders[1]', '')}${get(req, 'url', '')}`;
     if (type) {
       let data;
@@ -38,14 +37,14 @@ export const fetchDocumentContent = async (
         } else { data = await Client(req).getSingle(type, { lang }); }
         if (data) {
           return {
-            data, type, sharedData, serverReqUrl,
+            data, type, serverReqUrl,
           };
         }
       }
 
       if (!data) {
         const page404Data = await Client(req).getSingle(error404, { lang });
-        if (page404Data) { return { page404Data, sharedData, serverReqUrl }; }
+        if (page404Data) { return { page404Data, serverReqUrl }; }
       }
     }
     return {};

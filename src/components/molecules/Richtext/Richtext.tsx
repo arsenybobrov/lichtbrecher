@@ -18,15 +18,6 @@ const Wrapper = styled.div`
     line-height: 1.5;
     margin-top: 25px;
   }
-
-  a {
-    color: ${(props): string => props.theme.colors.default};
-    background-color: #990000;
-  }
-
-  li {
-    margin: 15px 0;
-  }
 `;
 
 const Richtext: React.FC<RichtextProps> = ({

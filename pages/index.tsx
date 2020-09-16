@@ -1,5 +1,4 @@
 import React from 'react';
-import get from 'lodash/get';
 import { NextPage, NextPageContext } from 'next';
 import Error from './_error';
 import { fetchDocumentContent, fetchDocuments } from '../prismic/helper/fetchContent';
@@ -20,7 +19,6 @@ export interface QueryProps {
 const Page: NextPage<PageProps> = ({
   data,
   type,
-  sharedData,
   page404Data,
   serverReqUrl,
   e,
@@ -28,13 +26,13 @@ const Page: NextPage<PageProps> = ({
   if (data) {
     switch (type) {
       case page:
-        return <PageTemplate data={data} sharedData={sharedData} serverReqUrl={serverReqUrl || ''} />;
+        return <PageTemplate data={data} serverReqUrl={serverReqUrl || ''} />;
       default:
-        return <PageTemplate data={data} sharedData={sharedData} serverReqUrl={serverReqUrl || ''} />;
+        return <PageTemplate data={data} serverReqUrl={serverReqUrl || ''} />;
     }
   }
   if (page404Data) {
-    return <PageTemplate data={page404Data} sharedData={sharedData} serverReqUrl={serverReqUrl || ''} />;
+    return <PageTemplate data={page404Data} serverReqUrl={serverReqUrl || ''} />;
   }
   return <Error statusCode={e ? e.status : 404} />;
 };
@@ -52,7 +50,7 @@ Page.getInitialProps = async ({ req, res, asPath }: NextPageContext): Promise<Pa
   const localePrefix = getLocalePrefix(asPath || '/');
   const type = isHomepage(asPath || '') ? home : page;
   const query: QueryProps = {
-    lang: get(LOCALES_MAP, localePrefix, LOCALES_MAP.default),
+    lang: LOCALES_MAP[localePrefix] ?? LOCALES_MAP.default,
   };
   const link_type = 'Document';
   const { lang } = query;
@@ -71,7 +69,7 @@ Page.getInitialProps = async ({ req, res, asPath }: NextPageContext): Promise<Pa
   const statusCode = fetchedContent && fetchedContent.data ? 200 : 404;
   if (res) { res.statusCode = statusCode; }
 
-  return { ...fetchedContent, documentRelations };
+  return { ...fetchedContent };
 };
 
 export default Page;

@@ -16,7 +16,7 @@ export interface Data {
 export interface PageProps {
   data?: Data;
   type?: string;
-  sharedData?: Data;
+  fetchedSharedData?: Data;
   page404Data?: Data;
   serverReqUrl?: string;
   documentRelations?: any;

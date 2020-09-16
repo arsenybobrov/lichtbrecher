@@ -6,19 +6,16 @@ import { Data } from '../../../prismic/types';
 
 interface PageTemplateProps {
   data: Data;
-  sharedData?: Data;
   serverReqUrl: string;
 }
 
 const PageTemplate: React.FC<PageTemplateProps> = ({
   data,
-  sharedData,
   serverReqUrl,
 }) => (
   <TemplateWrapper
     pageId={data.id}
     data={data}
-    sharedData={sharedData}
     serverReqUrl={serverReqUrl}
   >
     <main>

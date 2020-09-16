@@ -20,9 +20,7 @@ Copy and paste the configuration from ```prismic/blueprints/homepage.json``` int
 ### Add content
 
 In Prismic, return to *Documents*, Create new document, call it "homepage" and use the Custom Type "homepage".
-Inside the document go to *Content* and add some text into the fields "headline" and "richtext".
-
-In "headline" you can set it to be "Heading 1" to "Heading 6". This corresponds to *h1* to *h6* through our Headline-atom.
+Inside the document go to *Content* and add some text into the fields "richtext".
 
 In "richtext" you can use the WYSIWYG-editor.
 
