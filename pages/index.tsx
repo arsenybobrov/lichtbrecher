@@ -1,12 +1,12 @@
 import React from 'react';
 import { NextPage, NextPageContext } from 'next';
 import Error from './_error';
-import { fetchDocumentContent, fetchDocuments } from '../prismic/helper/fetchContent';
+import { fetchDocumentContent, fetchDocuments } from '../prismic/helpers/fetchContent';
 import { LOCALES_MAP, PRISMIC_CUSTOM_TYPES } from '../prismic/config';
 import PageTemplate from '../src/components/templates/PageTemplate';
 import { PageProps } from '../prismic/types';
-import makeDocumentRelations from '../prismic/helper/makeDocumentRelations';
-import linkResolver from '../prismic/helper/linkResolver';
+import makeDocumentRelations from '../prismic/helpers/makeDocumentRelations';
+import linkResolver from '../prismic/helpers/linkResolver';
 import getLocalePrefix from '../src/helpers/getLocalePrefix';
 import isHomepage from '../src/helpers/isHomepage';
 

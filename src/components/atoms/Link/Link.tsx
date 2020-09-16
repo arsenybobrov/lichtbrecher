@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import Router from 'next/router';
 import get from 'lodash/get';
-import linkResolver from '../../../../prismic/helper/linkResolver';
+import linkResolver from '../../../../prismic/helpers/linkResolver';
 import { PrismicLink } from '../../../../prismic/types';
 import { DocumentRelationsContext } from '../../../contexts/documentRelations/DocumentRelationsContext';
 

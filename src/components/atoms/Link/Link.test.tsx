@@ -6,7 +6,7 @@ import {
   prismicExternalLinkMock,
   prismicInternalHomepageLinkMock,
   prismicInternalPageLinkMock,
-} from '../../../../prismic/helper/tests/linkResolver.test';
+} from '../../../../prismic/helpers/tests/linkResolver.test';
 
 export const NextLinkInternalPageLinkMock = {
   url: prismicInternalPageLinkMock,

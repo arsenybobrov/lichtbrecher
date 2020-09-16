@@ -1,9 +1,9 @@
 import { NextPageContext } from 'next';
 import { IncomingMessage } from 'http';
-import { fetchDocuments } from '../prismic/helper/fetchContent';
+import { fetchDocuments } from '../prismic/helpers/fetchContent';
 import { Data } from '../prismic/types';
-import makeDocumentRelations from '../prismic/helper/makeDocumentRelations';
-import linkResolver from '../prismic/helper/linkResolver';
+import makeDocumentRelations from '../prismic/helpers/makeDocumentRelations';
+import linkResolver from '../prismic/helpers/linkResolver';
 import { PRISMIC_API_IDS } from '../prismic/config';
 
 const sitemapXml = (results: Array<Data>, req: IncomingMessage | undefined, documentRelations: any) => `

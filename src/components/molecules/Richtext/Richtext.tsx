@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { RichText } from 'prismic-reactjs';
-import linkResolver from '../../../../prismic/helper/linkResolver';
-import htmlSerializer from '../../../../prismic/helper/richtextHtmlSerializer';
+import linkResolver from '../../../../prismic/helpers/linkResolver';
+import htmlSerializer from '../../../../prismic/helpers/richtextHtmlSerializer';
 import { PrismicRichtextObject } from '../../../../prismic/types';
 
 interface RichtextPrimaryProps {
@@ -17,6 +17,7 @@ const Wrapper = styled.div`
   .richtext-p {
     line-height: 1.5;
     margin-top: 25px;
+    color: #666;
   }
 `;
 

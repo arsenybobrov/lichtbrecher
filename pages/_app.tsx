@@ -1,12 +1,12 @@
 import App from 'next/app';
 import React from 'react';
-import { Client, fetchDocuments } from '../prismic/helper/fetchContent';
+import { Client, fetchDocuments } from '../prismic/helpers/fetchContent';
 import getLocalePrefix from '../src/helpers/getLocalePrefix';
 import {
   LOCALES, LOCALES_MAP, PRISMIC_API_UIDS, PRISMIC_CUSTOM_TYPES,
 } from '../prismic/config';
 import Nav from '../src/components/molecules/Nav/Nav';
-import makeDocumentRelations from '../prismic/helper/makeDocumentRelations';
+import makeDocumentRelations from '../prismic/helpers/makeDocumentRelations';
 import StylesWrapper from '../src/styles/StylesWrapper';
 import ContextsWrapper from '../src/contexts/ContextsWrapper';
 

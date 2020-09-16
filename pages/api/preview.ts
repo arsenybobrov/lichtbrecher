@@ -1,8 +1,8 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import get from 'lodash/get';
-import { Client, fetchDocuments } from '../../prismic/helper/fetchContent';
-import linkResolver from '../../prismic/helper/linkResolver';
-import makeDocumentRelations from '../../prismic/helper/makeDocumentRelations';
+import { Client, fetchDocuments } from '../../prismic/helpers/fetchContent';
+import linkResolver from '../../prismic/helpers/linkResolver';
+import makeDocumentRelations from '../../prismic/helpers/makeDocumentRelations';
 import getLocalePrefix from '../../src/helpers/getLocalePrefix';
 import { LOCALES_MAP } from '../../prismic/config';
 
