@@ -4,6 +4,20 @@ exports[`nextLink snapshot h1 headline 1`] = `
 .c0 {
   font-size: 35px;
   margin-bottom: 35px;
+  position: relative;
+  display: inline-block;
+}
+
+.c0:after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  right: -45px;
+  height: 15px;
+  width: 100%;
+  z-index: -1;
+  opacity: .3;
+  background-color: #990000;
 }
 
 <h1
