@@ -14,7 +14,7 @@ interface NestedNavItem {
   children: NestedNavItem[] | null
 }
 
-type NavNested = NestedNavItem[]
+export type NavNested = NestedNavItem[]
 
 interface Dictionary{
   [key:string]: string

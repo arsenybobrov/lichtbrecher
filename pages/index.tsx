@@ -23,19 +23,18 @@ const Page: NextPage<PageProps> = ({
   sharedData,
   page404Data,
   serverReqUrl,
-  documentRelations,
   e,
 }) => {
   if (data) {
     switch (type) {
       case page:
-        return <PageTemplate data={data} sharedData={sharedData} serverReqUrl={serverReqUrl || ''} documentRelations={documentRelations} />;
+        return <PageTemplate data={data} sharedData={sharedData} serverReqUrl={serverReqUrl || ''} />;
       default:
-        return <PageTemplate data={data} sharedData={sharedData} serverReqUrl={serverReqUrl || ''} documentRelations={documentRelations} />;
+        return <PageTemplate data={data} sharedData={sharedData} serverReqUrl={serverReqUrl || ''} />;
     }
   }
   if (page404Data) {
-    return <PageTemplate data={page404Data} sharedData={sharedData} serverReqUrl={serverReqUrl || ''} documentRelations={documentRelations} />;
+    return <PageTemplate data={page404Data} sharedData={sharedData} serverReqUrl={serverReqUrl || ''} />;
   }
   return <Error statusCode={e ? e.status : 404} />;
 };

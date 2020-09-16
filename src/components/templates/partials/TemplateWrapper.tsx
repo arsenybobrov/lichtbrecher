@@ -10,7 +10,6 @@ interface TemplateWrapperProps {
   data: Data;
   sharedData?: Data;
   serverReqUrl: string;
-  documentRelations?: any;
 }
 
 const TemplateWrapper: React.FC<TemplateWrapperProps> = ({
@@ -18,10 +17,9 @@ const TemplateWrapper: React.FC<TemplateWrapperProps> = ({
   data,
   sharedData,
   serverReqUrl,
-  documentRelations,
   children,
 }) => (
-  <ContextsWrapper sharedData={sharedData} documentRelations={documentRelations}>
+  <ContextsWrapper sharedData={sharedData}>
     <StylesWrapper>
       <HeadWrapper data={data} serverReqUrl={serverReqUrl}>
         <PrismicToolbar pageId={pageId} />

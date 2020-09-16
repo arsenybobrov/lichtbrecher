@@ -1,7 +1,9 @@
-import Dummy from '../src/components/molecules/Dummy/Dummy';
+import Stage from '../src/components/organisms/Stage/Stage';
+import Richtext from '../src/components/molecules/Richtext/Richtext';
 
 const SLICES_MAP = {
-  dummy: Dummy,
+  stage: Stage,
+  text: Richtext,
 };
 
 export default SLICES_MAP;

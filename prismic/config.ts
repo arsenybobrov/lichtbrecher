@@ -2,7 +2,8 @@ export const PRISMIC_CUSTOM_TYPES = {
   home: 'homepage',
   page: 'page',
   shared: 'shared',
-  error404: '404error',
+  error404: '404eror',
+  navigation: 'navigation',
 };
 
 export const LOCALES = {
@@ -11,7 +12,7 @@ export const LOCALES = {
 };
 
 export const LOCALES_MAP = {
-  [LOCALES.en]: 'en-gb',
+  [LOCALES.en]: 'en-us',
   default: 'de-de',
 };
 

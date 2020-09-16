@@ -1,7 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const StyledH1 = styled.h1``;
+const StyledH1 = styled.h1`
+  font-size: 35px;
+  margin-bottom: 35px;
+  position: relative;
+  display: inline-block;
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    right: -45px;
+    height: 15px;
+    width: 100%;
+    z-index: -1;
+    opacity: .3;
+    background-color: #990000;
+  }
+`;
+
 const StyledH2 = styled.h2``;
 const StyledH3 = styled.h3``;
 const StyledH4 = styled.h4``;
