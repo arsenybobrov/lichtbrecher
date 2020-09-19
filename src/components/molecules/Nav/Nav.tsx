@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import flatNavToNestedNavConverter from '../../../helpers/flatNavToNestedNavConverter';
 import { Data } from '../../../../prismic/types';
 import createNavListElm from './helpers/createNavListElm';
+import Link from '../../atoms/Link/Link';
 
 interface NavProps {
   nav: Data;
@@ -63,6 +64,36 @@ const Nav: React.FC<NavProps> = ({
     <NavWrapper>
       <ul>
         { createNavListElm(navTree) }
+        <li>
+          <Link
+            url={{
+              id: 'Xy_hkBIAACEA4qKx',
+              isBroken: false,
+              lang: 'de-de',
+              link_type: 'Document',
+              slug: 'home',
+              tags: [],
+              type: 'homepage',
+            }}
+            text="DE"
+            title=""
+          />
+        </li>
+        <li>
+          <Link
+            url={{
+              id: 'X2ZgRBIAACgAiMFP',
+              isBroken: false,
+              lang: 'en-us',
+              link_type: 'Document',
+              slug: 'home',
+              tags: [],
+              type: 'homepage',
+            }}
+            text="EN"
+            title=""
+          />
+        </li>
       </ul>
     </NavWrapper>
   );

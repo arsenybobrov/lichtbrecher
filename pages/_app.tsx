@@ -54,6 +54,7 @@ class MyApp extends App {
           <Nav nav={fetchedMainNav} />
           Shared content is available via useContext.
           <pre>{JSON.stringify(fetchedSharedData.data.display_name[0].text, null, 2)}</pre>
+          Don&apos;t forget to check the current breakpoint! (console.log)
         </ContextsWrapper>
       </StylesWrapper>
     );
