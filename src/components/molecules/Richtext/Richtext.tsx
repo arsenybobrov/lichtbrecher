@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { RichText } from 'prismic-reactjs';
+import { lighten } from 'polished';
 import linkResolver from '../../../../prismic/helpers/linkResolver';
 import htmlSerializer from '../../../../prismic/helpers/richtextHtmlSerializer';
 import { PrismicRichtextObject } from '../../../../prismic/types';
@@ -14,6 +15,10 @@ interface RichtextProps {
 }
 
 const Wrapper = styled.div`
+  h1 {
+    background: ${lighten(0.2, '#FFCD64')};
+  }
+
   .richtext-p {
     line-height: 1.5;
     margin-top: 25px;
@@ -24,6 +29,7 @@ const Wrapper = styled.div`
 const Richtext: React.FC<RichtextProps> = ({
   primary,
 }) => {
+  // @ts-ignore
   const text = RichText.render(primary.text, linkResolver, htmlSerializer);
   return (
     <Wrapper>

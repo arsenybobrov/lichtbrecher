@@ -7,8 +7,9 @@ const linkResolver = ({
 }: PrismicLink, documentRelations?: any) => {
   const { home } = PRISMIC_CUSTOM_TYPES;
   const locale = Object.keys(LOCALES_MAP).find((key) => LOCALES_MAP[key] === lang);
-  const localePrefix = locale && locale !== 'default' ? `${locale}/` : '';
-
+  const isDefaultLang = locale && locale === 'default';
+  const localePrefix = !isDefaultLang ? `${locale}/` : '';
+  const localePrefixHomepage = !isDefaultLang ? `${locale}` : '';
   if ((link_type === 'Web' || link_type === 'Media') && url) return url;
 
   const path = documentRelations && getPathFromDocumentRelations(uid, documentRelations);
@@ -19,7 +20,7 @@ const linkResolver = ({
     }
     return `/${localePrefix}${path}`;
   }
-  return `/${localePrefix}`;
+  return `/${localePrefixHomepage}`;
 };
 
 export default linkResolver;

@@ -37,12 +37,6 @@ const Page: NextPage<PageProps> = ({
 };
 
 Page.getInitialProps = async ({ req, res, asPath }: NextPageContext): Promise<PageProps> => {
-  if (res && asPath?.substr(-1) === '/' && !isHomepage(asPath || '')) {
-    const newPath = asPath?.replace(/\/$/, '');
-    res.writeHead(301, { Location: newPath });
-    res.end();
-  }
-
   const results = await fetchDocuments();
   const documentRelations = await makeDocumentRelations(results);
   const uid = isHomepage(asPath || '') ? null : asPath?.replace(/\/$/, '').split('/').pop();

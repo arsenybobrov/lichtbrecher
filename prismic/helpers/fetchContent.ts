@@ -22,7 +22,6 @@ export const Client = (req: any) => (
   Prismic.client(api, createClientOptions(req, token))
 );
 
-
 export const fetchDocumentContent = async (
   req: any, query: QueryProps, validPath: boolean, type?: string | null, uid?: string | null
 ) => {
