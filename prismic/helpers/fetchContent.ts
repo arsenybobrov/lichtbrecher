@@ -10,7 +10,6 @@ const api = process.env.apiEndpoint || '';
 const token = process.env.accessToken || '';
 
 const createClientOptions = (req: any, prismicAccessToken: string) => {
-  console.log('fetchcontent, createClientOptions');
   const reqOption = req ? { req } : {};
   const accessTokenOption = prismicAccessToken ? { accessToken: prismicAccessToken } : {};
   return {
@@ -19,18 +18,14 @@ const createClientOptions = (req: any, prismicAccessToken: string) => {
   };
 };
 
-export const Client = (req: any) => {
-  console.log('fetchcontent, Client');
-  return (
-    Prismic.client(api, createClientOptions(req, token))
-  );
-};
+export const Client = (req: any) => (
+  Prismic.client(api, createClientOptions(req, token))
+);
 
 export const fetchDocumentContent = async (
   req: any, query: QueryProps, validPath: boolean, type?: string | null, uid?: string | null
 ) => {
   const { lang } = query;
-  console.log('fetchcontent, fetchDocumentContent');
   try {
     if (type) {
       let data;
@@ -57,7 +52,6 @@ export const fetchDocumentContent = async (
 };
 
 export const fetchDocuments = async (pageNumber?: number) => {
-  console.log('fetchcontent, fetchDocuments+++');
   try {
     const API = await Prismic.getApi(api, { accessToken: token });
     const prismicResponse = await API.query(

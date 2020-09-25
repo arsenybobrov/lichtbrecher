@@ -4,7 +4,7 @@ import Error from './_error';
 import { fetchDocumentContent, fetchDocuments } from '../prismic/helpers/fetchContent';
 import { LOCALES_MAP, PRISMIC_CUSTOM_TYPES } from '../prismic/config';
 import PageTemplate from '../src/components/templates/PageTemplate';
-import { Data, PageProps } from '../prismic/types';
+import { PageProps } from '../prismic/types';
 import makeDocumentRelations from '../prismic/helpers/makeDocumentRelations';
 import linkResolver from '../prismic/helpers/linkResolver';
 import getLocalePrefix from '../src/helpers/getLocalePrefix';
@@ -17,7 +17,6 @@ export interface QueryProps {
 
 interface Cache {
   cachedResults?: Array<Object>;
-  lang?: string;
 }
 
 const { home, page } = PRISMIC_CUSTOM_TYPES;
@@ -79,7 +78,7 @@ Page.getInitialProps = async ({ req, res, asPath }: NextPageContext): Promise<Pa
   const statusCode = fetchedContent && fetchedContent.data ? 200 : 404;
   if (res) { res.statusCode = statusCode; }
 
-  return { ...fetchedContent, lang };
+  return { ...fetchedContent };
 };
 
 export default Page;
