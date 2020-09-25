@@ -8,10 +8,6 @@ const propsWithUniqueKey = (props: any, key: any) => Object.assign(props || {}, 
 const htmlSerializer = (type: any, element: any, content: any, children: any, key: any) => {
   let props = {};
   switch (type) {
-    case Elements.paragraph:
-      props = { className: 'richtext-p' };
-      return React.createElement('p', propsWithUniqueKey(props, key), children);
-
     case Elements.hyperlink:
       if (element.data.link_type === 'Document') {
         props = {

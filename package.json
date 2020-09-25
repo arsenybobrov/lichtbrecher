@@ -15,11 +15,6 @@
     "lint": "eslint \"src/**\" \"pages/**\" \"prismic/**\" && yarn lint:css",
     "test:all": "yarn test && yarn lint && yarn type-check"
   },
-  "husky": {
-    "hooks": {
-      "pre-push": "yarn test:all"
-    }
-  },
   "dependencies": {
     "lodash": "^4.17.19",
     "next": "^9.5.3",

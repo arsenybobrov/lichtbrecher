@@ -19,8 +19,14 @@ IMPORTATNT! See ```**/**/*test.*``` folders for snapshot & unit tests.
 ### testing
 ```npm run test:all```
 
-There is a pre-push hook that runs ```npm run test:all```.
-
+It is recomended to use pre-push / pre-commit hooks. Add inside package.json the following:
+```
+"husky": {
+  "hooks": {
+    "pre-push": "yarn test:all"
+  }
+},
+````
 
 ### build
 ```npm run build```
@@ -65,6 +71,12 @@ import get from 'lodash/get';
 
 ### prismic richtext
 Add components inside ```prismic/helper/richtextHtmlSerializer.ts``` to controll richt text elements.
+E.g.
+```
+case Elements.paragraph:
+  props = { className: 'richtext-p' };
+  return React.createElement('p', propsWithUniqueKey(props, key), children);
+```
 
 
 ### prismic edit btn

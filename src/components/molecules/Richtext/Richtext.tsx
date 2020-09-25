@@ -19,7 +19,7 @@ const Wrapper = styled.div`
     background: ${lighten(0.2, '#FFCD64')};
   }
 
-  .richtext-p {
+  p {
     line-height: 1.5;
     margin-top: 25px;
     color: #666;
