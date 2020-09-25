@@ -7,23 +7,23 @@ See [./docs/firstSteps.md](./docs/firstSteps.md) for a guide how to set up a bas
 https://lichtbrecher.vercel.app/
 
 ### install frontend
-Run ```yarn install```, edit ```prismic/config.js``` and ```next.config.js```.
+Run ```npm install```, edit ```prismic/config.js``` and ```next.config.js```.
 Setup prismic: content types and languages.
 
 ### development
-```yarn dev```
+```npm run dev```
 
 IMPORTATNT! See ```**/**/*test.*``` folders for snapshot & unit tests.
 
 
 ### testing
-```yarn test:all```
+```npm run test:all```
 
-There is a pre-push hook that runs ```yarn test:all```.
+There is a pre-push hook that runs ```npm run test:all```.
 
 
 ### build
-```yarn build```
+```npm run build```
 
 
 ### languages
