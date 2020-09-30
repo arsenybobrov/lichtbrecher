@@ -25,21 +25,12 @@ const Meta: React.FC<MetaProps> = ({
 
   return (
     <Head>
-      <meta charSet="UTF-8" />
-      <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
       <title>{title || defaultTitle || ''}</title>
       <meta name="description" content={description || defaultDescription} />
       {(!canonical || canonical === '') && shouldIndex && <meta name="robots" content="index, follow" />}
       {!shouldIndex && <meta name="robots" content="noindex, nofollow" />}
       {canonical && canonical !== '' && <meta name="canonical" content={canonical} />}
       <meta name="theme-color" content={theme.colors.themeColor} />
-      <meta name="format-detection" content="telephone=no" />
-      <meta name="google" content="notranslate" />
-      <meta name="google" content="nositelinkssearchbox" />
-      <meta name="msapplication-tap-highlight" content="no" />
-      <meta name="apple-mobile-web-app-status-bar-style" content="Black-translucent" />
-      <meta name="msapplication-TileColor" content="#fff" />
     </Head>
   );
 };

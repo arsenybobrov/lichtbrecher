@@ -146,4 +146,4 @@ The following libs are not neccessary for the setup to work but are very nice:
 
 
 ### license
-MIT. ©Copyright Arseny Bobrov, Daniel Hargesheimer, Chema Mengibar, Martin Malinowski 2020.
+MIT. ©Copyright Arseny Bobrov, Daniel Hargesheimer, Chema Mengibar, Martin Malinowski.
