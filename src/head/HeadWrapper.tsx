@@ -4,6 +4,7 @@ import Meta from './partials/Meta';
 import { Data } from '../../prismic/types';
 import { PRISMIC_API_IDS } from '../../prismic/config';
 import Opengraph from './partials/Opengraph';
+import Favicons from './partials/Favicons';
 
 interface HeadProps {
   data: Data;
@@ -33,6 +34,7 @@ const HeadWrapper: React.FC<HeadProps> = ({ data, children }) => {
         image={ogImage}
         siteName={siteName}
       />
+      <Favicons />
       {children}
     </>
   );

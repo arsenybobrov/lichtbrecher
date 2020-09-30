@@ -5,7 +5,6 @@ import Document, {
 import { ServerStyleSheet } from 'styled-components';
 import { LOCALES } from '../prismic/config';
 import getLocalePrefix from '../src/helpers/getLocalePrefix';
-import Favicons from '../src/head/partials/Favicons';
 
 let lang: string;
 
@@ -50,7 +49,6 @@ export default class MyDocument extends Document {
           <meta name="msapplication-tap-highlight" content="no" />
           <meta name="apple-mobile-web-app-status-bar-style" content="Black-translucent" />
           <meta name="msapplication-TileColor" content="#fff" />
-          <Favicons />
         </Head>
         <body>
           <Main />
