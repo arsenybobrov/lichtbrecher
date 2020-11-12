@@ -5,8 +5,8 @@ module.exports = {
     repoName: 'nexum-demo',
     basicAuth: {
       credentials: {
-        user: 'nexum',
-        password: 'N3xum-21',
+        user: 'hallo',
+        password: 'welt',
       },
       whitelist: [
         'localhost:3000',
