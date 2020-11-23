@@ -86,16 +86,16 @@ class MyApp extends App {
     cache.cachedResults = results;
 
     return (
-        <StylesWrapper>
-          <ContextsWrapper
-            documentRelations={documentRelations}
-            fetchedSharedData={fetchedSharedData}
-            serverReqUrl={serverReqUrl}
-          >
-            <Nav nav={fetchedMainNav} />
-            <Component {...pageProps} />
-          </ContextsWrapper>
-        </StylesWrapper>
+      <StylesWrapper>
+        <ContextsWrapper
+          documentRelations={documentRelations}
+          fetchedSharedData={fetchedSharedData}
+          serverReqUrl={serverReqUrl}
+        >
+          <Nav nav={fetchedMainNav} />
+          <Component {...pageProps} />
+        </ContextsWrapper>
+      </StylesWrapper>
     );
   }
 }
