@@ -1,21 +1,32 @@
-import React, { useState, useEffect } from 'react';
-import debounce from 'lodash/debounce';
+import React, { useState, useEffect, useRef } from 'react';
+import { media, useBreakpointsSorted } from '@nx-kit/styling';
+import { ThemeProps, useTheme } from 'styled-components';
 import { BreakpointProvider } from './BreakpointContext';
-import getBreakpoint from '../../helpers/getBreakpoint';
 
-const BreakpointProviderWrapper: React.FC = ({
-  children,
-}) => {
-  const [breakpoint, setBreakpoint] = useState(getBreakpoint());
-
-  const resizeListener = debounce(() => {
-    setBreakpoint(getBreakpoint());
-  }, 1000);
+const BreakpointProviderWrapper: React.FC = ({ children }) => {
+  const mqls = useRef<any>([]);
+  const theme = useTheme();
+  const breakpointsSorted = useBreakpointsSorted();
+  const [breakpoint, setBreakpoint] = useState('xs');
 
   useEffect(() => {
-    window.addEventListener('resize', resizeListener);
+    const register = (size: string) => (e: MediaQueryListEvent | MediaQueryList) => {
+      if (e.matches) {
+        setBreakpoint(size);
+      }
+    };
+
+    breakpointsSorted.forEach((bp) => {
+      const currentMedia = media(bp, breakpointsSorted[breakpointsSorted.indexOf(bp)]);
+      const mq = currentMedia({ theme } as ThemeProps<any>).split('@media')[1];
+      const mql = window.matchMedia(mq);
+      const listener = register(bp as string);
+      mql.addListener(listener);
+      listener(mql);
+      mqls.current = [...mqls.current, { mql, listener }];
+    });
     return () => {
-      window.removeEventListener('resize', resizeListener);
+      mqls.current.forEach((m: any) => m.mql.removeListener(m.listener));
     };
   });
 

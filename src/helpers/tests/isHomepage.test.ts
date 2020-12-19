@@ -11,6 +11,6 @@ describe('isHomepage', () => {
     ${'is a hp'}      | ${'/en'}          | ${true}
     ${'is a hp'}      | ${'/'}            | ${true}
   `('$name', ({ asPath, expected }) => {
-  expect(isHomepage(asPath)).toStrictEqual(expected);
-});
+    expect(isHomepage(asPath)).toStrictEqual(expected);
+  });
 });

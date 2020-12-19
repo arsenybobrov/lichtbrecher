@@ -1,4 +1,4 @@
-import Richtext from '../src/components/molecules/Richtext/Richtext';
+import Richtext from '../src/components/__dummies/Richtext/Richtext';
 
 const SLICES_MAP = {
   text: Richtext,

@@ -10,8 +10,8 @@ describe('preventCodeInjection', () => {
     name                                                    | str                        | expected
     ${'string is censored because of blacklisted elements'} | ${notOnlyWhitelistedInput} | ${censoredOutput}
   `('$name', ({ str, expected }) => {
-  expect(preventCodeInjection(str)).toStrictEqual(expected);
-});
+    expect(preventCodeInjection(str)).toStrictEqual(expected);
+  });
 
   it.each`
     name                                           | str
@@ -27,8 +27,8 @@ describe('preventCodeInjection', () => {
     ${'opening tag with attributes'}               | ${'<danger copy-all>'}
     ${'closing tag with whitespaces'}              | ${'</danger   >'}
   `('Removes unknown $name', ({ str }) => {
-  expect(preventCodeInjection(str)).toStrictEqual('');
-});
+    expect(preventCodeInjection(str)).toStrictEqual('');
+  });
 
   it.each`
     name              | str
@@ -43,6 +43,6 @@ describe('preventCodeInjection', () => {
     ${'onscroll'}     | ${'<p onscroll="alert(\'hacked\')">'}
     ${'class'}        | ${'<p class="ugly">'}
   `('Removes attribute $name', ({ str }) => {
-  expect(preventCodeInjection(str)).toStrictEqual('<p>');
-});
+    expect(preventCodeInjection(str)).toStrictEqual('<p>');
+  });
 });

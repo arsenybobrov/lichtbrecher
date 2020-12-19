@@ -28,7 +28,7 @@ export interface PrismicLink {
   link_type?: string | null;
   type?: string | null;
   uid?: string | null;
-  url?: string;
+  url?: string | null;
   lang?: string | null;
   target?: string | null;
   tags?: Array<string>;
@@ -36,31 +36,31 @@ export interface PrismicLink {
   isBroken?: boolean;
 }
 export interface PrismicExternalLink {
-  link_type: 'Web',
-  url: string;
-  target: string;
+  link_type: 'Web' | 'Media';
+  url?: string | null;
+  target?: string | null;
 }
 
 export interface PrismicSingleImage {
-  dimensions: {
+  dimensions?: {
     width: number;
     height: number;
   };
-  alt: string;
-  copyright: string;
-  url: string;
+  alt?: string | null;
+  copyright?: string | null;
+  url?: string | null;
 }
 
 export interface PrismicResponsiveImage {
-  dimensions: {
+  dimensions?: {
     width: number;
     height: number;
   };
-  alt: string;
-  copyright: string;
-  url: string;
-  tablet: PrismicSingleImage;
-  smartphone: PrismicSingleImage;
+  alt?: string | null;
+  copyright?: string | null;
+  url?: string | null;
+  MD?: PrismicSingleImage;
+  XS?: PrismicSingleImage;
 }
 
 export interface PrismicParagraphSpanObject {
@@ -72,6 +72,24 @@ export interface PrismicParagraphSpanObject {
 
 export interface PrismicRichtextObject {
   type: string;
-  text: string;
-  spans: Array<PrismicParagraphSpanObject | any>;
+  text?: string;
+  url?: string | null;
+  alt?: string | null;
+  copyright?: string | null;
+  dimensions?: { width: number; height: number } | null;
+  spans?: Array<PrismicParagraphSpanObject | any>;
+}
+
+export type PrismicHeadingType =
+  'heading1'|
+  'heading2'|
+  'heading3'|
+  'heading4'|
+  'heading5'|
+  'heading6';
+
+export interface PrismicHeadline {
+  type: PrismicHeadingType | string | null;
+  text?: string;
+  spans?: Array<PrismicParagraphSpanObject | any>;
 }

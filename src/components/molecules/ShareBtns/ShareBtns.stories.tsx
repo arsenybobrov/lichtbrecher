@@ -1,6 +1,5 @@
 import React from 'react';
 import ShareBtns from './ShareBtns';
-import { StyledMain } from '../../../../pages/_app';
 import Container from '../../layout/Grid/Container';
 
 export default {
@@ -10,7 +9,6 @@ export default {
 
 export const Default = () => (
   <>
-    <StyledMain>
       <div />
       <Container>
         <ShareBtns
@@ -24,6 +22,5 @@ export const Default = () => (
           ]}
         />
       </Container>
-    </StyledMain>
   </>
 );

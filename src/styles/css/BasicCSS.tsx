@@ -18,21 +18,25 @@ const BasicCSS = createGlobalStyle<{ theme: Theme }>`
   }
 
   body {
-    font-family: ${(props) => props.theme.fonts.text};
+    ${(props) => props.theme.global.font.sourceSansRegular};
     -webkit-font-smoothing: antialiased;
     word-break: break-word;
-    max-width: 990px;
-    margin: 35px auto;
-    padding: 0 15px;
+    margin: 0 auto;
+    padding: 0;
+    color: ${(props) => props.theme.global.color.text};
+    line-height: ${(props) => props.theme.global.lineHeight.default};
+    width: 100%;
+    height: 100%;
+    position: relative;
   }
 
   ::-moz-selection {
-    background: #990000;
+    background: ${(props) => props.theme.global.color.text};
     color: white;
   }
 
   ::selection {
-    background: #990000;
+    background: ${(props) => props.theme.global.color.text};
     color: white;
   }
 

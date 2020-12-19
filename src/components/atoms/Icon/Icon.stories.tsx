@@ -28,8 +28,6 @@ export const Youtube = () => <Icon icon="YOUTUBE" />;
 
 export const Defaultchannel = () => <Icon icon="DEFAULTCHANNEL" />;
 
-export const Logo = () => <Icon icon="LOGO" />;
-
 export const ArrowSlim = () => <Icon icon="ARROW_SLIM" />;
 
 export const ArrowBold = () => <Icon icon="ARROW_BOLD" />;

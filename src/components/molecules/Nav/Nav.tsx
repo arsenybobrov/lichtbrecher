@@ -1,100 +1,85 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Flex } from '@nx-kit/flex';
 import flatNavToNestedNavConverter from '../../../helpers/flatNavToNestedNavConverter';
 import { Data } from '../../../../prismic/types';
 import createNavListElm from './helpers/createNavListElm';
+import AccordionItem from '../../organisms/Accordion/partials/AccordionItem';
 import Link from '../../atoms/Link/Link';
 
 interface NavProps {
   nav: Data;
+  className?: string;
+  showActive?: boolean;
+  isAccordion?: boolean;
+  initialOpenedItem?: number;
 }
 
 const NavWrapper = styled.nav`
-  padding: 15px;
-  border: 1px solid lightgray;
-  margin: 35px 0;
+  div[class^='AccordionItem__Description'] {
+    position: relative;
+    ${(props) => props.theme.component.link.skin.primary};
 
-  ul {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  ul li ul {
-    display: block;
-  }
-
-  a {
-    color: ${(props): string => props.theme.colors.default};
-    background-color: #990000;
-    transition: opacity .25s ease-out;
+    &:before {
+      content: '';
+      height: 0;
+    }
 
     &:hover {
-      opacity: .5;
+      color: ${(props) => props.theme.global.color.secondary800};
     }
   }
 
-  ul li ul li {
-    a {
-      color: ${(props): string => props.theme.colors.default};
-      background-color: #000;
-    }
+  div[class^='AccordionItem__Content'] {
+    padding-top: 2px;
+  }
+`;
+
+const StyledLink = styled(Link)`
+  margin-top: 22px;
+
+  &:first-of-type {
+    margin-top: 0;
   }
 
-  ul li ul li ul li {
-    a {
-      color: ${(props): string => props.theme.colors.default};
-      background-color: yellowgreen;
-    }
-  }
-
-  li {
-    margin: 15px 45px 15px 0;
-
-    &:last-child {
-      margin-right: 0;
-    }
+  &:before {
+    content: '';
+    height: 0;
   }
 `;
 
 const Nav: React.FC<NavProps> = ({
   nav,
+  className,
+  isAccordion,
+  initialOpenedItem,
+  showActive,
 }) => {
   const navTree = flatNavToNestedNavConverter(nav.data.body);
+
   return (
-    <NavWrapper>
-      <ul>
-        { createNavListElm(navTree) }
-        <li>
-          <Link
-            url={{
-              id: 'Xy_hkBIAACEA4qKx',
-              isBroken: false,
-              lang: 'de-de',
-              link_type: 'Document',
-              slug: 'home',
-              tags: [],
-              type: 'homepage',
-            }}
-            text="DE"
-            title=""
-          />
-        </li>
-        <li>
-          <Link
-            url={{
-              id: 'X2ZgRBIAACgAiMFP',
-              isBroken: false,
-              lang: 'en-us',
-              link_type: 'Document',
-              slug: 'home',
-              tags: [],
-              type: 'homepage',
-            }}
-            text="EN"
-            title=""
-          />
-        </li>
-      </ul>
+    <NavWrapper className={className}>
+      {!isAccordion && <ul>{createNavListElm(navTree, showActive)}</ul>}
+      {isAccordion &&
+        navTree.map((item, idx) => (
+          <AccordionItem
+            key={item.id}
+            description={item?.data?.primary?.link_text ?? '...'}
+            initialOpened={idx === initialOpenedItem}
+          >
+            <Flex flexDirection="column">
+              {item.children?.map((link) => (
+                <StyledLink
+                  key={link?.data?.primary?.link_text}
+                  text={link?.data?.primary?.link_text ?? '...'}
+                  url={link?.data?.primary?.nav_link}
+                  title={link?.data?.primary?.link_title ?? '...'}
+                  skin="primary700"
+                />
+              ))}
+            </Flex>
+          </AccordionItem>
+        ))}
     </NavWrapper>
   );
 };

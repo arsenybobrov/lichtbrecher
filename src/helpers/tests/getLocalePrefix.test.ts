@@ -9,6 +9,6 @@ describe('getLocalePrefix', () => {
     ${'return en'}                           | ${'/en/'}                    | ${'en'}
     ${'return en'}                           | ${'/en'}                     | ${'en'}
   `('$name', ({ asPath, expected }) => {
-  expect(getLocalePrefix(asPath)).toStrictEqual(expected);
-});
+    expect(getLocalePrefix(asPath)).toStrictEqual(expected);
+  });
 });

@@ -1,8 +1,13 @@
 import React, { useEffect } from 'react';
+import styled from 'styled-components';
 
 interface PrismicToolbarProps {
   pageId: string;
 }
+
+const Div = styled.div`
+  display: none;
+`;
 
 const PrismicToolbar: React.FC<PrismicToolbarProps> = ({ pageId }) => {
   useEffect(() => {
@@ -16,7 +21,7 @@ const PrismicToolbar: React.FC<PrismicToolbarProps> = ({ pageId }) => {
       document.head.appendChild(script);
     }
   }, []);
-  return <div data-wio-id={pageId} />;
+  return <Div data-wio-id={pageId} />;
 };
 
 export default PrismicToolbar;

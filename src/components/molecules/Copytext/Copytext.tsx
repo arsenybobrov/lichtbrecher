@@ -16,25 +16,7 @@ interface CopytextProps {
   children?: ReactNode;
 }
 
-const TextStyled = styled(Text)`
-  strong {
-    ${({ theme }) => theme.global.font.sourceSansBold};
-  }
-
-  a {
-    ${(props) => props.theme.component.link.global};
-    ${(props) => props.theme.component.link.skin.copytext};
-  }
-  h1 a:hover,
-  h2 a:hover,
-  h3 a:hover,
-  h4 a:hover,
-  h5 a:hover,
-  h6 a:hover {
-    background: none;
-    color: ${(props) => props.theme.global.color.text};
-  }
-`;
+const TextStyled = styled(Text)``;
 
 const Copytext: React.FC<CopytextProps> = ({
   elementType,

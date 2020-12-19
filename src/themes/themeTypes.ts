@@ -1,12 +1,32 @@
-import { DefaultTheme } from 'styled-components';
+import { Theme as KitTheme } from '@nx-kit/styling';
+import { ListTheme } from './types/list.type';
 
-export interface Theme extends DefaultTheme {
+export interface Theme extends KitTheme {
   colors: {
-    default: string;
-    primary: string;
-    themeColor: string;
+    [key: string]: string;
   };
-  fonts: {
-    text: string;
+  grid: {
+    gap: {
+      [key: string]: number;
+    };
   };
+  spacing: {
+    xl: {
+      default: number;
+      cmsElements: {
+        [key: string]: {
+          [key: string]: number;
+        };
+      };
+    };
+    xs: {
+      default: number;
+      cmsElements: {
+        [key: string]: {
+          [key: string]: number;
+        };
+      };
+    };
+  };
+  list: ListTheme;
 }

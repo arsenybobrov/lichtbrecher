@@ -8,16 +8,9 @@ interface PageTemplateProps {
   data: Data;
 }
 
-const PageTemplate: React.FC<PageTemplateProps> = ({
-  data,
-}) => (
-  <TemplateWrapper
-    pageId={data.id}
-    data={data}
-  >
-    <main>
-      <ComponentsRenderer slices={get(data, 'data.body', [])} />
-    </main>
+const PageTemplate: React.FC<PageTemplateProps> = ({ data }) => (
+  <TemplateWrapper pageId={data.id} data={data}>
+    <ComponentsRenderer slices={get(data, 'data.body', [])} />
   </TemplateWrapper>
 );
 

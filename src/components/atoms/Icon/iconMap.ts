@@ -9,7 +9,6 @@ import XingIcon from './icons/XingIcon';
 import YoutubeIcon from './icons/YoutubeIcon';
 import DefaultChannel from './icons/DefaultChannel';
 import BlogIcon from './icons/BlogIcon';
-import LogoIcon from './icons/Logo';
 import ArrowIconSlim from './icons/ArrowIconSlim';
 import ArrowIconBold from './icons/ArrowIconBold';
 import HamburgerAnimatedIcon from './icons/HamburgerAnimatedIcon';
@@ -26,7 +25,6 @@ export type IconMapType = {
   XING: React.FC;
   YOUTUBE: React.FC;
   DEFAULTCHANNEL: React.FC;
-  LOGO: React.FC;
   ARROW_SLIM: React.FC;
   ARROW_BOLD: React.FC;
   HAMBURGER_ANIMATED: React.FC;
@@ -44,7 +42,6 @@ export const IconMap: IconMapType = {
   XING: XingIcon,
   YOUTUBE: YoutubeIcon,
   DEFAULTCHANNEL: DefaultChannel,
-  LOGO: LogoIcon,
   ARROW_SLIM: ArrowIconSlim,
   ARROW_BOLD: ArrowIconBold,
   HAMBURGER_ANIMATED: HamburgerAnimatedIcon,

@@ -2,13 +2,17 @@
   "processors": ["stylelint-processor-styled-components"],
   "extends": [
     "stylelint-config-standard",
-    "stylelint-config-styled-components"
+    "stylelint-config-styled-components",
+    "stylelint-prettier/recommended"
   ],
+  "plugins": ["stylelint-prettier"],
   "rules": {
+    "prettier/prettier": true,
     "comment-empty-line-before": "never",
     "declaration-empty-line-before": null,
     "selector-pseudo-element-colon-notation": "single",
-    "number-leading-zero": "never",
+    "property-no-vendor-prefix": null,
+    "number-leading-zero": null,
     "no-descending-specificity": null,
     "declaration-colon-newline-after": null,
     "declaration-block-single-line-max-declarations": null,
@@ -16,6 +20,6 @@
     "selector-type-no-unknown": null,
     "value-keyword-case": null
   },
-  "ignoreFiles": "src/**/*.vendor.js",
+  "ignoreFiles": ["src/**/*.vendor.js", "**/*.test.tsx.snap"],
   "syntax": "scss"
 }
