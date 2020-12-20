@@ -17,7 +17,7 @@ interface RichtextProps {
 const Wrapper = styled.div`
   h1 {
     background: ${lighten(0.2, '#FFCD64')};
-    pading: 35px;
+    padding: 35px;
   }
 `;
 
