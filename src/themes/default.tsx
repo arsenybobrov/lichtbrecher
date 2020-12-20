@@ -88,63 +88,6 @@ const defaultTheme: Theme = {
         `,
       },
     },
-    button: {
-      global: css<any>`
-        position: relative;
-        display: inline-flex;
-        box-sizing: border-box;
-        align-items: center;
-        justify-content: center;
-        overflow: visible;
-        margin: 0;
-        border-style: solid;
-        text-transform: none;
-        -webkit-appearance: button;
-        vertical-align: top;
-        text-decoration: none;
-        user-select: none;
-        -webkit-user-select: none;
-        touch-action: none;
-        isolation: isolate;
-
-        &:hover,
-        &:active {
-          box-shadow: none;
-        }
-
-        &:disabled {
-          cursor: default;
-        }
-
-        &:focus {
-          outline: none;
-        }
-
-        &::-moz-focus-inner {
-          border: 0;
-          border-style: none;
-          padding: 0;
-          margin-block-start: -2px;
-          margin-block-end: -2px;
-        }
-      `,
-      skin: {
-        primary: css<any>`
-          color: ${({ theme }) => theme.global.color.primary};
-          ${({ isHovered }) => isHovered && css``};
-          ${({ isActive }) => isActive && css``};
-          ${({ isDisabled }) => isDisabled && css``};
-          ${({ isFocused, theme }) => isFocused && theme.global.focusRing};
-        `,
-        secondary: css<any>`
-          color: ${({ theme }) => theme.global.color.primary};
-          ${({ isHovered }) => isHovered && css``};
-          ${({ isActive }) => isActive && css``};
-          ${({ isDisabled }) => isDisabled && css``};
-          ${({ isFocused }) => isFocused && css``};
-        `,
-      },
-    },
     link: {
       global: css<any>`
         color: ${({ theme }) => theme.global.color.primary};

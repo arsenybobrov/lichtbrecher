@@ -34,9 +34,6 @@ export interface Theme {
     text: {
       [key: string]: any;
     };
-    button: {
-      [key: string]: any;
-    };
     link: {
       [key: string]: any;
     };
