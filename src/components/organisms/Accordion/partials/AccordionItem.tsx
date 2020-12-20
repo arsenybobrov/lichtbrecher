@@ -13,14 +13,14 @@ const height = 1;
 const heightMdUp = 1;
 
 const Wrapper = styled.div`
-  border-bottom: ${height}px solid ${(props): string => props.theme.global.color.white500};
+  border-bottom: ${height}px solid ${(props): string => props.theme.global.color.secondary};
 
   &:last-of-type {
     border-bottom: none;
   }
 
   @media (${media('md')}) {
-    border-bottom: ${heightMdUp}px solid ${(props): string => props.theme.global.color.white500};
+    border-bottom: ${heightMdUp}px solid ${(props): string => props.theme.global.color.secondary};
   }
 `;
 

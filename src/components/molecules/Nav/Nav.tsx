@@ -19,15 +19,6 @@ const NavWrapper = styled.nav`
   div[class^='AccordionItem__Description'] {
     position: relative;
     ${(props) => props.theme.component.link.skin.primary};
-
-    &:before {
-      content: '';
-      height: 0;
-    }
-
-    &:hover {
-      color: ${(props) => props.theme.global.color.secondary800};
-    }
   }
 
   div[class^='AccordionItem__Content'] {
@@ -35,18 +26,7 @@ const NavWrapper = styled.nav`
   }
 `;
 
-const StyledLink = styled(Link)`
-  margin-top: 22px;
-
-  &:first-of-type {
-    margin-top: 0;
-  }
-
-  &:before {
-    content: '';
-    height: 0;
-  }
-`;
+const StyledLink = styled(Link)``;
 
 const Nav: React.FC<NavProps> = ({
   nav,

@@ -11,10 +11,10 @@ const imageMock = {
     width: 870,
     height: 746,
   },
-  alt: 'woman drinking tea',
+  alt: 'dummy image',
   copyright: null,
   url:
-    'https://images.prismic.io/nexum-ag-intern/8cd637e6-3174-4830-895e-2f3856a03bb0_AVOURY_10_AVOURYONESCHWARZ_TOPSHOT_1392_03_sRGB.png?auto=compress,format&rect=0,0,578,496&w=870&h=746',
+    'https://images.prismic.io/nexum-demo/8f051437-c165-4347-a161-db86c5752077_pexels-arseny-892493.jpg?auto=compress,format',
   MD: {
     dimensions: {
       width: 325,
@@ -23,7 +23,7 @@ const imageMock = {
     alt: null,
     copyright: null,
     url:
-      'https://images.prismic.io/nexum-ag-intern/8cd637e6-3174-4830-895e-2f3856a03bb0_AVOURY_10_AVOURYONESCHWARZ_TOPSHOT_1392_03_sRGB.png?auto=compress,format&rect=0,0,579,495&w=325&h=278',
+      'https://images.prismic.io/nexum-demo/8f051437-c165-4347-a161-db86c5752077_pexels-arseny-892493.jpg?auto=compress,format',
   },
   XS: {
     dimensions: {
@@ -33,7 +33,7 @@ const imageMock = {
     alt: null,
     copyright: null,
     url:
-      'https://images.prismic.io/nexum-ag-intern/8cd637e6-3174-4830-895e-2f3856a03bb0_AVOURY_10_AVOURYONESCHWARZ_TOPSHOT_1392_03_sRGB.png?auto=compress,format&rect=0,1,579,494&w=621&h=530',
+      'https://images.prismic.io/nexum-demo/8f051437-c165-4347-a161-db86c5752077_pexels-arseny-892493.jpg?auto=compress,format',
   },
 };
 

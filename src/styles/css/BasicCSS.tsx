@@ -18,12 +18,11 @@ const BasicCSS = createGlobalStyle<{ theme: Theme }>`
   }
 
   body {
-    ${(props) => props.theme.global.font.sourceSansRegular};
+    ${(props) => props.theme.global.font.brandRegular};
     -webkit-font-smoothing: antialiased;
     word-break: break-word;
     margin: 0 auto;
     padding: 0;
-    color: ${(props) => props.theme.global.color.text};
     line-height: ${(props) => props.theme.global.lineHeight.default};
     width: 100%;
     height: 100%;
@@ -31,12 +30,12 @@ const BasicCSS = createGlobalStyle<{ theme: Theme }>`
   }
 
   ::-moz-selection {
-    background: ${(props) => props.theme.global.color.text};
+    background: ${(props) => props.theme.global.color.selection};
     color: white;
   }
 
   ::selection {
-    background: ${(props) => props.theme.global.color.text};
+    background: ${(props) => props.theme.global.color.selection};
     color: white;
   }
 

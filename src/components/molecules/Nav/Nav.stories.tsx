@@ -1,28 +1,35 @@
 import React from 'react';
 import Nav from './Nav';
 
-const nav = {
-  id: 'X75jJhIAACEArbGw',
-    uid: 'footernav',
-    type: 'navigation',
-    href:
-  'https://nexum-ag-intern.cdn.prismic.io/api/v2/documents/search?ref=X75lDxIAACAArbkD&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22X75jJhIAACEArbGw%22%29+%5D%5D',
-    tags: [],
-    first_publication_date: '2020-11-25T13:59:06+0000',
-    last_publication_date: '2020-11-25T14:07:11+0000',
-    slugs: ['-footernavigation'],
-    linked_documents: [],
-    lang: 'de-de',
-    alternate_languages: [],
-    data: {
+const navWidthHeadlines = {
+  id: 'X1jxlRIAACgATUGh',
+  uid: 'mainnav',
+  type: 'navigation',
+  href:
+    'https://nexum-demo.cdn.prismic.io/api/v2/documents/search?ref=X9-MCBAAACIAU_6f&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22X1jxlRIAACgATUGh%22%29+%5D%5D',
+  tags: [],
+  first_publication_date: '2020-09-09T15:15:36+0000',
+  last_publication_date: '2020-12-20T17:38:16+0000',
+  slugs: ['-main-navigation'],
+  linked_documents: [],
+  lang: 'de-de',
+  alternate_languages: [
+    {
+      id: 'X2ZgbBIAACgAiMIE',
+      uid: 'mainnav',
+      type: 'navigation',
+      lang: 'en-us',
+    },
+  ],
+  data: {
     display_name: [
       {
         type: 'heading1',
-        text: '### Footernavigation',
+        text: '### Main Navigation',
         spans: [],
       },
     ],
-      body: [
+    body: [
       {
         slice_type: 'nav_item',
         slice_label: null,
@@ -31,8 +38,8 @@ const nav = {
           nav_link: {
             link_type: 'Any',
           },
-          link_text: 'Social Media Marketing',
-          link_title: 'Social Media Marketing',
+          link_text: 'Links block headline 1',
+          link_title: null,
           level: '1',
         },
         id: 0,
@@ -43,11 +50,16 @@ const nav = {
         items: [{}],
         primary: {
           nav_link: {
-            link_type: 'Web',
-            url: 'https://example.com',
+            id: 'Xy_hkBIAACEA4qKx',
+            type: 'homepage',
+            tags: [],
+            slug: 'home',
+            lang: 'de-de',
+            link_type: 'Document',
+            isBroken: false,
           },
-          link_text: 'Social Media Marketing KPIs',
-          link_title: 'Social Media Marketing KPIs',
+          link_text: 'Internal link',
+          link_title: 'go to homepage',
           level: '2',
         },
         id: 1,
@@ -58,11 +70,121 @@ const nav = {
         items: [{}],
         primary: {
           nav_link: {
+            link_type: 'Any',
+          },
+          link_text: 'Links block headline 2',
+          link_title: null,
+          level: '1',
+        },
+        id: 2,
+      },
+      {
+        slice_type: 'nav_item',
+        slice_label: null,
+        items: [{}],
+        primary: {
+          nav_link: {
             link_type: 'Web',
             url: 'https://example.com',
+            target: '_blank',
           },
-          link_text: 'Lokale Landingpages',
-          link_title: 'Lokale Landingpages',
+          link_text: 'external link',
+          link_title: null,
+          level: '2',
+        },
+        id: 3,
+      },
+    ],
+  },
+};
+
+const mixedNav = {
+  id: 'X1jxlRIAACgATUGh',
+  uid: 'mainnav',
+  type: 'navigation',
+  href:
+    'https://nexum-demo.cdn.prismic.io/api/v2/documents/search?ref=X9-M3xAAACIAVAJe&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22X1jxlRIAACgATUGh%22%29+%5D%5D',
+  tags: [],
+  first_publication_date: '2020-09-09T15:15:36+0000',
+  last_publication_date: '2020-12-20T17:41:51+0000',
+  slugs: ['-main-navigation'],
+  linked_documents: [],
+  lang: 'de-de',
+  alternate_languages: [
+    {
+      id: 'X2ZgbBIAACgAiMIE',
+      uid: 'mainnav',
+      type: 'navigation',
+      lang: 'en-us',
+    },
+  ],
+  data: {
+    display_name: [
+      {
+        type: 'heading1',
+        text: '### Main Navigation',
+        spans: [],
+      },
+    ],
+    body: [
+      {
+        slice_type: 'nav_item',
+        slice_label: null,
+        items: [{}],
+        primary: {
+          nav_link: {
+            id: 'Xy_hkBIAACEA4qKx',
+            type: 'homepage',
+            tags: [],
+            slug: 'home',
+            lang: 'de-de',
+            link_type: 'Document',
+            isBroken: false,
+          },
+          link_text: 'Homepage',
+          link_title: null,
+          level: '1',
+        },
+        id: 0,
+      },
+      {
+        slice_type: 'nav_item',
+        slice_label: null,
+        items: [{}],
+        primary: {
+          nav_link: {
+            id: 'X1jx5hIAACcATUMX',
+            type: 'page',
+            tags: [],
+            slug: 'page',
+            lang: 'de-de',
+            uid: 'page',
+            link_type: 'Document',
+            isBroken: false,
+          },
+          link_text: 'Page (L1)',
+          link_title: null,
+          level: '1',
+        },
+        id: 1,
+      },
+      {
+        slice_type: 'nav_item',
+        slice_label: null,
+        items: [{}],
+        primary: {
+          nav_link: {
+            id: 'X1jyEBIAACcATUPa',
+            type: 'page',
+            tags: [],
+            slug: 'sub-page',
+            lang: 'de-de',
+            uid: 'sub-page',
+            link_type: 'Document',
+            isBroken: false,
+          },
+          link_text: 'Sub-Page (L2)',
+          link_title: null,
           level: '2',
         },
         id: 2,
@@ -73,11 +195,18 @@ const nav = {
         items: [{}],
         primary: {
           nav_link: {
-            link_type: 'Any',
+            id: 'X1jyyBIAACYATUcT',
+            type: 'page',
+            tags: [],
+            slug: 'sub-sub-page',
+            lang: 'de-de',
+            uid: 'sub-sub-page',
+            link_type: 'Document',
+            isBroken: false,
           },
-          link_text: 'Shops und E-Commerce',
-          link_title: 'Shops und E-Commerce',
-          level: '1',
+          link_text: 'Sub-Sub-Page (L3)',
+          link_title: null,
+          level: '3',
         },
         id: 3,
       },
@@ -89,139 +218,26 @@ const nav = {
           nav_link: {
             link_type: 'Web',
             url: 'https://example.com',
+            target: '_blank',
           },
-          link_text: 'Kurse und Veranstaltungen Social Media Marketing',
-          link_title: 'Kurse und Veranstaltungen Social Media Marketing',
-          level: '2',
+          link_text: 'External Link',
+          link_title: null,
+          level: '1',
         },
         id: 4,
-      },
-      {
-        slice_type: 'nav_item',
-        slice_label: null,
-        items: [{}],
-        primary: {
-          nav_link: {
-            link_type: 'Any',
-          },
-          link_text: 'Strategie Beratung, Wachstum, Digitalisierung',
-          link_title: 'Strategie Beratung, Wachstum, Digitalisierung',
-          level: '1',
-        },
-        id: 5,
-      },
-      {
-        slice_type: 'nav_item',
-        slice_label: null,
-        items: [{}],
-        primary: {
-          nav_link: {
-            link_type: 'Web',
-            url: 'https://example.com',
-          },
-          link_text: 'Kurse und Veranstaltungen Social Media Marketing',
-          link_title: 'Kurse und Veranstaltungen Social Media Marketing',
-          level: '2',
-        },
-        id: 6,
-      },
-      {
-        slice_type: 'nav_item',
-        slice_label: null,
-        items: [{}],
-        primary: {
-          nav_link: {
-            link_type: 'Any',
-          },
-          link_text: 'Performance, Conversion Optimierung',
-          link_title: 'Performance, Conversion Optimierung',
-          level: '1',
-        },
-        id: 7,
-      },
-      {
-        slice_type: 'nav_item',
-        slice_label: null,
-        items: [{}],
-        primary: {
-          nav_link: {
-            link_type: 'Web',
-            url: 'https://example.com',
-          },
-          link_text: 'Kurse und Veranstaltungen Social Media Marketing',
-          link_title: 'Kurse und Veranstaltungen Social Media Marketing',
-          level: '2',
-        },
-        id: 8,
-      },
-      {
-        slice_type: 'nav_item',
-        slice_label: null,
-        items: [{}],
-        primary: {
-          nav_link: {
-            link_type: 'Any',
-          },
-          link_text: 'Branding',
-          link_title: 'Branding',
-          level: '1',
-        },
-        id: 9,
-      },
-      {
-        slice_type: 'nav_item',
-        slice_label: null,
-        items: [{}],
-        primary: {
-          nav_link: {
-            link_type: 'Web',
-            url: 'https://example.com',
-          },
-          link_text: 'Kurse und Veranstaltungen Social Media Marketing',
-          link_title: 'Kurse und Veranstaltungen Social Media Marketing',
-          level: '2',
-        },
-        id: 10,
-      },
-      {
-        slice_type: 'nav_item',
-        slice_label: null,
-        items: [{}],
-        primary: {
-          nav_link: {
-            link_type: 'Any',
-          },
-          link_text: 'Relaunch, Kundenbindung, UX, Budgeting',
-          link_title: 'Relaunch, Kundenbindung, UX, Budgeting',
-          level: '1',
-        },
-        id: 11,
-      },
-      {
-        slice_type: 'nav_item',
-        slice_label: null,
-        items: [{}],
-        primary: {
-          nav_link: {
-            link_type: 'Web',
-            url: 'https://example.com',
-          },
-          link_text: 'Kurse und Veranstaltungen Social Media Marketing',
-          link_title: 'Kurse und Veranstaltungen Social Media Marketing',
-          level: '2',
-        },
-        id: 12,
       },
     ],
   },
 };
-
 
 export default {
   title: 'Molecules/Nav',
   component: Nav,
 };
 
-export const Default = () => <Nav nav={nav} />;
-export const Accordion = () => <Nav nav={nav} isAccordion />;
-export const AccordionInitialOpenedTab = () => <Nav nav={nav} isAccordion initialOpenedItem={0} />;
+export const Mixed = () => <Nav nav={mixedNav} />;
+export const NavWithHeadlines = () => <Nav nav={navWidthHeadlines} />;
+export const Accordion = () => <Nav nav={navWidthHeadlines} isAccordion />;
+export const AccordionInitialOpenedTab = () => (
+  <Nav nav={navWidthHeadlines} isAccordion initialOpenedItem={0} />
+);

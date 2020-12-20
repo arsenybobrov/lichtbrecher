@@ -1,7 +1,7 @@
-import StylesWrapper from '../src/styles/StylesWrapper';
 import React from 'react';
 import * as nextImage from 'next/image';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
+import StylesWrapper from '../src/styles/StylesWrapper';
 import BreakpointProviderWrapper from '../src/contexts/breakpoint/BreakpointProviderWrapper';
 import { SharedContentProvider } from '../src/contexts/sharedContent/SharedContentContext';
 import { sharedDataMock } from './mocks/StorybookMocks';

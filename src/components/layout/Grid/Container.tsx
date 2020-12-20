@@ -35,14 +35,9 @@ const Wrapper = styled.div<{
       background-color: ${props.background};
     `};
   ${(props) =>
-    props.sliceName === 'share_buttons' &&
+    props.spacing &&
     css`
-      margin-top: ${props.spacing}px;
-    `};
-  ${(props) =>
-    props.sliceName === 'header_distance_helper' &&
-    css`
-      height: ${props.spacing}px;
+      margin-bottom: ${props.spacing}px;
     `};
 
   ${media('md')} {

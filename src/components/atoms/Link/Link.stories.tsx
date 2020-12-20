@@ -22,7 +22,7 @@ const internalLink = {
   isBroken: false,
 };
 
-export const Primary = () => (
+export const PrimaryExternalLink = () => (
   <Link url={externalLink} text="external link" title="click me" skin="primary" />
 );
 
@@ -39,29 +39,16 @@ export const PrimaryAnchorLink = () => (
   <Link text="anchor link" title="click me" skin="primary" anchor_id="funky_lement" />
 );
 
-export const PrimaryBig = () => (
-  <Link url={externalLink} text="external link" title="click me" skin="primaryBig" />
+export const Secondary = () => (
+  <Link url={externalLink} text="external link" title="click me" skin="secondary" />
 );
 
-// TODO: make work in storybook
-export const PrimaryBigActiveLink = () => (
+export const PrimaryActiveLink = () => (
   <Link
     url={internalLink}
-    text="internal link"
+    text="active link (doesn't work inside storybook)"
     title="click me"
-    skin="primaryBig"
+    skin="primary"
     showActive
   />
-);
-
-export const Copytext = () => (
-  <Link url={externalLink} text="external link" title="click me" skin="copytext" />
-);
-
-export const Tertiary = () => (
-  <Link url={externalLink} text="external link" title="click me" skin="tertiary" />
-);
-
-export const Primary700 = () => (
-  <Link url={externalLink} text="external link" title="click me" skin="primary700" />
 );

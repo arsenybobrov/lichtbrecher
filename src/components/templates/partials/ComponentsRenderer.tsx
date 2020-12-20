@@ -21,7 +21,7 @@ interface UndefinedSliceProps {
 const UndefinedSlice: React.FC<UndefinedSliceProps> = ({ sliceName, ...rest }) => (
   <>
     <div>&quot;{sliceName}&quot; is not defined yet.</div>
-    <div>Data: {JSON.stringify(rest)}</div>
+    <div>Data: {JSON.stringify(rest, null, 2)}</div>
   </>
 );
 

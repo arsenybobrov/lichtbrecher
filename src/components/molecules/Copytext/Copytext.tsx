@@ -6,10 +6,12 @@ import { As } from '@nx-kit/styling';
 import linkResolver from '../../../../prismic/helpers/linkResolver';
 import htmlSerializer from '../../../../prismic/helpers/richtextHtmlSerializer';
 import { PrismicRichtextObject } from '../../../../prismic/types';
+import preventCodeInjection from "../../../helpers/preventCodeInjection";
 
 interface CopytextProps {
   richtext?: Array<PrismicRichtextObject>;
   textstring?: string;
+  markup?: string;
   skin?: number;
   className?: string;
   elementType?: As;
@@ -23,6 +25,7 @@ const Copytext: React.FC<CopytextProps> = ({
   richtext,
   textstring,
   skin,
+  markup,
   className,
   children,
 }) => {
@@ -30,9 +33,12 @@ const Copytext: React.FC<CopytextProps> = ({
     ? // @ts-ignore
       RichText.render(richtext, linkResolver, htmlSerializer)
     : textstring;
+  const safeMarkUp = markup && preventCodeInjection(markup);
+
   return (
     <TextStyled elementType={elementType} className={className} skin={skin || 400}>
       {text}
+      {markup && <div dangerouslySetInnerHTML={{ __html: safeMarkUp || '' }} />}
       {children}
     </TextStyled>
   );

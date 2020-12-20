@@ -1,9 +1,45 @@
-import { Theme as KitTheme } from '@nx-kit/styling';
 import { ListTheme } from './types/list.type';
 
-export interface Theme extends KitTheme {
-  colors: {
-    [key: string]: string;
+export interface Theme {
+  global: {
+    color: {
+      [key: string]: string;
+    };
+    font: {
+      [key: string]: string;
+    };
+    breakpoint: {
+      xs: { min: number; max: number };
+      sm: { min: number; max: number };
+      md: { min: number; max: number };
+      lg: { min: number; max: number };
+      xl: { min: number; max: number };
+      xxl: { min: number; max: number };
+      xxxl: { min: number; max: null };
+    };
+    spacing: {
+      [key: string]: number;
+    };
+    fontSize: {
+      [key: string]: number;
+    };
+    lineHeight: {
+      [key: string]: number;
+    };
+  };
+  component: {
+    heading: {
+      [key: string]: any;
+    };
+    text: {
+      [key: string]: any;
+    };
+    button: {
+      [key: string]: any;
+    };
+    link: {
+      [key: string]: any;
+    };
   };
   grid: {
     gap: {

@@ -17,12 +17,7 @@ interface RichtextProps {
 const Wrapper = styled.div`
   h1 {
     background: ${lighten(0.2, '#FFCD64')};
-  }
-
-  p {
-    line-height: 1.5;
-    margin-top: 25px;
-    color: #666;
+    pading: 35px;
   }
 `;
 

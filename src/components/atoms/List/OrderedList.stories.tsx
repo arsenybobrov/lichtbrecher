@@ -1,6 +1,6 @@
 import React from 'react';
 import { UnorderedList, ListItem } from './List';
-import { list2LevelsMock, listSimpleMock } from './List2LevelsMock';
+import { listMock, listSimpleMock } from './ListMocks.mocks';
 
 export default {
   title: 'Atoms/Lists/Unordered',
@@ -46,7 +46,7 @@ Simple.args = {
 export const TwoLevels = UnorderedListTemplate.bind({});
 // @ts-ignore
 TwoLevels.args = {
-  data: list2LevelsMock,
+  data: listMock,
 };
 
 export const IncreasedFontSize = UnorderedListTemplate.bind({});
@@ -61,7 +61,7 @@ IncreasedFontSize.decorators = [
 
 // @ts-ignore
 IncreasedFontSize.args = {
-  data: list2LevelsMock,
+  data: listMock,
 };
 
 // @ts-ignore

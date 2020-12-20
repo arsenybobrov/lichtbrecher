@@ -1,7 +1,6 @@
 import React from 'react';
 import { Flex } from '@nx-kit/flex';
 import styled, { css } from 'styled-components';
-import { media } from '@nx-kit/styling';
 import isClient from '../../../helpers/isClient';
 import shareUrl, { ShareChannelType } from '../../../helpers/shareUrl';
 import Icon from '../../atoms/Icon/Icon';
@@ -17,17 +16,13 @@ interface ShareBtnsProps {
 
 const Wrapper = styled(Flex)`
   width: 100%;
-  padding: 50px 0;
-
-  ${media('xs', 'sm')} {
-    margin-left: -2px;
-  }
 `;
 
+// also used inside SocialChannels.tsx
 export const ChannelStyling = css`
   cursor: pointer;
   margin-right: 20px;
-  color: ${(props) => props.theme.global.color.text};
+  color: ${(props) => props.theme.global.color.primary};
   transition: color .5s ease-out;
 
   &:last-of-type {
@@ -35,7 +30,7 @@ export const ChannelStyling = css`
   }
 
   &:hover {
-    color: ${(props) => props.theme.global.color.secondary800};
+    color: ${(props) => props.theme.global.color.secondary};
   }
 
   svg {
@@ -53,7 +48,7 @@ const Channel = styled.button`
 const ShareBtns: React.FC<ShareBtnsProps> = ({ channels }) => {
   const url = isClient() ? window?.location?.href : '';
   return (
-    <Wrapper justifyContent={{ xs: 'flex-start', md: 'flex-end' }} id="shareBtns">
+    <Wrapper justifyContent={{ xs: 'flex-end', md: 'flex-start' }} id="shareBtns">
       <Flex>
         {channels.map((channel: ShareChannel) => {
           if (channel.channel) {

@@ -16,7 +16,7 @@
     "lint": "eslint \"src/**\" \"pages/**\" \"prismic/**\"",
     "lint:fix": "eslint --fix \"src/**\" \"pages/**\" \"prismic/**\"",
     "test:all": "npm run test && npm run lint && npm run stylelint && npm run type-check",
-    "storybook": "STORYBOOK_ROOT=storybook start-storybook -s ./public -p 6006 --no-dll",
+    "storybook": "STORYBOOK_ROOT=storybook start-storybook -s ./public -p 6006 --no-dll --no-manager-cache",
     "build-storybook": "STORYBOOK_ROOT=storybook build-storybook -s ./public --no-dll"
   },
   "dependencies": {

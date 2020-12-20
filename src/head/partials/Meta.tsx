@@ -33,7 +33,7 @@ const Meta: React.FC<MetaProps> = ({
       {(!canonical || canonical === '') && shouldIndex && <meta name="robots" content="index, follow" />}
       {!shouldIndex && <meta name="robots" content="noindex, nofollow" />}
       {canonical && canonical !== '' && <meta name="canonical" content={canonical} />}
-      <meta name="theme-color" content={theme.colors.themeColor} />
+      <meta name="theme-color" content={theme.global.color.metaTheme} />
       <meta name="format-detection" content="telephone=no" />
       <meta name="google" content="notranslate" />
       <meta name="google" content="nositelinkssearchbox" />
