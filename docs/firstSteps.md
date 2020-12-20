@@ -1,8 +1,9 @@
-## Lichtbrecher first steps guide to a "Hello World" page 
+# Lichtbrecher first steps guide to a "Hello World" page 
+## install
+Run ```npm install```, edit ```prismic/config.js``` and ```next.config.js```.
+Setup prismic: content types and languages.
 
-You should have cloned the Repository and executed ```yarn install``` before starting.
-
-### Setup Prismic backend
+## setup prismic
 Create a new repository at prismic.io. Go to *Settings > Api & Security*, set the repository security API access to "Private API" and generate a
 permanent access token by adding a new application.
 
@@ -12,22 +13,20 @@ Example for previews on localhost:
 
 Site Name: localhost, Domain: http://localhost:3000, Link Resolver: /api/preview
 
-### Setup Prismic custom types
+## setup prismic custom types
 
 In Prismic, open *Custom Types > Create New*, call your new Custom Type "homepage" and open the JSON Editor. 
-Copy and paste the configuration from ```prismic/blueprints/homepage.json``` into the JSON Editor.
+Copy and paste the blueprint from ```prismic/blueprints/homepage.json``` into the JSON Editor.
 
-### Add content
+See ```prismic/config.js``` for details and use ```prismic/blueprints``` to scaffold these types.
+
+## add content
 
 In Prismic, return to *Documents*, Create new document, call it "homepage" and use the Custom Type "homepage".
 Inside the document go to *Content* and add some text into the fields "richtext".
 
 In "richtext" you can use the WYSIWYG-editor.
 
-### Connect to Prismic backend
+## start the app in dev mode
 
-Open ```next.config.js```. Set the environment variables *apiEndpoint*, *accessToken* and *repoName* to values provided by Prismic.io.
-
-### Start Next.js
-
-Execute ```yarn dev``` (or ```yarn build``` and ```yarn start```) to start your server on localhost and visit [localhost:3000](http://localhost:3000) in your browser.
+Execute ```npm run dev``` to start your server on localhost and visit [localhost:3000](http://localhost:3000) in your browser.

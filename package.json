@@ -3,7 +3,7 @@
   "version": "4.3.0",
   "license": "MIT",
   "author": {
-    "name": "Arseny Bobrov, Daniel Hargesheimer, Chema Mengibar"
+    "name": "Arseny Bobrov, Daniel Hargesheimer, Chema Mengibar, Martin Malinowski"
   },
   "scripts": {
     "dev": "next dev",
