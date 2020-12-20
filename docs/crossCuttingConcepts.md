@@ -29,7 +29,7 @@ It is recommended to use ```src/helpers/preventCodeInjection.ts``` when using da
 ## snapshot tests
 Only slices & siteframe require snapshot tests. Do not add snapshot tests to partials & atoms.
 
-##scss
+## scss
 Want to write styles in JavaScript, but also want Sass-style helper functions and mixins? Need a consistent color palette throughout your app? ✨ polished is for you!
 See [`docs`](https://polished.js.org/docs/) for details.
 
@@ -54,5 +54,5 @@ Use ```src/components/atoms/Link/Link.tsx``` for internal link handling with the
 Links inside a richt text are handled the same way. See stories for details.
 
 ## nx-kit
-We use [nx-kit](./docs/https://github.com/nexumAG/nx-kit) as a component library and design system.
+We use [nx-kit](https://github.com/nexumAG/nx-kit) as a component library and design system.
 Nx-kit components are styled inside ```src/themes/default.tsx``` > defaultTheme.component.

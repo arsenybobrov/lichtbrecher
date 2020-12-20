@@ -3,10 +3,10 @@ Lichtbrecher is a setup template for projects running with next.js and consuming
 
 ## documentation
 - [First steps](./docs/firstSteps.md)
-- [Storybook](./docs/storabook.md)
+- [Storybook](./docs/storybook.md)
 - [Prismic](./docs/prismic.md)
-- [Cross-cutting concepts](./docs/cheatSheet.md)
-- [Cheatsheet](./docs/crossCuttingConcepts.md)
+- [Cross-cutting concepts](./docs/crossCuttingConcepts.md)
+- [Cheatsheet](./docs/cheatSheet.md)
 
 ## demo
 https://lichtbrecher.vercel.app/
