@@ -5,7 +5,7 @@ Lichtbrecher is a setup template for projects running with next.js and consuming
 - [First steps](./docs/firstSteps.md)
 - [Storybook](./docs/storybook.md)
 - [Prismic](./docs/prismic.md)
-- [Cross-cutting concepts](./docs/crossCuttingConcepts.md)
+- [Cross-cutting concepts](./docs/crossCuttingConcepts.md) !important
 - [Cheatsheet](./docs/cheatSheet.md)
 
 ## demo

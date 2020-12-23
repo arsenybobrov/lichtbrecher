@@ -49,10 +49,13 @@ It is recomended to use pre-push / pre-commit hooks. Add inside package.json the
 Static errors are handled inside ```pages/_error.js```. The classic "404 - page not found" is a normal content page delivered by prismic.
 The prismic custom type for the 404 error page is inside ```prismic/config.js```.
 
-## Internal & external inks:
+## Internal & external inks
 Use ```src/components/atoms/Link/Link.tsx``` for internal link handling with the ability to handle client-side transitions (if delayClick set to true) and extertnal links.
 Links inside a richt text are handled the same way. See stories for details.
 
 ## nx-kit
 We use [nx-kit](https://github.com/nexumAG/nx-kit) as a component library and design system.
 Nx-kit components are styled inside ```src/themes/default.tsx``` > defaultTheme.component.
+
+## anchor id's
+If you need to give an id (anchor) to a certain slice, create a key text field inside the prismic slice and call it "anchor_id". See ```src/components/templates/partials/ComponentsRenderer.tsx``` for details.
