@@ -20,8 +20,8 @@ interface UndefinedSliceProps {
 
 const UndefinedSlice: React.FC<UndefinedSliceProps> = ({ sliceName, ...rest }) => (
   <>
-    <div>&quot;{sliceName}&quot; is not defined yet.</div>
-    <div>Data: {JSON.stringify(rest, null, 2)}</div>
+    <div style={{'background': 'lightcyan', 'padding': '35px'}}>&quot;{sliceName}&quot; is not defined yet but is added as slice inside prismic. Please add the new slice inside SLICES_MAP</div>
+    <div style={{'background': 'lightcyan', 'padding': '35px'}}>Data: <pre>{JSON.stringify(rest, null, 2)}</pre></div>
   </>
 );
 

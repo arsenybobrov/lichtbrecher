@@ -36,6 +36,7 @@
     "jest/prefer-inline-snapshots": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }],
     "react/prop-types": "off",
+    "react/no-danger": "off",
     "react/require-default-props": "off",
     "react/jsx-wrap-multilines": "off",
     "react/jsx-props-no-spreading": "off",
